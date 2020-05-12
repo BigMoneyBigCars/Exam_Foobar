@@ -1,0 +1,27 @@
+{
+  "name": "examproject",
+  "version": "1.0.0",
+  "description": "exam project",
+  "main": "main.js",
+  "scripts": {
+    "start": "parcel *.html --open",
+    "build": "parcel build *.html --public-url ./"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BigMoneyBigCars/Exam_Foobar.git"
+  },
+  "author": "lasse",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BigMoneyBigCars/Exam_Foobar/issues"
+  },
+  "homepage": "https://github.com/BigMoneyBigCars/Exam_Foobar#readme",
+  "devDependencies": {
+    "parcel-bundler": "^1.12.4",
+    "sass": "^1.26.5"
+  },
+  "dependencies": {
+    "parcel-plugin-static-files-copy": "^2.3.1"
+  }
+}
