@@ -1,0 +1,135 @@
+@use "partials/roots";
+@use "partials/fonts";
+
+nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+.nav-container {
+  height: var(--nav-height);
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: var(--nav-height);
+  justify-content: center;
+  align-items: center;
+  border-bottom: 1px solid black;
+}
+
+nav .label {
+  grid-column: 2 / span 3;
+  @include fonts.industry();
+  text-align: center;
+}
+
+.mobile-menu-dropdown {
+  position: absolute;
+  z-index: 998;
+  color: black;
+  background: white;
+  height: 100vh;
+  display: inline-block;
+  transition: 400ms right cubic-bezier(0, 0.2, 0.38, 0.7);
+  width: 80%;
+  top: 0;
+  right: -150%;
+  display: block;
+}
+.shadow {
+  box-shadow: -12px 3px 21px -8px rgba(31, 31, 31, 0.76);
+}
+
+.mobile-menu-dropdown.active {
+  right: 0;
+}
+
+.atags-mobile-menu a {
+  list-style: none;
+  text-decoration: none;
+  color: black;
+  @include fonts.industry();
+  padding-top: 2rem;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+}
+#nav h2 {
+  @include fonts.sedgwick();
+  padding: 2rem;
+}
+.atags-mobile-menu {
+  padding: 1.5rem;
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  justify-content: center;
+  align-items: baseline;
+}
+
+/* burgermenu'en & span's rotationer  -START- */
+.menu__toggler {
+  z-index: 999;
+  grid-column: 5;
+  outline: none;
+  cursor: pointer;
+  align-self: center;
+  justify-self: center;
+  padding-right: 2rem;
+}
+
+.menu__toggler span,
+.menu__toggler span::before,
+.menu__toggler span::after {
+  position: absolute;
+  content: "";
+
+  width: 28px;
+  height: 2.5px;
+  background: black;
+  border-radius: 20px;
+  transition: 500ms cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+.menu__toggler span::before {
+  top: -8px;
+}
+
+.menu__toggler span::after {
+  top: 8px;
+}
+
+.menu__toggler.active > span {
+  background: transparent;
+}
+
+.menu__toggler.active > span::before,
+.menu__toggler.active > span::after {
+  background: black;
+  filter: contrast(11);
+  top: 0px;
+}
+
+.menu__toggler.active > span::before {
+  -webkit-transform: rotate(-225deg);
+  transform: rotate(-225deg);
+}
+
+.menu__toggler.active > span::after {
+  -webkit-transform: rotate(225deg);
+  transform: rotate(225deg);
+}
+
+.fade-in-left {
+  animation: fadeinleft 800ms ease-in-out;
+}
+
+@keyframes fadeinleft {
+  0% {
+    opacity: 0;
+    transform: translateX(200px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}

@@ -1,1 +1,9 @@
-document.querySelector("h1").textContent = "JS works";
+"use strict";
+
+import { nav } from "./modules/nav.js";
+
+window.addEventListener("DOMContentLoaded", init);
+
+function init() {
+  console.log("tis ");
+}

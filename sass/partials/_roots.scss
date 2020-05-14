@@ -1,3 +1,20 @@
 body h1 {
   color: red;
 }
+html {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 300;
+}
+img {
+  width: auto;
+  height: 40px;
+}
+
+:root {
+  --nav-height: 8vh;
+
+  --color-1: rgba(0, 128, 0, 0.274);
+  --color-2: rgba(255, 0, 0, 0.356);
+  --color-3: rgba(0, 0, 255, 0.246);
+  --color-4: rgba(255, 255, 0, 0.438);
+}
