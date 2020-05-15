@@ -1,5 +1,6 @@
 @use "partials/roots";
 @use "partials/nav";
+@use "partials/products";
 
 * {
   box-sizing: border-box;
@@ -11,9 +12,16 @@ body {
   overflow-x: hidden;
 }
 
-h1 {
-  color: lightblue;
-}
 main {
-  margin-top: var(--nav-height);
+}
+
+#main-container {
+  height: calc(100vh - var(--nav-height));
+
+  overflow: scroll;
+  scroll-behavior: smooth;
+  perspective: 2px;
+  transition: 1.5s ease-in-out;
+  position: relative;
+  top: calc(var(--nav-height));
 }

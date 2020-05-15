@@ -1,0 +1,89 @@
+@use "partials/fonts";
+@use "partials/roots";
+
+#container {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  grid-template-rows: auto;
+  width: 100%;
+
+  @include fonts.industry();
+  article {
+    justify-items: center;
+    align-items: center;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));
+    grid-template-columns: 1fr 0.4fr;
+    grid-template-rows: auto;
+    padding: 1rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+
+    border-bottom: 1px solid aliceblue;
+    background: var(--color-5);
+
+    h1 {
+      font-size: 0.9rem;
+    }
+    p {
+      padding-top: 3px;
+      font-size: 0.5rem;
+      font-style: italic;
+    }
+  }
+  #product {
+    width: 100%;
+    display: grid;
+    justify-content: center;
+    justify-items: baseline;
+    align-items: center;
+    grid-gap: 1rem;
+    grid-template-columns: auto 1fr;
+  }
+
+  .img-container {
+    max-width: 50px;
+    max-height: 50px;
+    border-radius: 50%;
+    flex-basis: 150px;
+    flex-grow: 1;
+    justify-self: flex-start;
+  }
+
+  .count {
+    height: 30px;
+    width: 30px;
+
+    background: transparent;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+  }
+  .img {
+    border: 2px solid black;
+    background-image: url("/static/imgs/elhefe.png");
+    background-size: cover;
+    background-position: center;
+    border-radius: 50%;
+    min-height: 50px;
+    height: 100%;
+    width: 100%;
+    min-width: 50px;
+    background-repeat: no-repeat;
+  }
+  .desc-container {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+  }
+
+  .counter {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-evenly;
+
+    align-items: center;
+  }
+}

@@ -10,7 +10,7 @@ const mAtags = document.querySelectorAll(".atags-mobile-menu > a");
 
 toggler.addEventListener("click", () => {
   toggler.classList.toggle("active");
-  document.querySelector("body > main > h1").classList.toggle("blurred");
+
   atags.classList.toggle("fade-in-left");
   menu.classList.toggle("active");
   menu.classList.toggle("shadow");
@@ -19,7 +19,7 @@ toggler.addEventListener("click", () => {
 mAtags.forEach((a) => {
   a.addEventListener("click", () => {
     atags.classList.toggle("fade-in-left");
-    document.querySelector("body > main > h1").classList.toggle("blurred");
+
     toggler.classList.toggle("active");
     menu.classList.toggle("active");
     menu.classList.remove("shadow");
