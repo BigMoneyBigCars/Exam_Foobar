@@ -33,9 +33,55 @@
   </header>
   <body>
     <main>
+      <article id="product-details">
+        <div class="wrapper">
+          <div class="img"></div>
+          <div class="top-container">
+            <h1></h1>
+            <i class="fa fa-facebook"></i>
+          </div>
+          <div class="container">
+            <p>Beer type</p>
+            <p class="type"></p>
+          </div>
+          <div class="container">
+            <p>Alcohol percent</p>
+            <div class="alc"></div>
+          </div>
+
+          <div class="bot-container">
+            <div class="impression">
+              <h1>Impression</h1>
+              <p></p>
+            </div>
+            <div class="appearance">
+              <h1>Appearance</h1>
+              <p></p>
+            </div>
+            <div class="aroma">
+              <h1>Aroma</h1>
+              <p></p>
+            </div>
+            <div class="flavour">
+              <h1>Flavour</h1>
+              <p></p>
+            </div>
+            <div class="mouthfeel">
+              <h1>Mouthfeel</h1>
+              <p></p>
+            </div>
+          </div>
+
+          <button>Go back</button>
+        </div>
+      </article>
       <div id="main-container">
         <div id="products">
           <div id="container"></div>
+          <div id="order">
+            <div class="amount">You are about to order 7 items</div>
+            <button type="submit" value="submit">Add to order</button>
+          </div>
         </div>
 
         <template
