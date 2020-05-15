@@ -1,8 +1,5 @@
 export const nav = document.querySelector("#nav-container");
-const navElements = document.querySelectorAll("#nav-container .nav");
 
-const nAtags = document.querySelectorAll(".navigation > a");
-const dAtags = document.querySelectorAll("#desktop-menu > a");
 const toggler = document.querySelector(".menu__toggler");
 const menu = document.querySelector(".mobile-menu-dropdown");
 const atags = document.querySelector(".atags-mobile-menu");
