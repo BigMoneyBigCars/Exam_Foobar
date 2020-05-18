@@ -6,12 +6,17 @@ import { nav } from "./modules/nav.js";
 window.addEventListener("DOMContentLoaded", init);
 
 const popBut = document.querySelector("#product-details");
+const popUp = document.querySelector("#product-details");
+
+const receipt = document.querySelector("#receipt");
+const receiptBut = document.querySelector(".receipt-button");
 
 function init() {
   console.log("tis ");
   popBut.addEventListener("click", () => {
     popUp.classList.toggle("active");
   });
+
   fetchJson();
 }
 
@@ -25,6 +30,8 @@ function filterData(jsonData) {
   console.log(jsonData);
 
   jsonData.forEach(displayBeer);
+
+  receiptEventlisterner();
 }
 
 function displayBeer(beer) {
@@ -56,7 +63,7 @@ function displayBeer(beer) {
   document.querySelector("#container").appendChild(clone);
 }
 
-const popUp = document.querySelector("#product-details");
+// POPUP
 
 function showPopUp(beer) {
   popUp.classList.toggle("active");
@@ -72,4 +79,25 @@ function showPopUp(beer) {
   popUp.querySelector(".aroma p").textContent = beer.description.aroma;
   popUp.querySelector(".flavour p").textContent = beer.description.flavour;
   popUp.querySelector(".mouthfeel p").textContent = beer.description.mouthfeel;
+}
+
+//RECEIPT
+
+function receiptEventlisterner() {
+  console.log(receipt);
+  receiptBut.addEventListener("click", () => {
+    receipt.classList.toggle("active");
+
+    /*   receipt.addEventListener("animationend", () => {
+      receipt.classList.toggle("active");
+    }); */
+
+    receipt.addEventListener("click", closeReceipt);
+  });
+}
+
+function closeReceipt() {
+  console.log(receipt);
+
+  receipt.classList.remove("active");
 }

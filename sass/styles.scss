@@ -2,6 +2,7 @@
 @use "partials/nav";
 @use "partials/products";
 @use "partials/popUp";
+@use "partials/receipt";
 
 * {
   box-sizing: border-box;
@@ -10,18 +11,21 @@
 }
 body {
   max-width: 100vw;
-  overflow-x: hidden;
 }
 
 main {
 }
 
 #main-container {
-  height: calc(100vh - var(--nav-height));
+  min-height: calc(100vh - var(--nav-height));
+  max-height: calc(100vh - var(--nav-height));
+
   overflow: scroll;
   scroll-behavior: smooth;
   perspective: 2px;
-  transition: 1.5s ease-in-out;
-  position: relative;
+  transition: 0.5s ease-in-out;
+  position: fixed;
   top: calc(var(--nav-height));
+  width: 100vw;
+  max-width: 100vw;
 }
