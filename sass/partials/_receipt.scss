@@ -22,3 +22,41 @@
 #receipt.active {
   top: 0;
 }
+
+#receipt {
+  .container {
+    article {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(30px, 1fr));
+      grid-template-rows: 1fr;
+      justify-content: center;
+      align-items: center;
+      justify-items: center;
+      h2 {
+        font-size: 0.9rem;
+        justify-self: start;
+      }
+      .img-container {
+        max-width: 50px;
+        max-height: 50px;
+        border-radius: 50%;
+        flex-basis: 150px;
+        flex-grow: 1;
+        justify-self: flex-start;
+      }
+
+      .img {
+        border: 2px solid black;
+        background-image: url("/static/imgs/elhefe.png");
+        background-size: cover;
+        background-position: center;
+        border-radius: 50%;
+        min-height: 50px;
+        height: 100%;
+        width: 100%;
+        min-width: 50px;
+        background-repeat: no-repeat;
+      }
+    }
+  }
+}

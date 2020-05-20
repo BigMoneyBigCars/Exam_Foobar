@@ -33,7 +33,14 @@
   </header>
   <body>
     <article id="receipt" class="">
-      <div class="wrapper"></div>
+      <div class="title">Your Order</div>
+      <div class="wrapper">
+        <div class="head">
+          <h3>Please review your order</h3>
+        </div>
+        <div class="container"></div>
+        <div class="total"></div>
+      </div>
     </article>
     <article id="product-details">
       <div class="wrapper">
@@ -104,8 +111,10 @@
 
         <template class="receipt-temp">
           <article>
+            <div class="img-container"><div class="img"></div></div>
             <h2 class="item"></h2>
             <p class="item-amount"></p>
+            <p class="price"></p>
           </article>
         </template>
       </div>

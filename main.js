@@ -136,7 +136,6 @@ function addBeerArray(beer, amount) {
   orderedItems();
 }
 
-let currentlist = [];
 function removeBeerArray(beer, amount) {
   console.log(amount);
 
@@ -151,7 +150,6 @@ function removeBeerArray(beer, amount) {
   if (index > -1) {
     orderArray.splice(index, 1);
   } */
-
   orderedItems();
 }
 
@@ -169,7 +167,7 @@ function orderedItems() {
 
 function showPopUp(beer) {
   popUp.classList.toggle("active");
-
+  console.log(beer);
   popUp.querySelector("h1").textContent = beer.name;
   popUp.querySelector(".img").style.backgroundImage = "url('/imgs/" + [beer.label] + "')";
   popUp.querySelector(".type").textContent = beer.category;
@@ -200,19 +198,60 @@ function receiptEventlisterner() {
 
 function closeReceipt() {
   console.log(receipt);
-
   receipt.classList.remove("active");
 }
 
 function updateReceipt() {
-  document.querySelector("#receipt .wrapper").innerHTML = "";
+  document.querySelector("#receipt .container").innerHTML = "";
 
   orderArray.forEach((beer) => {
+    let article = beer.name.trim().toLowerCase();
+    console.log(beer);
+
+    let firstSpace = article.indexOf(" ");
+    let firstName = article.substring(0, firstSpace);
+    let lastSpace = article.lastIndexOf(" ");
+    let lastName = article.substring(lastSpace + 1, article.length);
+    let middleName = article.substring(firstSpace + 1, lastSpace);
+
+    if (middleName == " ") {
+      middleName = "";
+    }
+    article = firstName + middleName + lastName;
+
+    console.log(article);
+
     const receiptTemp = document.querySelector(".receipt-temp").cloneNode(true).content;
     console.log(receiptTemp);
 
+    if (article == "hollabacklager") {
+      article = "hollaback";
+    }
+
+    //receiptTemp.querySelector("img").src = "/imgs/" + article + ".png";
+    receiptTemp.querySelector(".img").style.backgroundImage = "url('/imgs/" + [article] + ".png')";
     receiptTemp.querySelector(".item").textContent = beer.name;
     receiptTemp.querySelector(".item-amount").textContent = beer.amount;
-    document.querySelector("#receipt .wrapper").appendChild(receiptTemp);
+    receiptTemp.querySelector(".price").textContent = beer.amount * 35 + " DKK";
+    document.querySelector("#receipt .container").appendChild(receiptTemp);
   });
+  findTotalPrice();
+}
+
+function findTotalPrice() {
+  console.log(orderArray);
+  let totalPrice = 0;
+
+  orderArray.forEach((obj) => {
+    orderArray.filter((x) => x.amount > 0);
+
+    totalPrice = totalPrice + obj.amount * 35;
+    console.log(totalPrice);
+  });
+
+  document.querySelector("#receipt .total").textContent = "TOTAL SUM: " + totalPrice + " DKK";
+  /*   const exists = orderArray.find((x) => x.amount > 0);
+
+
+  orderArray = orderArray.filter((x) => x.amount > 0); */
 }
