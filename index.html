@@ -33,14 +33,39 @@
   </header>
   <body>
     <article id="receipt" class="">
-      <div class="title">Your Order</div>
+      <div class="logo"><img src="/static/icons/logo.png" /></div>
+      <div class="title">
+        <h3>Checkout</h3>
+        <p class="total"></p>
+      </div>
       <div class="wrapper">
-        <div class="head">
+        <!--  <div class="head">
           <h3>Please review your order</h3>
+        </div> -->
+        <div class="headline">
+          <p>QTY.</p>
+          <p>ITEMS</p>
+          <p class="end">PRICE</p>
         </div>
         <div class="container"></div>
-        <div class="total"></div>
+        <div class="total-container">
+          <h3>TOTAL</h3>
+          <p class="total"></p>
+        </div>
+
+        <div class="button-container">
+          <p class="edit" type="edit" for="edit">Edit my order</p>
+
+          <div class="confirm">
+            <p>Confirm your order</p>
+            <div class=""></div>
+              <input type="checkbox" id="toggle" class="checkbox"  />
+              <label for="toggle" class="switch"></label>
+            </div>
+          </div>
+        </div>
       </div>
+      <button class="submit" disabled type="submit">Continue to payment</button>
     </article>
     <article id="product-details">
       <div class="wrapper">
@@ -111,9 +136,9 @@
 
         <template class="receipt-temp">
           <article>
-            <div class="img-container"><div class="img"></div></div>
-            <h2 class="item"></h2>
             <p class="item-amount"></p>
+            <!--  <div class="img-container"><div class="img"></div></div> -->
+            <p class="item"></p>
             <p class="price"></p>
           </article>
         </template>

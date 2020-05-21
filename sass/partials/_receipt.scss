@@ -1,3 +1,4 @@
+@use "partials/roots";
 #receipt {
   padding-top: 1rem;
   position: fixed;
@@ -12,10 +13,11 @@
   top: 100vh;
   right: 0;
   display: block;
+  overflow: scroll;
 
   .wrapper {
-    padding-left: 1rem;
-    padding-right: 1rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
   }
 }
 
@@ -24,17 +26,83 @@
 }
 
 #receipt {
+  width: 100%;
+
+  p.edit {
+    grid-column: 1 / span 2;
+    justify-self: end;
+  }
+
+  .price {
+    justify-self: end;
+  }
+
+  .logo {
+    text-align: center;
+  }
+  img {
+    height: 100px;
+    width: auto;
+    align-self: center;
+    margin-bottom: 2rem;
+  }
+  .title {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--color-2);
+    padding: 0.7rem;
+
+    margin-bottom: 2rem;
+  }
+  .total-container {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 1rem;
+    padding-top: 1rem;
+    border-bottom: 1px solid grey;
+    padding-bottom: 0.5rem;
+  }
+
+  .headline {
+    display: grid;
+    grid-template-columns: 0.3fr 1fr 0.5fr;
+    grid-template-rows: 1fr;
+    justify-content: center;
+    padding-top: 1rem;
+
+    .end {
+      justify-self: end;
+    }
+    p {
+      color: black;
+      font-weight: bold;
+      font-size: 0.8rem;
+    }
+    border-bottom: 1px solid grey;
+    padding-bottom: 0.5rem;
+  }
+
   .container {
+    min-height: 150px;
+    border-bottom: 1px solid grey;
+    padding-bottom: 0.5rem;
+    padding-top: 1rem;
     article {
+      padding-top: 1rem;
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(30px, 1fr));
+      grid-template-columns: 0.3fr 1fr 0.5fr;
       grid-template-rows: 1fr;
       justify-content: center;
+
       align-items: center;
-      justify-items: center;
+      justify-items: baseline;
       h2 {
         font-size: 0.9rem;
-        justify-self: start;
       }
       .img-container {
         max-width: 50px;
@@ -42,7 +110,6 @@
         border-radius: 50%;
         flex-basis: 150px;
         flex-grow: 1;
-        justify-self: flex-start;
       }
 
       .img {
@@ -51,12 +118,80 @@
         background-size: cover;
         background-position: center;
         border-radius: 50%;
-        min-height: 50px;
+        min-height: 35px;
         height: 100%;
         width: 100%;
-        min-width: 50px;
+        min-width: 35px;
         background-repeat: no-repeat;
       }
     }
+  }
+
+  .confirm {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    grid-column: 1 / span 2;
+  }
+
+  .button-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+    margin-top: 10px;
+    grid-gap: 50px;
+  }
+  button {
+    transition: all 1s;
+    border-radius: 10px;
+    width: 100%;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    background-color: lightblue;
+
+    margin-top: 0.5rem;
+  }
+  button.submit:disabled {
+    filter: grayscale(50%);
+  }
+  .button.submit {
+    background-color: lightblue;
+    filter: grayscale(0%);
+  }
+  .switch {
+    position: relative;
+    display: inline-block;
+    width: 40px;
+    height: 20px;
+    background-color: rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
+    transition: all 0.3s;
+  }
+  .switch::after {
+    content: "";
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background-color: white;
+    top: 1px;
+    left: 1px;
+    transition: all 0.3s;
+  }
+
+  .checkbox:checked + .switch::after {
+    left: 20px;
+  }
+  .checkbox:checked + .switch {
+    background-color: #7983ff;
+  }
+
+  .checkbox {
   }
 }

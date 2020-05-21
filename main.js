@@ -185,15 +185,17 @@ function showPopUp(beer) {
 function receiptEventlisterner() {
   console.log(receipt);
   receiptBut.addEventListener("click", () => {
-    receipt.classList.toggle("active");
+    receipt.classList.add("active");
     updateReceipt();
 
     /*   receipt.addEventListener("animationend", () => {
       receipt.classList.toggle("active");
     }); */
 
-    receipt.addEventListener("click", closeReceipt);
+    receipt.addEventListener("click", () => {});
+    document.querySelector("#receipt .edit").addEventListener("click", closeReceipt);
   });
+  document.querySelector("#receipt .switch").addEventListener("click", checkTrue);
 }
 
 function closeReceipt() {
@@ -229,7 +231,7 @@ function updateReceipt() {
     }
 
     //receiptTemp.querySelector("img").src = "/imgs/" + article + ".png";
-    receiptTemp.querySelector(".img").style.backgroundImage = "url('/imgs/" + [article] + ".png')";
+    //ceiptTemp.querySelector(".img").style.backgroundImage = "url('/imgs/" + [article] + ".png')";
     receiptTemp.querySelector(".item").textContent = beer.name;
     receiptTemp.querySelector(".item-amount").textContent = beer.amount;
     receiptTemp.querySelector(".price").textContent = beer.amount * 35 + " DKK";
@@ -250,8 +252,24 @@ function findTotalPrice() {
   });
 
   document.querySelector("#receipt .total").textContent = "TOTAL SUM: " + totalPrice + " DKK";
+  document.querySelector("#receipt .total").textContent = totalPrice + " DKK";
+  document.querySelector("#receipt .total-container .total").textContent = totalPrice + " DKK";
+
   /*   const exists = orderArray.find((x) => x.amount > 0);
 
 
   orderArray = orderArray.filter((x) => x.amount > 0); */
+}
+
+function checkTrue() {
+  const input = document.querySelector("#receipt .checkbox");
+
+  if (document.querySelector(".checkbox:checked") === null) {
+    console.log("true");
+
+    document.querySelector("#receipt .submit").disabled = false;
+  } else if (document.querySelector(".checkbox:checked") !== null) {
+    console.log("false");
+    document.querySelector("#receipt .submit").disabled = true;
+  }
 }
