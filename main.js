@@ -24,6 +24,7 @@ function init() {
   popBut.addEventListener("click", () => {
     popUp.classList.toggle("active");
   });
+  fetchJson(updateUrl, testWha);
   fetchJson(url, filterData);
 }
 
@@ -31,6 +32,10 @@ function filterData(jsonData) {
   jsonData.forEach(displayBeer);
 
   receiptEventlisterner();
+}
+
+function testWha(data) {
+  console.log(data);
 }
 
 function receiptEventlisterner() {
