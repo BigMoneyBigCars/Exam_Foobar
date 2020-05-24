@@ -2,41 +2,37 @@
 import "@babel/polyfill";
 
 import { nav } from "./modules/nav.js";
+import { fetchJson } from "./modules/fetchJson";
+import { displayBeer } from "./modules/products";
+import { orderArray } from "./modules/addRemoveBeer";
+import { closeReceipt } from "./modules/receipt";
+import { updateReceipt } from "./modules/receipt";
+import { checkPrice } from "./modules/checkPrice";
+
+import { popBut } from "./modules/consts";
+import { popUp } from "./modules/consts";
+import { receiptBut } from "./modules/consts";
+import { receipt } from "./modules/consts";
+let url = "https://foobar-exam.herokuapp.com/beertypes";
 
 window.addEventListener("DOMContentLoaded", init);
 
-const popBut = document.querySelector("#product-details");
-const popUp = document.querySelector("#product-details");
-
-const receipt = document.querySelector("#receipt");
-const receiptBut = document.querySelector(".receipt-button");
-
 //array
-let orderArray = [];
 
 function init() {
   console.log("tis ");
   popBut.addEventListener("click", () => {
     popUp.classList.toggle("active");
   });
-
-  fetchJson();
-}
-
-async function fetchJson() {
-  let response = await fetch("https://foobar-exam.herokuapp.com/beertypes");
-  let jsonData = await response.json();
-  filterData(jsonData);
+  fetchJson(url, filterData);
 }
 
 function filterData(jsonData) {
-  console.log(jsonData);
-
   jsonData.forEach(displayBeer);
 
   receiptEventlisterner();
 }
-
+/* 
 function displayBeer(beer) {
   console.log(beer);
   let article = beer.name.trim().toLowerCase();
@@ -75,51 +71,11 @@ function displayBeer(beer) {
   console.log(beer.label);
   clone.querySelector(".img").style.backgroundImage = "url('/imgs/" + [beer.label] + "')";
   document.querySelector("#container").appendChild(clone);
-}
+} */
 
 // plus / minus beer
 
-function plusBeer(article) {
-  let beerCounter;
-
-  const element = document.querySelector("#" + [article]);
-  const elementCount = element.querySelector(".count");
-  const dataCount = element.querySelector(".count").dataset.count;
-
-  beerCounter = dataCount;
-  beerCounter++;
-
-  element.querySelector(".count").dataset.count = beerCounter;
-
-  elementCount.textContent = beerCounter;
-
-  // console.log(element.querySelector(".count").dataset);
-  addBeerArray(element.dataset.name, beerCounter);
-}
-
-function minusBeer(article) {
-  let beerCounter;
-  // console.log(beerCounter);
-  const element = document.querySelector("#" + [article]);
-  const elementCount = element.querySelector(".count");
-  const dataCount = element.querySelector(".count").dataset.count;
-  beerCounter = dataCount;
-  //console.log(beerCounter);
-
-  if (beerCounter > 0) {
-    beerCounter--;
-  }
-
-  // console.log(beerCounter);
-  element.querySelector(".count").dataset.count = beerCounter;
-  elementCount.textContent = beerCounter;
-  //console.log(element.querySelector(".count").dataset);
-
-  removeBeerArray(element.dataset.name, beerCounter);
-}
-
-function addBeerArray(beer, amount) {
-  //  orderArray[beer] = amount;
+/* function addBeerArray(beer, amount) {
   const obj = {
     name: beer,
     amount: amount,
@@ -146,10 +102,7 @@ function removeBeerArray(beer, amount) {
 
   orderArray = orderArray.filter((x) => x.amount > 0);
   console.log(orderArray);
-  /*   const index = orderArray.indexOf(beer);
-  if (index > -1) {
-    orderArray.splice(index, 1);
-  } */
+
   orderedItems();
 }
 
@@ -159,12 +112,11 @@ function orderedItems() {
   orderArray.forEach((obj) => {
     count += obj.amount;
   });
-  // console.log(count);
 
   document.querySelector("#order .amount").textContent = "You are about to add " + [count] + " items";
-}
+} */
 // POPUP
-
+/* 
 function showPopUp(beer) {
   popUp.classList.toggle("active");
   console.log(beer);
@@ -179,7 +131,7 @@ function showPopUp(beer) {
   popUp.querySelector(".flavour p").textContent = beer.description.flavour;
   popUp.querySelector(".mouthfeel p").textContent = beer.description.mouthfeel;
 }
-
+ */
 //RECEIPT
 
 function receiptEventlisterner() {
@@ -196,69 +148,6 @@ function receiptEventlisterner() {
     document.querySelector("#receipt .edit").addEventListener("click", closeReceipt);
   });
   document.querySelector("#receipt .switch").addEventListener("click", checkTrue);
-}
-
-function closeReceipt() {
-  console.log(receipt);
-  receipt.classList.remove("active");
-}
-
-function updateReceipt() {
-  document.querySelector("#receipt .container").innerHTML = "";
-
-  orderArray.forEach((beer) => {
-    let article = beer.name.trim().toLowerCase();
-    console.log(beer);
-
-    let firstSpace = article.indexOf(" ");
-    let firstName = article.substring(0, firstSpace);
-    let lastSpace = article.lastIndexOf(" ");
-    let lastName = article.substring(lastSpace + 1, article.length);
-    let middleName = article.substring(firstSpace + 1, lastSpace);
-
-    if (middleName == " ") {
-      middleName = "";
-    }
-    article = firstName + middleName + lastName;
-
-    console.log(article);
-
-    const receiptTemp = document.querySelector(".receipt-temp").cloneNode(true).content;
-    console.log(receiptTemp);
-
-    if (article == "hollabacklager") {
-      article = "hollaback";
-    }
-
-    //receiptTemp.querySelector("img").src = "/imgs/" + article + ".png";
-    //ceiptTemp.querySelector(".img").style.backgroundImage = "url('/imgs/" + [article] + ".png')";
-    receiptTemp.querySelector(".item").textContent = beer.name;
-    receiptTemp.querySelector(".item-amount").textContent = beer.amount;
-    receiptTemp.querySelector(".price").textContent = beer.amount * 35 + " DKK";
-    document.querySelector("#receipt .container").appendChild(receiptTemp);
-  });
-  findTotalPrice();
-}
-
-function findTotalPrice() {
-  console.log(orderArray);
-  let totalPrice = 0;
-
-  orderArray.forEach((obj) => {
-    orderArray.filter((x) => x.amount > 0);
-
-    totalPrice = totalPrice + obj.amount * 35;
-    console.log(totalPrice);
-  });
-
-  document.querySelector("#receipt .total").textContent = "TOTAL SUM: " + totalPrice + " DKK";
-  document.querySelector("#receipt .total").textContent = totalPrice + " DKK";
-  document.querySelector("#receipt .total-container .total").textContent = totalPrice + " DKK";
-
-  /*   const exists = orderArray.find((x) => x.amount > 0);
-
-
-  orderArray = orderArray.filter((x) => x.amount > 0); */
 }
 
 function checkTrue() {
