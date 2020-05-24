@@ -4,16 +4,16 @@ import "@babel/polyfill";
 import { nav } from "./modules/nav.js";
 import { fetchJson } from "./modules/fetchJson";
 import { displayBeer } from "./modules/products";
-import { orderArray } from "./modules/addRemoveBeer";
 import { closeReceipt } from "./modules/receipt";
 import { updateReceipt } from "./modules/receipt";
-import { checkPrice } from "./modules/checkPrice";
 
 import { popBut } from "./modules/consts";
 import { popUp } from "./modules/consts";
 import { receiptBut } from "./modules/consts";
 import { receipt } from "./modules/consts";
+
 let url = "https://foobar-exam.herokuapp.com/beertypes";
+let updateUrl = "https://foobar-exam.herokuapp.com";
 
 window.addEventListener("DOMContentLoaded", init);
 
