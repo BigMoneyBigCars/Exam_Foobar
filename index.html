@@ -33,25 +33,60 @@
   <body>
 
     <section id="loginscreen">
-      <div id="testcontainer"></div>
+      <div class="testcontainer"></div>
       <button class="add-new"></button>
  
     
-      <div class="login-form" style="display: none">
+      <div class="login-form">
         <form>
           <h1>Login</h1>
           <div class="content">
             <div class="input-field">
-              <input type="email" placeholder="Email" autocomplete="nope">
+              <label for="email"></label>
+              <input id="email" type="email" name="email" placeholder="Email" autocomplete="nope" value="">
             </div>
             <div class="input-field">
-              <input type="password" placeholder="Password" autocomplete="new-password">
+              <label for="password"></label>
+              <input id="password" type="password" name="password" placeholder="Password" autocomplete="new-password" value="">
             </div>
             <a href="#" class="link">Forgot Your Password?</a>
           </div>
           <div class="action">
-            <button>Register</button>
-            <button>Sign in</button>
+            <button class="register">Register</button>
+            <button class="signin">Sign in</button>
+          </div>
+        </form>
+      </div>
+
+      <div class="login-form" style= "display: none">
+        <form>
+          <h1>Signup</h1>
+          <div class="content">
+            <div class="input-field">
+              <label for="firstname"></label>
+              <input id="firstname" type="firstname" name="firstname" placeholder="First name" autocomplete="nope" value="">
+            </div>
+            <div class="input-field">
+              <label for="lastname"></label>
+              <input id="lastname" type="lastname" name="lastname" placeholder="Last name" autocomplete="nope" value="">
+            </div>
+            <div class="input-field">
+              <label for="email"></label>
+              <input id="email" type="email" name="email" placeholder="Email" autocomplete="nope" value="">
+            </div>
+            <div class="input-field">
+              <label for="password"></label>
+              <input id="password" type="password" name="password" placeholder="Password" autocomplete="new-password" value="">
+            </div>
+            <div class="input-field">
+              <label for="confirmpassword"></label>
+              <input id="confirmpassword" type="confirmpassword" name="confirmpassword" placeholder="Confirm password" autocomplete="new-password" value="">
+            </div>
+           
+          </div>
+          <div class="action">
+            <button class="register">Register</button>
+            <button class="signin">Sign in</button>
           </div>
         </form>
       </div>
@@ -215,10 +250,13 @@
       </div>
     </section>
     <template id="testlogin">
-      
+      <article>
+        <h1></h1>
+        <p></p>
+
+
+      </article>
    
-      <h1></h1>
-      <p></p>
     
       
     

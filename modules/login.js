@@ -1,27 +1,28 @@
-/* let form = document.querySelecter("form");
-
-form.addEventListener("submit", (e) => {
-  e.preventDefault();
-  return false;
-  console.log(submit);
-}); */
-
 //GET
 const endpoint = "https://trellocopy-abcd.restdb.io/rest/login";
 const apiKey = "5e9844eb436377171a0c2461";
 
 export function constDataman() {
-  document.querySelector("#testcontainer > button.add-new").addEventListener("click", () => {
-    const data = {
-      email: "",
-      password: "",
-    };
-    post(data);
+  const form = document.querySelector("form");
+  window.form = form;
+  const elements = form.elements;
+  console.log(elements);
+  window.elements = elements;
+  const submit = document.querySelector("button.signin");
+
+  const data = {
+    email: "",
+    password: "",
+  };
+  submit.addEventListener("click", (e) => {
+    e.preventDefault();
+
+    post({ email: elements.email.value, password: elements.password.value });
   });
 }
 
 function get() {
-  document.querySelector("#loginscreen").innerHTML = "";
+  document.querySelector(".testcontainer").innerHTML = "";
   fetch(endpoint, {
     method: "get",
     headers: {
@@ -45,8 +46,8 @@ function showHero(hero) {
   console.log(hero);
   const copy = document.querySelector("#testlogin").cloneNode(true).content;
 
-  const parent = document.querySelector("#loginscreen");
-  console.log(parent);
+  const parent = document.querySelector(".testcontainer");
+  console.log(copy);
 
   copy.querySelector("h1").textContent = hero.email;
   copy.querySelector("p").textContent = hero.password;
@@ -57,9 +58,6 @@ function showHero(hero) {
 //POST
 
 function post(data) {
-  //OPTIMISTIC INSERTS
-  console.log(data);
-
   showHero(data);
 
   const postData = JSON.stringify(data);
@@ -74,5 +72,7 @@ function post(data) {
     body: postData,
   })
     .then((res) => res.json())
-    .then((data) => {});
+    .then((data) => {
+      console.log(data);
+    });
 }

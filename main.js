@@ -10,7 +10,7 @@ import { displayConfirmation } from "./modules/checkout";
 
 import { bar, brew, checkout } from "./modules/nav";
 
-import { login } from "./modules/login";
+import { login, constDataman } from "./modules/login";
 
 let url = "https://foobar-exam.herokuapp.com/beertypes";
 let updateUrl = "https://foobar-exam.herokuapp.com";
@@ -21,6 +21,7 @@ window.addEventListener("DOMContentLoaded", init);
 
 function init() {
   console.log("tis ");
+  constDataman();
 
   popBut.addEventListener("click", () => {
     popUp.classList.toggle("active");
