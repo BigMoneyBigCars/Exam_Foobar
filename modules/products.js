@@ -5,7 +5,7 @@ import { showPopUp } from "./showPopUp";
 export function displayBeer(beer) {
   console.log(beer);
   let article = beer.name.trim().toLowerCase();
-  console.log(article);
+  console.log("here", article);
 
   let firstSpace = article.indexOf(" ");
   let firstName = article.substring(0, firstSpace);
