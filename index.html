@@ -34,7 +34,7 @@
 
     <section id="loginscreen">
       <div class="testcontainer"></div>
-      <button class="add-new"></button>
+    
  
     
       <div class="login-form">
@@ -49,8 +49,19 @@
               <label for="password"></label>
               <input id="password" type="password" name="password" placeholder="Password" autocomplete="new-password" value="">
             </div>
-            <a href="#" class="link">Forgot Your Password?</a>
+            <a href="#forgotpassword" class="link">Forgot Your Password?</a>
           </div>
+          <section id="forgotpassword" style="display: none">
+            <div>
+            <h1>
+              Whoops! This is just a prototype! <br />
+              if you forgot your password, make a new user... <br />
+              else you can watch this amazing video.
+            </h1>
+        
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/G9Y5Dhzciyc?autoplay=0"  frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+          </section>
           <div class="action">
             <button class="register">Register</button>
             <button class="signin">Sign in</button>
@@ -59,7 +70,7 @@
       </div>
 
       <div class="login-form" >
-        <form id="registerform">
+        <form id="registerform" style="display: none">
           <h1>Signup</h1>
           <div class="content">
             <div class="input-field">
@@ -85,8 +96,8 @@
            
           </div>
           <div class="action">
-            <button class="registeruser">Register</button>
-            <button class="createuser">Create user</button>
+            <button class="registeruser">Go back</button>
+            <button class="showsignin">Create user</button>
           </div>
         </form>
       </div>

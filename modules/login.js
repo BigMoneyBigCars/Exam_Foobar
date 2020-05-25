@@ -11,10 +11,13 @@ export function constDataman() {
   /*  window.form = form;
   console.log(elements);
   window.elements = elements; */
+
+  //buttons
   const submit = document.querySelector("button.signin");
-  const submit2 = document.querySelector("#registerform > div.action > button.createuser");
+  const submit2 = document.querySelector("#registerform > div.action > button.showsignin");
   const submit3 = document.querySelector("button.register");
   const submit4 = document.querySelector("#registerform > div.action > button.registeruser");
+  const forgot = document.querySelector("a.link");
 
   const data = {
     firstname: "",
@@ -23,6 +26,22 @@ export function constDataman() {
     password: "",
     confirmpassword: "",
   };
+
+  forgot.addEventListener("click", (e) => {
+    e.preventDefault();
+    document.querySelector("#forgotpassword").style = "display: block";
+  });
+
+  submit3.addEventListener("click", (e) => {
+    e.preventDefault();
+    document.querySelector("form").style = "display: none";
+    document.querySelector("#registerform").style = "display: block";
+  });
+  submit4.addEventListener("click", (e) => {
+    e.preventDefault();
+    document.querySelector("#registerform").style = "display: none";
+    document.querySelector("form").style = "display: block";
+  });
   submit.addEventListener("click", (e) => {
     e.preventDefault();
 

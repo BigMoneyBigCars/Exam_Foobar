@@ -3,19 +3,38 @@
   width: 100vw;
   height: 100vh;
   z-index: 1200;
-  border: 2px solid red;
   background-color: white;
 }
 
 //form buttons styles
 
-.createuser {
+.register:hover {
+  background: #6288cf !important;
+  color: #fff !important;
+}
+
+.signin:hover {
+  background: #6288cf !important;
+  color: #fff !important;
+}
+
+.showsignin {
   background: white !important;
   color: #777 !important;
 }
 
+.showsignin:hover {
+  background: #6288cf !important;
+  color: #fff !important;
+}
+
 .registeruser {
   background: #2d3b55 !important;
+  color: #fff !important;
+}
+
+.registeruser:hover {
+  background: #6288cf !important;
   color: #fff !important;
 }
 
@@ -66,12 +85,32 @@
   }
 
   a.link {
+    font-size: 0.7rem;
     text-decoration: none;
     color: #747474;
     letter-spacing: 0.2px;
     text-transform: uppercase;
     display: inline-block;
     margin-top: 20px;
+  }
+
+  #forgotpassword {
+    display: block;
+    align-content: center;
+    position: absolute;
+    top: 0;
+    background-color: white;
+    border: 8px solid blue;
+    width: 100vw;
+    height: 100vh;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+  #forgotpassword h1 {
+    margin-bottom: 30px;
+    color: blueviolet;
+    font-size: 2em;
   }
 
   .action {
