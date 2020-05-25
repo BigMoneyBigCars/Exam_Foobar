@@ -9,6 +9,7 @@ import { receiptBut, payBut, receipt, popUp, popBut } from "./modules/consts";
 import { displayConfirmation } from "./modules/checkout";
 
 import { bar, brew, checkout } from "./modules/nav";
+import { login } from "./modules/login";
 
 let url = "https://foobar-exam.herokuapp.com/beertypes";
 let updateUrl = "https://foobar-exam.herokuapp.com";
