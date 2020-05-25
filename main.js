@@ -9,7 +9,8 @@ import { receiptBut, payBut, receipt, popUp, popBut } from "./modules/consts";
 import { displayConfirmation } from "./modules/checkout";
 
 import { bar, brew, checkout } from "./modules/nav";
-import { login } from "./modules/login";
+//import { login } from "./modules/login";
+import { printKegs, updateAll } from "./modules/theBar/bottom";
 
 let url = "https://foobar-exam.herokuapp.com/beertypes";
 let updateUrl = "https://foobar-exam.herokuapp.com";
@@ -27,7 +28,15 @@ function init() {
   brew.style.display = "none";
   checkout.style.display = "none";
   bar.style.display = "block";
+  fetchJson(updateUrl, printKegs);
   fetchJson(url, filterData);
+  setTimeout(updateDashboard, 20);
+}
+
+function updateDashboard() {
+  fetchJson(updateUrl, updateAll);
+
+  setTimeout(updateDashboard, 2000);
 }
 
 function filterData(jsonData) {

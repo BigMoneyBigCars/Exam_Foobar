@@ -173,7 +173,29 @@
       </form>
           </article>
         </section>
-      <section id="theBar"><h2 style="text-align: center; margin-top: 2rem;">Under Development</h2></section>
+      <section id="theBar">
+        <div class="wrapper">
+          <div class="mainSection">
+            <div class="wrapper">
+              <div class="item"><p> placeholder</p></div>
+              <div class="item"><p> placeholder</p></div>
+              <div class="item"><p> placeholder</p></div>
+            </div>
+          </div>
+         <div class="sbLeft">
+           
+          <p>Placeholder</p>
+          <p>Placeholder</p>
+          <p>Placeholder</p>
+        </div>
+          <div class="sbRight">
+            <div class="queue"><i class="fa fa-2x fa-users"></i><p>People in queue</p><p class="theQueue"></p></div>
+            <div class="progress"><i class="fa fa-2x fa-beer"></i><p >Orders Being Made</p><p class="serving"></p></div>
+            <div class="waittime"><i class="fa fa-2x fa-times"></i><p >Avg. wait time</p><p class="time"></p></div>
+        </div>
+         <div class="sbBottom"></div>
+      </div>
+      </section>
       <section id="theBrew">
    
         <div id="products">
@@ -200,6 +222,23 @@
             </div></article
         ></template>
 
+        <template class="bottom-bar">
+          
+          <div class="point">
+            <p>tis</p>
+            
+            <svg class="round" viewbox="0 0 100 100" width="80px" height="80px" data-percent="50" >
+              <defs>
+                <linearGradient id="linear" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%"   stop-color="#05a"/>
+                  <stop offset="100%" stop-color="#0a5"/>
+                </linearGradient>
+              </defs>
+              <circle cx="50" cy="50" r="40"  stroke="url(#linear)"/>
+            </svg>
+            <h2>Some Beer</h2>
+          </div>  
+        </template>
         <template class="receipt-temp">
           <article>
             <p class="item-amount"></p>
