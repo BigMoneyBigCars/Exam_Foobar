@@ -38,7 +38,8 @@ export function displayBeer(beer) {
     minusBeer(article);
   });
   console.log(beer.label);
-  clone.querySelector(".img").style.backgroundImage = "url('/imgs/" + [beer.label] + "')";
+  clone.querySelector("img").src = "imgs/" + beer.label;
+  //clone.querySelector(".img").style.backgroundImage = "url('/imgs/" + [beer.label] + "')";
   document.querySelector("#container").appendChild(clone);
 }
 

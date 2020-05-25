@@ -4,13 +4,11 @@ import "@babel/polyfill";
 import { nav } from "./modules/nav.js";
 import { fetchJson } from "./modules/fetchJson";
 import { displayBeer } from "./modules/products";
-import { closeReceipt } from "./modules/receipt";
-import { updateReceipt } from "./modules/receipt";
+import { closeReceipt, updateReceipt } from "./modules/receipt";
+import { receiptBut, payBut, receipt, popUp, popBut } from "./modules/consts";
+import { displayConfirmation } from "./modules/checkout";
 
-import { popBut } from "./modules/consts";
-import { popUp } from "./modules/consts";
-import { receiptBut } from "./modules/consts";
-import { receipt } from "./modules/consts";
+import { bar, brew, checkout } from "./modules/nav";
 
 let url = "https://foobar-exam.herokuapp.com/beertypes";
 let updateUrl = "https://foobar-exam.herokuapp.com";
@@ -24,7 +22,10 @@ function init() {
   popBut.addEventListener("click", () => {
     popUp.classList.toggle("active");
   });
-  fetchJson(updateUrl, testWha);
+
+  brew.style.display = "none";
+  checkout.style.display = "none";
+  bar.style.display = "block";
   fetchJson(url, filterData);
 }
 
@@ -34,11 +35,8 @@ function filterData(jsonData) {
   receiptEventlisterner();
 }
 
-function testWha(data) {
-  console.log(data);
-}
-
 function receiptEventlisterner() {
+  payBut.addEventListener("click", displayConfirmation);
   console.log(receipt);
   receiptBut.addEventListener("click", () => {
     receipt.classList.add("active");

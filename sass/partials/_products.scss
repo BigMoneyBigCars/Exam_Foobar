@@ -59,7 +59,14 @@
     justify-content: center;
     align-items: center;
   }
-  .img {
+
+  img {
+    height: 40px;
+    border: 2px solid black;
+    border-radius: 50%;
+    width: 40px;
+  }
+  /*  .img {
     border: 2px solid black;
     background-image: url("/static/imgs/elhefe.png");
     background-size: cover;
@@ -70,7 +77,7 @@
     width: 100%;
     min-width: 50px;
     background-repeat: no-repeat;
-  }
+  } */
   .desc-container {
     display: flex;
     flex-wrap: nowrap;

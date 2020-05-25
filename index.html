@@ -7,7 +7,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Sedgwick+Ave&display=swap" rel="stylesheet" />
     <link href="//db.onlinewebfonts.com/c/5d35a36bacbab824395170f9d9d949ea?family=IndustryW00-Book" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.css" />
-
     <link rel="stylesheet" href="sass/styles.scss" />
     <title>Foobar</title>
   </head>
@@ -22,9 +21,9 @@
           <div id="nav" class="main-nav mobile-menu-dropdown" role="navigation">
             <h2>Where to?</h2>
             <div class="atags-mobile-menu">
-              <a href="#home">The Bar</a>
-              <a href="#skills">The Brew</a>
-              <a href="#projects">The Checkout</a>
+              <a class="theBar" href="#home">The Bar</a>
+              <a class="theBrew" href="#skills">The Brew</a>
+              <a class="checkout" href="#projects">The Checkout</a>
             </div>
           </div>
         </div>
@@ -32,6 +31,11 @@
     </nav>
   </header>
   <body>
+    <article id="confirmation">
+      <h2></h2>
+      <p></p>
+    </article>
+  
     <article id="receipt" class="">
       <div class="logo"><img src="/static/icons/logo.png" /></div>
       <div class="title">
@@ -108,10 +112,52 @@
     </article>
     <main>
       <div id="main-container">
+        <section id="checkout">
+          <article class="payment-screen">
+            <form id="form">
+          <div class="col-50">
+            <h3>Payment</h3>
+            <label for="fname">Accepted Cards</label>
+            <div class="icon-container">
+              <i class="fa fa-cc-visa" style="color:navy;"></i>
+              <i class="fa fa-cc-amex" style="color:blue;"></i>
+              <i class="fa fa-cc-mastercard" style="color:red;"></i>
+              <i class="fa fa-cc-discover" style="color:orange;"></i>
+            </div>
+            <label for="cname">Name on Card</label>
+            <input type="text" id="cname" name="cardname" placeholder="John More Doe">
+            <label for="ccnum">Credit card number</label>
+            <input type="text" id="ccnum" name="cardnumber" placeholder="1111-2222-3333-4444">
+            <label for="expmonth">Exp Month</label>
+            <input type="text" id="expmonth" name="expmonth" placeholder="September">
+
+            <div class="row">
+              <div class="col-50">
+                <label for="expyear">Exp Year</label>
+                <input type="text" id="expyear" name="expyear" placeholder="2018">
+              </div>
+              <div class="col-50">
+                <label for="cvv">CVV</label>
+                <input type="text" id="cvv" name="cvv" placeholder="352">
+              </div>
+            </div>
+        
+
+        </div>
+      <!--   <label>
+          <input type="checkbox" checked="checked" name="sameadr"> Shipping address same as billing
+        </label> -->
+        <input type="" value="Pay Now" class="btn">
+      </form>
+          </article>
+        </section>
+      <section id="theBar"><h2 style="text-align: center; margin-top: 2rem;">Under Development</h2></section>
+      <section id="theBrew">
+   
         <div id="products">
           <div id="container"></div>
           <div id="order">
-            <div class="amount">You are about to order 7 items</div>
+            <div class="amount">Your basket is empty.</div>
             <button class="receipt-button" type="submit" value="submit">Add to order</button>
           </div>
         </div>
@@ -119,7 +165,7 @@
         <template
           ><article>
             <div id="product">
-              <div class="img-container"><div class="img"></div></div>
+              <div class="img-container"><img src="#" alt="beer"><!-- <div class="img"></div> --></div>
               <div class="desc-container">
                 <h1></h1>
                 <p></p>
@@ -141,7 +187,9 @@
           </article>
         </template>
       </div>
+    </section>
     </main>
+  
     <script src="main.js"></script>
   </body>
 </html>

@@ -1,5 +1,6 @@
 import { orderArray } from "./addRemoveBeer";
 import { checkPrice } from "./checkPrice";
+import { toggleCheckout } from "./checkout";
 
 export function closeReceipt() {
   console.log(receipt);
@@ -40,6 +41,7 @@ export function updateReceipt() {
     receiptTemp.querySelector(".price").textContent = beer.amount * 35 + " DKK";
     document.querySelector("#receipt .container").appendChild(receiptTemp);
   });
+
   checkPrice();
 }
 
@@ -55,3 +57,5 @@ function checkTrue() {
     document.querySelector("#receipt .submit").disabled = true;
   }
 }
+
+document.querySelector("#receipt > button.submit").addEventListener("click", toggleCheckout);
