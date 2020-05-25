@@ -199,14 +199,24 @@
       <section id="theBrew">
    
         <div id="products">
-          <div id="container"></div>
+          <div id="avaliable">
+            <h2 class="headline">Beers currently on tap</h2>
+            <div class="container"></div>
+
+          
+          </div>
+          
+          <div id="notAvaliable">
+            <h2 class="headline">Beers not currently on tap</h2>
+            <div class="container"></div>
+          </div>
           <div id="order">
             <div class="amount">Your basket is empty.</div>
             <button class="receipt-button" type="submit" value="submit">Add to order</button>
           </div>
         </div>
 
-        <template
+        <template class="avaliable"
           ><article>
             <div id="product">
               <div class="img-container"><img src="#" alt="beer"><!-- <div class="img"></div> --></div>
@@ -221,6 +231,21 @@
               <i class="fa fa-plus"></i>
             </div></article
         ></template>
+        <template class="notAvaliable"
+        ><article>
+          <div id="product">
+            <div class="img-container"><img src="#" alt="beer"><!-- <div class="img"></div> --></div>
+            <div class="desc-container">
+              <h1></h1>
+              <p></p>
+            </div>
+          </div>
+          <div class="counter">
+            <i class="fa fa-minus"></i>
+            <div class="count">0</div>
+            <i class="fa fa-plus"></i>
+          </div></article
+      ></template>
 
         <template class="bottom-bar">
           

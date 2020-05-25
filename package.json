@@ -25,6 +25,7 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.9.6",
+    "main": "^1000.0.1",
     "main.js": "0.0.1"
   }
 }

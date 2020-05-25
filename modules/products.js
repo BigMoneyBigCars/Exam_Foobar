@@ -1,31 +1,64 @@
-import { addBeerArray } from "./addRemoveBeer";
+import { addBeerArray, orderArray } from "./addRemoveBeer";
 import { removeBeerArray } from "./addRemoveBeer";
 import { showPopUp } from "./showPopUp";
+import { updatedArray } from "./theBar/bottom";
+import { fetchJson } from "./fetchJson";
+import { updateUrl, url } from "./consts";
+import { staticArray, updatedCheckArray } from "main";
 
-export function displayBeer(beer) {
-  console.log(beer);
+let notAvaliable = [];
+let Avaliable = [];
+
+export function filterBeerArrays(staticArray, updatedCheckArray) {
+  console.log(staticArray, updatedCheckArray);
+
+  updatedCheckArray = updatedCheckArray.taps;
+  console.log(updatedCheckArray);
+
+  staticArray.forEach((e) => {
+    const exists = updatedCheckArray.find((x) => x.beer === e.name);
+
+    if (exists) {
+      console.log(e.name + " does exist");
+      Avaliable.push(e);
+    } else {
+      console.log(e.name + " does NOT exist");
+      notAvaliable.push(e);
+    }
+  });
+
+  console.log(notAvaliable);
+  console.log(Avaliable);
+
+  //const cloneNotAvaliable = document.querySelector("notAvaliable").cloneNode(true).content;
+  //const panretNotAvaliable = document.querySelector(".notAvaliable-container");
+  Avaliable.forEach(displayAvaliable);
+  notAvaliable.forEach(displayNotAvaliable);
+
+  //staticArray.forEach(displayBeer(staticArray, updatedCheckArray));
+}
+
+function displayAvaliable(beer) {
+  const clone = document.querySelector("template.avaliable").cloneNode(true).content;
+  const parent = document.querySelector("#avaliable > .container");
+  // console.log(beer);
   let article = beer.name.trim().toLowerCase();
-  console.log(article);
-
+  // console.log(article);
   let firstSpace = article.indexOf(" ");
   let firstName = article.substring(0, firstSpace);
   let lastSpace = article.lastIndexOf(" ");
   let lastName = article.substring(lastSpace + 1, article.length);
   let middleName = article.substring(firstSpace + 1, lastSpace);
-
   if (middleName == " ") {
     middleName = "";
   }
   article = firstName + middleName + lastName;
-
-  const clone = document.querySelector("template").cloneNode(true).content;
 
   clone.querySelector("article").id = article;
   clone.querySelector("article").dataset.name = beer.name;
   clone.querySelector("article .desc-container").addEventListener("click", () => {
     showPopUp(beer);
   });
-
   clone.querySelector("h1").textContent = beer.name;
   clone.querySelector("p").textContent = "Alcohol " + beer.alc + "%";
 
@@ -37,10 +70,48 @@ export function displayBeer(beer) {
   clone.querySelector(".fa-minus").addEventListener("click", () => {
     minusBeer(article);
   });
-  console.log(beer.label);
+  // console.log(beer.label);
   clone.querySelector("img").src = "imgs/" + beer.label;
   //clone.querySelector(".img").style.backgroundImage = "url('/imgs/" + [beer.label] + "')";
-  document.querySelector("#container").appendChild(clone);
+  parent.appendChild(clone);
+}
+
+function displayNotAvaliable(beer) {
+  const clone = document.querySelector("template.notAvaliable").cloneNode(true).content;
+  const parent = document.querySelector("#notAvaliable > .container");
+  // console.log(beer);
+  let article = beer.name.trim().toLowerCase();
+  // console.log(article);
+  let firstSpace = article.indexOf(" ");
+  let firstName = article.substring(0, firstSpace);
+  let lastSpace = article.lastIndexOf(" ");
+  let lastName = article.substring(lastSpace + 1, article.length);
+  let middleName = article.substring(firstSpace + 1, lastSpace);
+  if (middleName == " ") {
+    middleName = "";
+  }
+  article = firstName + middleName + lastName;
+
+  clone.querySelector("article").id = article;
+  clone.querySelector("article").dataset.name = beer.name;
+  clone.querySelector("article .desc-container").addEventListener("click", () => {
+    showPopUp(beer);
+  });
+  clone.querySelector("h1").textContent = beer.name;
+  clone.querySelector("p").textContent = "Alcohol " + beer.alc + "%";
+
+  clone.querySelector(".count").dataset.count = "0";
+
+  clone.querySelector(".fa-plus").addEventListener("click", () => {
+    plusBeer(article);
+  });
+  clone.querySelector(".fa-minus").addEventListener("click", () => {
+    minusBeer(article);
+  });
+  // console.log(beer.label);
+  clone.querySelector("img").src = "imgs/" + beer.label;
+  //clone.querySelector(".img").style.backgroundImage = "url('/imgs/" + [beer.label] + "')";
+  parent.appendChild(clone);
 }
 
 function plusBeer(article) {

@@ -1,8 +1,10 @@
 const bottom = document.querySelector("#theBar .sbBottom");
 
+export let updatedArray = [];
 export function printKegs(data) {
   data = data.taps;
-  console.log(data);
+  updatedArray = data;
+  console.log(updatedArray);
 
   let percent = 30;
   let dash = percent * 2.5;
@@ -11,7 +13,7 @@ export function printKegs(data) {
 
     clone.querySelector("p").textContent = percent.toFixed(0);
 
-    console.log(clone.querySelector(".round"));
+    //   console.log(clone.querySelector(".round"));
 
     clone.querySelector(".round").style.strokeDasharray = dash + "," + 999;
 
@@ -21,12 +23,16 @@ export function printKegs(data) {
   });
 }
 export function updateAll(data) {
+  console.log(data);
   updateBottom(data);
   updateRight(data);
 }
 
 function updateBottom(data) {
   data = data.taps;
+
+  updatedArray = data;
+  console.log(updatedArray);
   // console.log(data);
   let count = -1;
   let bottomBarsParent = document.querySelectorAll(".point");
@@ -46,16 +52,16 @@ function updateBottom(data) {
     bottomBarsParent[count].querySelector("h2").textContent = element.beer;
   });
 
-  console.log("tisssss");
+  //console.log("tisssss");
 }
 
 function updateRight(data) {
   let queue = data.queue;
   let serving = data.serving;
   let time = data.timestamp;
-  console.log(queue);
-  console.log(serving);
-  console.log(time);
+  // console.log(queue);
+  //console.log(serving);
+  //console.log(time);
 
   let queueTime = queue.length * 40;
   let servingTime = serving.length * 30;

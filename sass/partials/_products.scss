@@ -1,7 +1,18 @@
 @use "partials/fonts";
 @use "partials/roots";
 
-#container {
+#products {
+  .headline {
+    height: 45px;
+    width: 100%;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--color-4);
+  }
+}
+#avaliable .container,
+#notAvaliable .container {
   display: grid;
   grid-template-columns: repeat(1, 1fr);
   grid-template-rows: auto;
