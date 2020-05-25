@@ -4,21 +4,39 @@ const apiKey = "5e9844eb436377171a0c2461";
 
 export function constDataman() {
   const form = document.querySelector("form");
-  window.form = form;
+  const register = document.querySelector("#registerform");
   const elements = form.elements;
+  const elements2 = register.elements;
+  console.log(elements, elements2);
+  /*  window.form = form;
   console.log(elements);
-  window.elements = elements;
+  window.elements = elements; */
   const submit = document.querySelector("button.signin");
+  const submit2 = document.querySelector("#registerform > div.action > button.createuser");
+  const submit3 = document.querySelector("button.register");
+  const submit4 = document.querySelector("#registerform > div.action > button.registeruser");
 
   const data = {
+    firstname: "",
+    lastname: "",
     email: "",
     password: "",
+    confirmpassword: "",
   };
   submit.addEventListener("click", (e) => {
     e.preventDefault();
 
     post({ email: elements.email.value, password: elements.password.value });
   });
+
+  submit2.addEventListener("click", (e) => {
+    e.preventDefault();
+
+    post({ firstname: elements2.firstname.value, lastname: elements2.lastname.value, email: elements2.email.value, password: elements2.password.value });
+  });
+  if (elements.confirmpassword != elements.password) {
+    console.log("ERROR");
+  } else console.log("Welcomeback", elements.firstname);
 }
 
 function get() {
