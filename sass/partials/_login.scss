@@ -6,6 +6,18 @@
   background-color: white;
 }
 
+form img {
+  display: block;
+  margin: 0 auto;
+  transform: scale(5);
+}
+
+#registerform img {
+  display: block;
+  margin: 0 auto;
+  transform: scale(5);
+}
+
 //form buttons styles
 
 .register:hover {
@@ -100,17 +112,40 @@
     position: absolute;
     top: 0;
     background-color: white;
-    border: 8px solid blue;
+
     width: 100vw;
     height: 100vh;
     left: 0;
     right: 0;
     bottom: 0;
+    overflow: hidden;
+  }
+
+  #forgotpassword iframe {
+    width: 100%;
+    height: 40vh;
   }
   #forgotpassword h1 {
     margin-bottom: 30px;
-    color: blueviolet;
+    margin-top: 40px;
+    color: black;
     font-size: 2em;
+    padding: 2rem;
+  }
+
+  #forgotpassword h1 span {
+    margin-bottom: 30px;
+    margin-top: 30px;
+    color: red;
+    font-size: 3rem;
+    font-weight: 400;
+  }
+
+  #forgotpassword img {
+    transform: scale(5);
+    display: block;
+    margin: 0 auto;
+    margin-top: 70px;
   }
 
   .action {
