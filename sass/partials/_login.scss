@@ -278,7 +278,7 @@ input.invalid:not(:focus):not(#consent):not(#check_email) {
   }
 
   .invalid + .invalid_text {
-    display: inline;
+    display: table;
   }
 
   input:valid {
