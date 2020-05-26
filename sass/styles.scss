@@ -20,7 +20,10 @@ body {
 
 main {
 }
-
+.invalid {
+  color: red;
+  background-color: red;
+}
 #main-container {
   min-height: calc(100vh - var(--nav-height));
   max-height: calc(100vh - var(--nav-height));

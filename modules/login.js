@@ -1,16 +1,15 @@
 //GET
 const endpoint = "https://trellocopy-abcd.restdb.io/rest/login";
 const apiKey = "5e9844eb436377171a0c2461";
+let counter;
+let elements;
+/* const register = document.querySelector("#registerform");
+const form = document.querySelector("form");
+const elements = form.elements;
+const elements2 = register.elements; */
 
 export function constDataman() {
-  const form = document.querySelector("form");
-  const register = document.querySelector("#registerform");
-  const elements = form.elements;
-  const elements2 = register.elements;
-  console.log(elements, elements2);
-  /*  window.form = form;
-  console.log(elements);
-  window.elements = elements; */
+  /*   console.log(elements, elements2); */
 
   //buttons
   const submit = document.querySelector("button.signin");
@@ -45,20 +44,71 @@ export function constDataman() {
   submit.addEventListener("click", (e) => {
     e.preventDefault();
 
-    post({ email: elements.email.value, password: elements.password.value });
+    counter = 0;
+    console.log(counter);
+    let form = document.querySelector("#login");
+    let elements = form.elements;
+    form.setAttribute("novalidate", true);
+
+    let input = form.querySelectorAll("input");
+    console.log(input);
+    input.forEach((el) => {
+      el.classList.remove("invalid");
+      console.log(el);
+    });
+
+    validateForm(input, form);
   });
 
   submit2.addEventListener("click", (e) => {
     e.preventDefault();
 
-    post({ firstname: elements2.firstname.value, lastname: elements2.lastname.value, email: elements2.email.value, password: elements2.password.value });
+    counter = 0;
+    console.log(counter);
+    let form = document.querySelector("#registerform");
+    let elements = form.elements;
+    form.setAttribute("novalidate", true);
+
+    let input = form.querySelectorAll("input");
+    console.log(input);
+    input.forEach((el) => {
+      el.classList.remove("invalid");
+      console.log(el);
+    });
+
+    validateForm(input, form);
+
+    if (counter === 0) {
+      console.log("submitted");
+      post({ firstname: elements.firstname.value, lastname: elements.lastname.value, email: elements.email.value, password: elements.password.value });
+    }
   });
-  if (elements.confirmpassword != elements.password) {
-    console.log("ERROR");
-  } else console.log("Welcomeback", elements.firstname);
+}
+
+function validateForm(input, form) {
+  console.log(input);
+
+  if (form.checkValidity()) {
+    console.log("checking validity");
+    get();
+  } else {
+    input.forEach((el) => {
+      console.log("er her");
+      console.log(el);
+
+      if (!el.checkValidity()) {
+        counter++;
+        console.log(el);
+        console.log(el.id);
+        el.classList.add("invalid");
+        console.log("invalid");
+      }
+    });
+  }
 }
 
 function get() {
+  console.log("it workz");
   document.querySelector(".testcontainer").innerHTML = "";
   fetch(endpoint, {
     method: "get",
@@ -72,8 +122,6 @@ function get() {
     /*  .then((e) => console.log(e)) */
     .then(showHeroes);
 }
-
-get();
 
 function showHeroes(data) {
   data.forEach(showHero);
