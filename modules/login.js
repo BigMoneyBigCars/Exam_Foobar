@@ -207,23 +207,6 @@ function checkData(data) {
   }
 }
 
-function showHeroes(data) {
-  data.forEach(showHero);
-}
-
-function showHero(hero) {
-  console.log(hero);
-  const copy = document.querySelector("#testlogin").cloneNode(true).content;
-
-  const parent = document.querySelector(".testcontainer");
-  console.log(copy);
-
-  copy.querySelector("h1").textContent = hero.email;
-  copy.querySelector("p").textContent = hero.password;
-
-  parent.appendChild(copy);
-}
-
 //POST
 
 function post(data) {
