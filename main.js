@@ -40,7 +40,8 @@ function filterData(jsonData) {
 }
 
 function receiptEventlisterner() {
-  payBut.addEventListener("click", displayConfirmation);
+  // PAYNOW = paymentbutton (see login.js) - needs to be depending on if the payment form validates, before calling displayConfirmation.
+  /*  paynow.addEventListener("click", displayConfirmation); */
   console.log(receipt);
   receiptBut.addEventListener("click", () => {
     receipt.classList.add("active");

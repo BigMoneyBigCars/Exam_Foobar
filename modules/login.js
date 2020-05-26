@@ -7,6 +7,7 @@ let count = 0;
 let data;
 const signup = document.querySelector("#registerform");
 const login = document.querySelector("#login");
+const payment = document.querySelector("#paymentform");
 
 export function constDataman() {
   //buttons
@@ -14,6 +15,7 @@ export function constDataman() {
   const submit2 = document.querySelector("#registerform > div.action > button.showsignin");
   const submit3 = document.querySelector("button.register");
   const submit4 = document.querySelector("#registerform > div.action > button.registeruser");
+  const paynow = document.querySelector("#paynow");
   const forgot = document.querySelector("a.link");
   /*  validateForm(signup.elements, signup); */
   // validateForm(login.elements, login);
@@ -40,6 +42,24 @@ export function constDataman() {
     e.preventDefault();
     document.querySelector("#registerform").style = "display: none";
     document.querySelector("form").style = "display: block";
+  });
+  paynow.addEventListener("click", (e) => {
+    e.preventDefault();
+
+    counter = 0;
+    console.log(counter);
+    let form = document.querySelector("#paymentform");
+    let elements = form.elements;
+    form.setAttribute("novalidate", true);
+
+    let input = form.querySelectorAll("input");
+    console.log(input);
+    input.forEach((el) => {
+      el.classList.remove("invalid");
+      console.log(el);
+    });
+
+    validateForm(input, form);
   });
   submit.addEventListener("click", (e) => {
     e.preventDefault();
@@ -184,7 +204,7 @@ function checkData(data) {
     console.log("Already used");
     console.log("input: " + email + " " + "bd: " + data.email);
     document.querySelector(".welcome").classList.remove("hidden");
-    document.querySelector(".welcome").textContent = "Welcome back " + data.firstname;
+    document.querySelector(".welcome").textContent = "Welcome back " + data.firstname + "!";
     document.querySelector(".invalid_text").style.display = "none";
     /*  setTimeout(() => {
       document.querySelector(".welcome").classList.add("hidden");

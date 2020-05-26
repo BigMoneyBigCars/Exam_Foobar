@@ -46,14 +46,14 @@
           <h2 class="welcome hidden"></h2>
           <div class="content">
             <div class="input-field">
-              <div class="labelcontainer"> <label for="email">Email</label> <p class="invalid_text mail " > Please provide your work email</p></div> 
+              <div class="labelcontainer"> <label for="email">Email</label> </div> 
               <input id="email" type="email" name="email" placeholder="Email" autocomplete="nope" value="" required>
-              <p class="invalid_text"> Please provide your work email</p>
+              <p class="invalid_text"> The email must be the one you signed up with!</p>
             </div>
             <div class="input-field">
-              <div class="labelcontainer"> <label for="password">Password</label> <p class="invalid_text "> Please provide your work email</p> </div> 
+              <div class="labelcontainer"> <label for="password">Password</label>  </div> 
               <input id="password" type="password" name="password" placeholder="Password" autocomplete="new-password" value="" required>
-              <p class="invalid_text"> Please provide your work email</p>
+              <p class="invalid_text"> Please provide your password, to continue!</p>
              
             </div>
             <a href="#forgotpassword" class="link">Forgot Your Password?</a>
@@ -85,38 +85,38 @@
           <div class="content">
             
             <div class="input-field">
-              <div class="labelcontainer"> <label for="firstname">First name</label> <p class="invalid_text"> Please provide your work email</p></div> 
+              <div class="labelcontainer"> <label for="firstname">First name</label> </div> 
               
              
               <input id="firstname" type="firstname" name="firstname" placeholder="First name" autocomplete="nope" value="" required>
-              <p class="invalid_text"> Please provide your work email</p>
+              <p class="invalid_text"> Please provide your first name!</p>
 
            
           </div>
    
             <div class="input-field">
-              <div class="labelcontainer"> <label for="lastname">Last name</label> <p class="invalid_text"> Please provide your work email</p></div> 
+              <div class="labelcontainer"> <label for="lastname">Last name</label> </div> 
               <input id="lastname" type="lastname" name="lastname" placeholder="Last name" autocomplete="nope" value="" required>
-              <p class="invalid_text"> Please provide your work email</p>
+              <p class="invalid_text"> Please provide your last name!</p>
              
             </div>
             <div class="input-field">
-              <div class="labelcontainer"> <label for="email">Email</label> <p class="invalid_text mail"> Please provide your work email</p></div> 
+              <div class="labelcontainer"> <label for="email">Email</label> </div> 
               <label for="email"></label>
               <input class="email" type="email" name="email" placeholder="Email" autocomplete="nope" value="" required>
-              <p class="invalid_text"> Please provide your work email</p>
+              <p class="invalid_text"> Please provide a valid email!</p>
               
             </div>
             <div class="input-field">
-              <div class="labelcontainer"> <label for="password">Password</label> <p class="invalid_text"> Please provide your work email</p></div> 
+              <div class="labelcontainer"> <label for="password">Password</label>  </div> 
               <input class="password" type="password" name="password" placeholder="Password" autocomplete="new-password" value="" required>
-              <p class="invalid_text"> Please provide your work email</p>
+              <p class="invalid_text"> Please select a password!</p>
              
             </div>
             <div class="input-field">
-              <div class="labelcontainer"> <label for="confirmpassword">Confirm password</label> <p class="invalid_text"> Please provide your work email</p></div> 
+              <div class="labelcontainer"> <label for="confirmpassword">Confirm password</label> </div> 
               <input id="confirmpassword" type="password" name="confirmpassword" placeholder="Confirm password" autocomplete="new-password" value="" required>
-              <p class="invalid_text"> Please provide your work email</p>
+              <p class="invalid_text"> To confirm, your passwords must be identical!</p>
             
             </div>
            
@@ -212,6 +212,7 @@
       <div id="main-container">
         <section id="checkout">
           <article class="payment-screen">
+          
             <form id="paymentform">
           <div class="col-50">
             <h3>Payment</h3>
@@ -222,7 +223,54 @@
               <i class="fa fa-cc-mastercard" style="color:red;"></i>
               <i class="fa fa-cc-discover" style="color:orange;"></i>
             </div>
-            <label for="cname">Name on Card</label>
+
+            <div class="content">
+              <div class="input-field">
+                <div class="labelcontainer"> <label for="cardname">Name on card</label> <p class="invalid_text mail " > Please provide your work email</p></div> 
+                <input id="cardname" type="text" name="cardname" placeholder="Full name" autocomplete="nope" value="" required>
+                <p class="invalid_text"> Please provide your full name, as it appears on your credit card</p>
+              </div>
+              <div class="input-field">
+                <div class="labelcontainer"> <label for="ccnumber">Credit card number</label> <p class="invalid_text "> Please provide your work email</p> </div> 
+                <input id="ccnumber" type="tel" name="ccnumber" inputmode="numeric" pattern="[0-9\s]{13,19}" autocomplete="cc-number" maxlength="19" placeholder="1111-2222-3333-4444" value="" required>
+                <p class="invalid_text"> Please provide a correct credit card number</p>
+               
+              </div>
+              <div id="expmonthbox" class="input-field">
+                <div class="labelcontainer"> <label for="expmonth">Exp month</label> <p class="invalid_text "> Please provide your work email</p> </div> 
+                <input id="expmonth" type="tel" name="expmonth" inputmode="numeric" pattern="[0-2\s]{0,2}" autocomplete="exp-month" maxlength="2" placeholder="Exp month" value="" required>
+                <p class="invalid_text"> Please provide the correct experation month</p>
+               
+
+                
+             
+                  </div>
+                  <div id="expmonthbox" class="input-field">
+                    <div class="labelcontainer"> <label for="expyear">Exp year</label> <p class="invalid_text "> Please provide your work email</p> </div> 
+                    <input id="expyear" type="tel" name="expyear" inputmode="numeric" pattern="[0-4\s]{0,4}" autocomplete="exp-year" maxlength="4" placeholder="2020" value="" required>
+                    <p class="invalid_text"> Please provide a correct experation year</p>
+                   
+                  </div>
+                  <div id="expmonthbox" class="input-field">
+                
+                    <div class="labelcontainer"> <label for="cvv">CVV</label> <p class="invalid_text "> Please provide your work email</p> </div> 
+
+                    <input type="tel" name="cvv" id="cvv" name="cvv" inputmode="numeric" pattern="[0-3\s]{0,3}" maxlength="3"  placeholder="xxx" value="" required>
+                    <p class="invalid_text"> Please provide a correct CVV number</p>
+                  </div>
+                </div>
+
+                <div class="action">
+                 
+                  <button id="paynow" class="signin">Complete purchase</button>
+                </div>
+           
+               
+              </div>
+             
+           
+              </div>
+        <!--     <label for="cname">Name on Card</label>
             <input type="text" id="cname" name="cardname" placeholder="John More Doe">
             <label for="ccnum">Credit card number</label>
             <input type="text" id="ccnum" name="cardnumber" placeholder="1111-2222-3333-4444">
@@ -241,11 +289,12 @@
             </div>
         
 
-        </div> 
+        </div>  -->
       <!--   <label>
           <input type="checkbox" checked="checked" name="sameadr"> Shipping address same as billing
         </label> -->
-        <input type="" value="Pay Now" class="btn">
+      
+        
       </form>
           </article>
         </section>
