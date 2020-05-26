@@ -52,26 +52,75 @@ form img {
 
 // login-form
 
-.invalid {
-  color: red;
-  background: red;
+input {
+  width: 100%;
+  min-width: 100px;
+  padding: 0.65rem 0.6rem 0.55rem;
+  display: block;
+  background-color: rgb(255, 251, 253);
+  margin: 0.2rem 0 0.2rem 0;
 }
 
-.invalid_text {
-  font-size: 0.7rem;
-  margin: 0;
-  padding: 0;
-  color: #a83a34;
-  color: #cb9800;
-  display: inline;
+input::placeholder {
+  color: rgb(138, 138, 138);
+  font-size: 0.4rem;
+}
+
+label {
+  color: black;
+  font-weight: 800;
+  font-size: 0.9rem;
+}
+
+#registerform input,
+#login input {
+  width: 100%;
+  min-width: 100px;
+  padding: 0.65rem 0.6rem 0.55rem;
+  display: block;
+  border: 1px solid var(--color-9);
+  background-color: #fffbfd;
+  margin: 0.2rem 0 0.2rem 0;
+}
+
+button.disabled {
+  pointer-events: none;
+  filter: opacity(0.7) grayscale(0.6);
+}
+
+input::placeholder {
+  color: rgb(138, 138, 138);
+  font-size: 0.8rem;
+  text-transform: lowercase;
 }
 
 form span {
   font-size: 0.7rem;
   color: rgb(138, 138, 138);
   padding: 0 0 0.3rem 0;
+  transform: translateX(-123px) translateY(-57px);
 }
 
+input:valid:not(input#check_email):not(#consent),
+input:valid:not(:focus):not(:placeholder-shown),
+input.valid:not(:focus):not(:placeholder-shown) {
+  background: url(/static/billeder/yes.png) no-repeat scroll 7px 7px;
+  background-size: contain;
+  background-size: 15px;
+  background-position: 98% 50%;
+}
+
+input:invalid:not(:focus):not(:placeholder-shown):not(#consent):not(#check_email),
+input.invalid:not(:focus):not(#consent):not(#check_email) {
+  background: url(/static/billeder/no.png) no-repeat scroll 7px 7px;
+  background-size: contain;
+  background-size: 15px;
+  background-position: 98% 50%;
+}
+
+.welcome {
+  font-size: 1.5rem;
+}
 .login-form {
   background: #fff;
   width: 500px;
@@ -93,8 +142,14 @@ form span {
 
   .input-field {
     padding: 12px 5px;
+
+    .labelcontainer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 5px;
+    }
     label {
-      float: left;
     }
     input {
       font-size: 16px;
@@ -107,7 +162,7 @@ form span {
       outline: none;
       transition: all 0.2s;
       &::placeholder {
-        text-transform: uppercase;
+        text-transform: capitalize;
       }
 
       &:focus {
@@ -201,5 +256,35 @@ form span {
         }
       }
     }
+  }
+}
+
+.hide {
+  display: none;
+}
+
+#registerform,
+#login {
+  .invalid_text {
+    font-size: 0.7rem;
+    margin: 0;
+    padding: 0;
+    color: #dd2b21;
+    display: inline;
+  }
+
+  .invalid_text {
+    display: none;
+  }
+
+  .invalid + .invalid_text {
+    display: inline;
+  }
+
+  input:valid {
+    background: url(/static/billeder/yes.png) no-repeat scroll 7px 7px;
+    background-size: contain;
+    background-size: 15px;
+    background-position: 98% 50%;
   }
 }

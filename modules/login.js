@@ -5,20 +5,18 @@ let counter;
 let elements;
 let count = 0;
 let data;
-/* const register = document.querySelector("#registerform");
-const form = document.querySelector("form");
-const elements = form.elements;
-const elements2 = register.elements; */
+const signup = document.querySelector("#registerform");
+const login = document.querySelector("#login");
 
 export function constDataman() {
-  /*   console.log(elements, elements2); */
-
   //buttons
   const submit = document.querySelector("button.signin");
   const submit2 = document.querySelector("#registerform > div.action > button.showsignin");
   const submit3 = document.querySelector("button.register");
   const submit4 = document.querySelector("#registerform > div.action > button.registeruser");
   const forgot = document.querySelector("a.link");
+  /*  validateForm(signup.elements, signup); */
+  // validateForm(login.elements, login);
 
   const data = {
     firstname: "",
@@ -148,14 +146,14 @@ async function get() {
 
 function loopData(data) {
   const email = document.querySelector("#email").value;
-  if (count > 0) {
+  if (count > 1) {
     console.log("email not unique");
-    /*     console.log("input: " + email + " " + "bd: " + data.email);
-      document.querySelector("#email").classList.add("invalid");
-      document.querySelector(".mail").textContent = "|| Not unique. Go to 'already submitted'";
-      window.addEventListener("keyup", function () {
-        document.querySelector("#email").classList.remove("invalid");
-      }); */
+    console.log("input: " + email + " " + "bd: " + data.email);
+    document.querySelector("#email").classList.add("invalid");
+    document.querySelector(".mail").textContent = "|| Not unique. Go to 'already submitted'";
+    window.addEventListener("keyup", function () {
+      document.querySelector("#email").classList.remove("invalid");
+    });
   }
   if (count === 0) {
     console.log("email can be used");
@@ -185,14 +183,14 @@ function checkData(data) {
   if (email == data.email) {
     console.log("Already used");
     console.log("input: " + email + " " + "bd: " + data.email);
-    /*   document.querySelector(".welcome").classList.remove("hidden");
-    document.querySelector(".welcome").textContent = "Welcome back " + data.first_name;
-    document.querySelector("#the_form_check .invalid_text").style.display = "none";
-    setTimeout(() => {
+    document.querySelector(".welcome").classList.remove("hidden");
+    document.querySelector(".welcome").textContent = "Welcome back " + data.firstname;
+    document.querySelector(".invalid_text").style.display = "none";
+    /*  setTimeout(() => {
       document.querySelector(".welcome").classList.add("hidden");
       document.querySelectorAll(".startHide").forEach((section) => {
         section.classList.remove("hide");
-      }); */
+      });  */
     /*       document.querySelector("#the_form_check").classList.add("hide");
         document.querySelector("#the_form_check").classList.remove("flex"); */
     //document.querySelector(".container1").style.overflow = "scroll";
@@ -202,10 +200,10 @@ function checkData(data) {
   } else {
     console.log(email);
     console.log("does not match");
-    /*     document.querySelector("#email").classList.add("invalid");
+    document.querySelector("#email").classList.add("invalid");
     window.addEventListener("keyup", function () {
       document.querySelector("#email").classList.remove("invalid");
-    }); */
+    });
   }
 }
 

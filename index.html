@@ -43,14 +43,18 @@
         <form id="login">
           <a href="index.html"><img src="/static/icons/logo.png" alt="Logo" /></a>
           <h1>Login</h1>
+          <h2 class="welcome hidden"></h2>
           <div class="content">
             <div class="input-field">
-              <label for="email"></label>
-              <input id="email" type="email" name="email" placeholder="Email" autocomplete="nope" value="">
+              <div class="labelcontainer"> <label for="email">Email</label> <p class="invalid_text mail " > Please provide your work email</p></div> 
+              <input id="email" type="email" name="email" placeholder="Email" autocomplete="nope" value="" required>
+              <p class="invalid_text"> Please provide your work email</p>
             </div>
             <div class="input-field">
-              <label for="password"></label>
-              <input id="password" type="password" name="password" placeholder="Password" autocomplete="new-password" value="">
+              <div class="labelcontainer"> <label for="password">Password</label> <p class="invalid_text "> Please provide your work email</p> </div> 
+              <input id="password" type="password" name="password" placeholder="Password" autocomplete="new-password" value="" required>
+              <p class="invalid_text"> Please provide your work email</p>
+             
             </div>
             <a href="#forgotpassword" class="link">Forgot Your Password?</a>
           </div>
@@ -75,40 +79,45 @@
       </div>
 
       <div class="login-form" >
-        <form id="registerform" class="hidemyass"style="display: none">
+        <form id="registerform" class="hidemyass" style="display: none">
           <a href="index.html"><img src="/static/icons/logo.png" alt="Logo" /></a>
           <h1>Signup</h1>
           <div class="content">
+            
             <div class="input-field">
-              <label for="firstname"></label>
+              <div class="labelcontainer"> <label for="firstname">First name</label> <p class="invalid_text"> Please provide your work email</p></div> 
+              
+             
               <input id="firstname" type="firstname" name="firstname" placeholder="First name" autocomplete="nope" value="" required>
-              <p class="invalid_text">|| Please provide your work email</p>
-              <span>|| Which email do you use at work?</span>
+              <p class="invalid_text"> Please provide your work email</p>
+
+           
           </div>
    
             <div class="input-field">
-              <label for="lastname"></label>
+              <div class="labelcontainer"> <label for="lastname">Last name</label> <p class="invalid_text"> Please provide your work email</p></div> 
               <input id="lastname" type="lastname" name="lastname" placeholder="Last name" autocomplete="nope" value="" required>
-              <p class="invalid_text">|| Please provide your work email</p>
-              <span>|| Which email do you use at work?</span>
+              <p class="invalid_text"> Please provide your work email</p>
+             
             </div>
             <div class="input-field">
+              <div class="labelcontainer"> <label for="email">Email</label> <p class="invalid_text mail"> Please provide your work email</p></div> 
               <label for="email"></label>
               <input class="email" type="email" name="email" placeholder="Email" autocomplete="nope" value="" required>
-              <p class="invalid_text mail">|| Please provide your work email</p>
-              <span>|| Which email do you use at work?</span>
+              <p class="invalid_text"> Please provide your work email</p>
+              
             </div>
             <div class="input-field">
-              <label for="password"></label>
-              <input id="password" type="password" name="password" placeholder="Password" autocomplete="new-password" value="" required>
-              <p class="invalid_text mail">|| Please provide your work email</p>
-              <span>|| Which email do you use at work?</span>
+              <div class="labelcontainer"> <label for="password">Password</label> <p class="invalid_text"> Please provide your work email</p></div> 
+              <input class="password" type="password" name="password" placeholder="Password" autocomplete="new-password" value="" required>
+              <p class="invalid_text"> Please provide your work email</p>
+             
             </div>
             <div class="input-field">
-              <label for="confirmpassword"></label>
+              <div class="labelcontainer"> <label for="confirmpassword">Confirm password</label> <p class="invalid_text"> Please provide your work email</p></div> 
               <input id="confirmpassword" type="password" name="confirmpassword" placeholder="Confirm password" autocomplete="new-password" value="" required>
-              <p class="invalid_text mail">|| Please provide your work email</p>
-              <span>|| Which email do you use at work?</span>
+              <p class="invalid_text"> Please provide your work email</p>
+            
             </div>
            
           </div>
