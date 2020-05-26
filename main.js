@@ -3,14 +3,14 @@ import "@babel/polyfill";
 
 import { nav } from "./modules/nav.js";
 import { fetchJson } from "./modules/fetchJson";
-import { displayBeer, filterBeerArrays } from "./modules/products";
+import { displayBeer, filterBeerArrays, checkBeerArray } from "./modules/products";
 import { closeReceipt, updateReceipt } from "./modules/receipt";
 import { receiptBut, payBut, receipt, popUp, popBut, url, updateUrl } from "./modules/consts";
 import { displayConfirmation } from "./modules/checkout";
 
 import { bar, brew, checkout } from "./modules/nav";
 //import { login } from "./modules/login";
-import { printKegs, updateAll, updatedArray } from "./modules/theBar/bottom";
+import { printKegs, updateAllDashboard, updatedArray } from "./modules/theBar/bottom";
 
 window.addEventListener("DOMContentLoaded", init);
 
@@ -33,34 +33,58 @@ function init() {
 
   // setTimeout(updateDashboard, 20);
 }
-
+//gets First Json   /beertypes
 function fetchStaticArray(jsonData) {
   staticArray = jsonData;
   console.log(staticArray);
   fetchJson(updateUrl, fetchUpdateArray);
 }
+
+//get Second Json
 function fetchUpdateArray(jsonData) {
   updatedCheckArray = jsonData;
   collectBothArrays();
 }
+
+// check having both arrays at same time
 function collectBothArrays() {
   console.log(updatedCheckArray);
   console.log(staticArray);
-  updateDashboard();
+  filterData();
 }
 
+// ??? skkal nok ikke bruges
 function updateDashboard() {
   printKegs(updatedCheckArray);
   filterData();
 }
 
+// Første funktion som sætter en tomt dashboard og printer øllene ind i avaliable/not avaliable.
 function filterData() {
   console.log("filterData");
-  console.log(staticArray);
 
+  printKegs(updatedCheckArray);
   filterBeerArrays(staticArray, updatedCheckArray);
-
   receiptEventlisterner();
+
+  setTimeout(getUpdate, 1000);
+}
+
+function getUpdate() {
+  updatedCheckArray = [];
+  fetchJson(updateUrl, delegateUpdates);
+}
+
+function delegateUpdates(jsonData) {
+  updatedCheckArray = jsonData;
+  console.log(staticArray, updatedCheckArray);
+
+  checkBeerArray(updatedCheckArray);
+
+  //updates the Dashboard
+  updateAllDashboard(updatedCheckArray);
+
+  setTimeout(getUpdate, 1000);
 }
 
 function receiptEventlisterner() {

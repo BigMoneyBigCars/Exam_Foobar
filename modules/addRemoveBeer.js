@@ -42,6 +42,10 @@ function orderedItems() {
   });
   // console.log(count);
 
-  document.querySelector("#order .amount").textContent = "You are about to add " + [count] + " items";
+  if (count == 0) {
+    document.querySelector("#order .amount").textContent = "Your basket is empty";
+  } else {
+    document.querySelector("#order .amount").textContent = "You are about to add " + [count] + " items";
+  }
 }
 // POPUP

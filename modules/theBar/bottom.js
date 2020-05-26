@@ -1,3 +1,5 @@
+import { staticArray, updatedCheckArray } from "../../main";
+
 const bottom = document.querySelector("#theBar .sbBottom");
 
 export let updatedArray = [];
@@ -10,27 +12,41 @@ export function printKegs(data) {
   let dash = percent * 2.5;
   data.forEach((element) => {
     const clone = document.querySelector(".bottom-bar").cloneNode(true).content;
-
     clone.querySelector("p").textContent = percent.toFixed(0);
-
-    //   console.log(clone.querySelector(".round"));
-
     clone.querySelector(".round").style.strokeDasharray = dash + "," + 999;
-
     const parent = bottom;
-
     parent.appendChild(clone);
   });
 }
-export function updateAll(data) {
+
+export function updateAllDashboard(data) {
   console.log(data);
   updateBottom(data);
   updateRight(data);
+  updateLeft(data.timestamp);
+}
+function updateLeft(time) {
+  let timestamp = updatedCheckArray.timestamp;
+  let unix_timestamp = timestamp;
+  // Create a new JavaScript Date object based on the timestamp
+  // multiplied by 1000 so that the argument is in milliseconds, not seconds.
+  var date = new Date(unix_timestamp);
+  // Hours part from the timestamp
+  var hours = date.getHours();
+  // Minutes part from the timestamp
+  var minutes = "0" + date.getMinutes();
+  // Seconds part from the timestamp
+  var seconds = "0" + date.getSeconds();
+
+  // Will display time in 10:30:23 format
+  var formattedTime = hours + ":" + minutes.substr(-2) + ":" + seconds.substr(-2);
+
+  console.log(formattedTime);
+  document.querySelector(".time").textContent = formattedTime;
 }
 
 function updateBottom(data) {
   data = data.taps;
-
   updatedArray = data;
   console.log(updatedArray);
   // console.log(data);
@@ -63,7 +79,7 @@ function updateRight(data) {
   //console.log(serving);
   //console.log(time);
 
-  let queueTime = queue.length * 40;
+  let queueTime = queue.length * 60;
   let servingTime = serving.length * 30;
   document.querySelector(".sbRight .theQueue").textContent = queue.length;
   document.querySelector(".sbRight .serving").textContent = serving.length;

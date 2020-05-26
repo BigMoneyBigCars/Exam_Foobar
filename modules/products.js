@@ -9,7 +9,24 @@ import { staticArray, updatedCheckArray } from "main";
 let notAvaliable = [];
 let Avaliable = [];
 
+export function checkBeerArray(updatedCheckArray) {
+  let check = updatedCheckArray.taps;
+  console.log(notAvaliable, check);
+
+  notAvaliable.forEach((e) => {
+    const exists = notAvaliable.find((x) => x.name === check.beer);
+
+    if (exists) {
+      console.log(e.name + " TIME FOR UPDATE");
+    } else {
+      console.log(e.name + " everythings fine");
+    }
+  });
+}
+
 export function filterBeerArrays(staticArray, updatedCheckArray) {
+  notAvaliable = [];
+  Avaliable = [];
   console.log(staticArray, updatedCheckArray);
 
   updatedCheckArray = updatedCheckArray.taps;
@@ -32,6 +49,8 @@ export function filterBeerArrays(staticArray, updatedCheckArray) {
 
   //const cloneNotAvaliable = document.querySelector("notAvaliable").cloneNode(true).content;
   //const panretNotAvaliable = document.querySelector(".notAvaliable-container");
+  document.querySelector("#notAvaliable > .container").innerHTML = "";
+  document.querySelector("#avaliable > .container").innerHTML = "";
   Avaliable.forEach(displayAvaliable);
   notAvaliable.forEach(displayNotAvaliable);
 
@@ -41,6 +60,7 @@ export function filterBeerArrays(staticArray, updatedCheckArray) {
 function displayAvaliable(beer) {
   const clone = document.querySelector("template.avaliable").cloneNode(true).content;
   const parent = document.querySelector("#avaliable > .container");
+
   // console.log(beer);
   let article = beer.name.trim().toLowerCase();
   // console.log(article);
@@ -56,7 +76,7 @@ function displayAvaliable(beer) {
 
   clone.querySelector("article").id = article;
   clone.querySelector("article").dataset.name = beer.name;
-  clone.querySelector("article .desc-container").addEventListener("click", () => {
+  clone.querySelector("article .product").addEventListener("click", () => {
     showPopUp(beer);
   });
   clone.querySelector("h1").textContent = beer.name;
@@ -79,6 +99,7 @@ function displayAvaliable(beer) {
 function displayNotAvaliable(beer) {
   const clone = document.querySelector("template.notAvaliable").cloneNode(true).content;
   const parent = document.querySelector("#notAvaliable > .container");
+
   // console.log(beer);
   let article = beer.name.trim().toLowerCase();
   // console.log(article);
@@ -100,14 +121,11 @@ function displayNotAvaliable(beer) {
   clone.querySelector("h1").textContent = beer.name;
   clone.querySelector("p").textContent = "Alcohol " + beer.alc + "%";
 
-  clone.querySelector(".count").dataset.count = "0";
+  clone.querySelector(".count").textContent = "Unavaliable";
 
-  clone.querySelector(".fa-plus").addEventListener("click", () => {
-    plusBeer(article);
-  });
-  clone.querySelector(".fa-minus").addEventListener("click", () => {
-    minusBeer(article);
-  });
+  clone.querySelector(".fa-plus").style.display = "none";
+  clone.querySelector(".fa-minus").style.display = "none";
+
   // console.log(beer.label);
   clone.querySelector("img").src = "imgs/" + beer.label;
   //clone.querySelector(".img").style.backgroundImage = "url('/imgs/" + [beer.label] + "')";
