@@ -3,6 +3,8 @@ const endpoint = "https://trellocopy-abcd.restdb.io/rest/login";
 const apiKey = "5e9844eb436377171a0c2461";
 let counter;
 let elements;
+let count = 0;
+let data;
 /* const register = document.querySelector("#registerform");
 const form = document.querySelector("form");
 const elements = form.elements;
@@ -107,20 +109,104 @@ function validateForm(input, form) {
   }
 }
 
-function get() {
+async function get() {
   console.log("it workz");
   document.querySelector(".testcontainer").innerHTML = "";
-  fetch(endpoint, {
+  let response = await fetch(endpoint, {
     method: "get",
     headers: {
       "Content-Type": "application/json; charset-utf-8",
       "x-apikey": apiKey,
       "cache-control": "no-cache",
     },
-  })
-    .then((e) => e.json())
+  });
+  data = await response.json();
+  if (document.querySelector("#registerform").style.display == "block") {
+    console.log("register form");
+    data.forEach((data) => {
+      console.log(data);
+      const email = document.querySelector("#registerform .email").value;
+      console.log(email);
+      if (email == data.email) {
+        count++;
+        console.log("JA");
+      } else {
+        console.log("IKKE");
+      }
+    });
+    console.log(count);
+    loopData(data);
+  } else {
+    console.log("loginform");
+    data.forEach(checkData);
+  }
+
+  /*  .then((e) => e.json())
     /*  .then((e) => console.log(e)) */
-    .then(showHeroes);
+  /*.then(showHeroes); */
+}
+
+function loopData(data) {
+  const email = document.querySelector("#email").value;
+  if (count > 0) {
+    console.log("email not unique");
+    /*     console.log("input: " + email + " " + "bd: " + data.email);
+      document.querySelector("#email").classList.add("invalid");
+      document.querySelector(".mail").textContent = "|| Not unique. Go to 'already submitted'";
+      window.addEventListener("keyup", function () {
+        document.querySelector("#email").classList.remove("invalid");
+      }); */
+  }
+  if (count === 0) {
+    console.log("email can be used");
+    /*   post({
+        firstname: form.elements.firstname.value,
+        lastname: form.elements.lastname.value,
+        email: form.elements.email.value,
+        password: form.elements.password.value,
+      }); */
+    form.reset();
+    /*       document.querySelector("#the_form").classList.remove("flex");
+      document.querySelector("#the_form").classList.add("hide");
+      document.querySelector("#the_form_check").classList.remove("flex");
+      document.querySelector("#the_form_check").classList.add("hide");
+      document.querySelector(".container1").style.overflow = "scroll";
+      document.querySelector(".container1").removeEventListener("scroll", setPosition);
+      document.querySelector("#bc_site").classList.remove("hide");
+      document.querySelector(".theFormText").classList.add("hide");
+      document.querySelector("header").classList.remove("hide"); */
+  }
+  count = 0;
+}
+
+function checkData(data) {
+  console.log("checkData");
+  const email = document.querySelector("#email").value;
+  if (email == data.email) {
+    console.log("Already used");
+    console.log("input: " + email + " " + "bd: " + data.email);
+    /*   document.querySelector(".welcome").classList.remove("hidden");
+    document.querySelector(".welcome").textContent = "Welcome back " + data.first_name;
+    document.querySelector("#the_form_check .invalid_text").style.display = "none";
+    setTimeout(() => {
+      document.querySelector(".welcome").classList.add("hidden");
+      document.querySelectorAll(".startHide").forEach((section) => {
+        section.classList.remove("hide");
+      }); */
+    /*       document.querySelector("#the_form_check").classList.add("hide");
+        document.querySelector("#the_form_check").classList.remove("flex"); */
+    //document.querySelector(".container1").style.overflow = "scroll";
+    /*  document.querySelector(".container1").removeEventListener("scroll", setPosition);
+      document.querySelector(".theFormText").classList.add("hide"); */
+    /*  }, 2000); */
+  } else {
+    console.log(email);
+    console.log("does not match");
+    /*     document.querySelector("#email").classList.add("invalid");
+    window.addEventListener("keyup", function () {
+      document.querySelector("#email").classList.remove("invalid");
+    }); */
+  }
 }
 
 function showHeroes(data) {
