@@ -8,7 +8,7 @@
     display: grid;
     justify-content: center;
     align-items: center;
-    background-color: var(--color-4);
+    background-color: var(--color-10);
   }
 }
 #avaliable .container,
@@ -30,8 +30,7 @@
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
 
-    border-bottom: 1px solid aliceblue;
-    background: var(--color-5);
+    background: var(--color-10);
 
     h1 {
       font-size: 0.9rem;
