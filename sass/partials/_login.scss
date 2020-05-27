@@ -117,7 +117,7 @@ form span {
 input:valid:not(input#check_email):not(#consent),
 input:valid:not(:focus):not(:placeholder-shown),
 input.valid:not(:focus):not(:placeholder-shown) {
-  background: url(/static/billeder/yes.png) no-repeat scroll 7px 7px;
+  background: url(/static/billeder/yes3.png) no-repeat scroll 7px 7px;
   background-size: contain;
   background-size: 15px;
   background-position: 98% 50%;
@@ -290,7 +290,7 @@ a.link {
   }
 
   input:valid {
-    background: url(/static/billeder/yes.png) no-repeat scroll 7px 7px;
+    background: url(/static/billeder/yes3.png) no-repeat scroll 7px 7px;
     background-size: contain;
     background-size: 15px;
     background-position: 98% 50%;
