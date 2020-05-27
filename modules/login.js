@@ -1,64 +1,235 @@
-"use strict";
-
 //GET
 const endpoint = "https://trellocopy-abcd.restdb.io/rest/login";
 const apiKey = "5e9844eb436377171a0c2461";
+let counter;
+let elements;
+let count = 0;
+let data;
+const signup = document.querySelector("#registerform");
+const login = document.querySelector("#login");
+const payment = document.querySelector("#paymentform");
 
-window.addEventListener("load", (e) => {
-  document.querySelector("button.add-new").addEventListener("click", () => {
-    const data = {
-      email: "",
-      password: "",
-    };
-    post(data);
+export function constDataman() {
+  //buttons
+  const submit = document.querySelector("button.signin");
+  const submit2 = document.querySelector("#registerform > div.action > button.showsignin");
+  const submit3 = document.querySelector("button.register");
+  const submit4 = document.querySelector("#registerform > div.action > button.registeruser");
+  const paynow = document.querySelector("#paynow");
+  const forgot = document.querySelector("a.link");
+  /*  validateForm(signup.elements, signup); */
+  // validateForm(login.elements, login);
+
+  const data = {
+    firstname: "",
+    lastname: "",
+    email: "",
+    password: "",
+    confirmpassword: "",
+  };
+
+  forgot.addEventListener("click", (e) => {
+    e.preventDefault();
+    document.querySelector("#forgotpassword").style = "display: block";
   });
-});
-function get() {
-  document.querySelector("#loginscreen").innerHTML = "";
-  fetch(endpoint + "?max=100", {
+
+  submit3.addEventListener("click", (e) => {
+    e.preventDefault();
+    document.querySelector("form").style = "display: none";
+    document.querySelector("#registerform").style = "display: block";
+  });
+  submit4.addEventListener("click", (e) => {
+    e.preventDefault();
+    document.querySelector("#registerform").style = "display: none";
+    document.querySelector("form").style = "display: block";
+  });
+  paynow.addEventListener("click", (e) => {
+    e.preventDefault();
+
+    counter = 0;
+    console.log(counter);
+    let form = document.querySelector("#paymentform");
+    let elements = form.elements;
+    form.setAttribute("novalidate", true);
+
+    let input = form.querySelectorAll("input");
+    console.log(input);
+    input.forEach((el) => {
+      el.classList.remove("invalid");
+      console.log(el);
+    });
+
+    validateForm(input, form);
+  });
+  submit.addEventListener("click", (e) => {
+    e.preventDefault();
+
+    counter = 0;
+    console.log(counter);
+    let form = document.querySelector("#login");
+    let elements = form.elements;
+    form.setAttribute("novalidate", true);
+
+    let input = form.querySelectorAll("input");
+    console.log(input);
+    input.forEach((el) => {
+      el.classList.remove("invalid");
+      console.log(el);
+    });
+
+    validateForm(input, form);
+  });
+
+  submit2.addEventListener("click", (e) => {
+    e.preventDefault();
+
+    counter = 0;
+    console.log(counter);
+    let form = document.querySelector("#registerform");
+    let elements = form.elements;
+    form.setAttribute("novalidate", true);
+
+    let input = form.querySelectorAll("input");
+    console.log(input);
+    input.forEach((el) => {
+      el.classList.remove("invalid");
+      console.log(el);
+    });
+
+    validateForm(input, form);
+
+    if (counter === 0) {
+      console.log("submitted");
+      post({ firstname: elements.firstname.value, lastname: elements.lastname.value, email: elements.email.value, password: elements.password.value });
+    }
+  });
+}
+
+function validateForm(input, form) {
+  console.log(input);
+
+  if (form.checkValidity()) {
+    console.log("checking validity");
+    get();
+  } else {
+    input.forEach((el) => {
+      console.log("er her");
+      console.log(el);
+
+      if (!el.checkValidity()) {
+        counter++;
+        console.log(el);
+        console.log(el.id);
+        el.classList.add("invalid");
+        console.log("invalid");
+      }
+    });
+  }
+}
+
+async function get() {
+  console.log("it workz");
+  document.querySelector(".testcontainer").innerHTML = "";
+  let response = await fetch(endpoint, {
     method: "get",
     headers: {
       "Content-Type": "application/json; charset-utf-8",
       "x-apikey": apiKey,
       "cache-control": "no-cache",
     },
-  })
-    .then((e) => e.json())
-    /*  .then((e) => console.log(e)) */
-    .then(showHeroes);
-}
-
-get();
-
-function showHeroes(data) {
-  data.forEach(showHero);
-}
-
-function showHero(hero) {
-  console.log(hero);
-  const template = document.querySelector("template").content;
-  const copy = template.cloneNode(true);
-  const parent = document.querySelector("main");
-
-  copy.querySelector("article").dataset.id = hero._id;
-  copy.querySelector("h1").textContent = hero.Alias;
-  copy.querySelector("h2 span").textContent = hero.real_name;
-  const ul = copy.querySelector("ul");
-  hero.powers.forEach((power) => {
-    const li = document.createElement("li");
-    li.textContent = power;
-    ul.appendChild(li);
   });
-  copy.querySelector("button").addEventListener("click", () => deleteIt(hero._id));
-  parent.appendChild(copy);
+  data = await response.json();
+  if (document.querySelector("#registerform").style.display == "block") {
+    console.log("register form");
+    data.forEach((data) => {
+      console.log(data);
+      const email = document.querySelector("#registerform .email").value;
+      console.log(email);
+      if (email == data.email) {
+        count++;
+        console.log("JA");
+      } else {
+        console.log("IKKE");
+      }
+    });
+    console.log(count);
+    loopData(data);
+  } else {
+    console.log("loginform");
+    data.forEach(checkData);
+  }
+
+  /*  .then((e) => e.json())
+    /*  .then((e) => console.log(e)) */
+  /*.then(showHeroes); */
+}
+
+function loopData(data) {
+  const email = document.querySelector("#email").value;
+  if (count > 1) {
+    console.log("email not unique");
+    console.log("input: " + email + " " + "bd: " + data.email);
+    document.querySelector("#email").classList.add("invalid");
+    document.querySelector(".mail").textContent = "|| Not unique. Go to 'already submitted'";
+    window.addEventListener("keyup", function () {
+      document.querySelector("#email").classList.remove("invalid");
+    });
+  }
+  if (count === 0) {
+    console.log("email can be used");
+    /*   post({
+        firstname: form.elements.firstname.value,
+        lastname: form.elements.lastname.value,
+        email: form.elements.email.value,
+        password: form.elements.password.value,
+      }); */
+    form.reset();
+    /*       document.querySelector("#the_form").classList.remove("flex");
+      document.querySelector("#the_form").classList.add("hide");
+      document.querySelector("#the_form_check").classList.remove("flex");
+      document.querySelector("#the_form_check").classList.add("hide");
+      document.querySelector(".container1").style.overflow = "scroll";
+      document.querySelector(".container1").removeEventListener("scroll", setPosition);
+      document.querySelector("#bc_site").classList.remove("hide");
+      document.querySelector(".theFormText").classList.add("hide");
+      document.querySelector("header").classList.remove("hide"); */
+  }
+  count = 0;
+}
+
+function checkData(data) {
+  console.log("checkData");
+  const email = document.querySelector("#email").value;
+  if (email == data.email) {
+    console.log("Already used");
+    console.log("input: " + email + " " + "bd: " + data.email);
+    document.querySelector(".welcome").classList.remove("hidden");
+    document.querySelector(".welcome").textContent = "Welcome back " + data.firstname + "!";
+    document.querySelector(".invalid_text").style.display = "none";
+    /*  setTimeout(() => {
+      document.querySelector(".welcome").classList.add("hidden");
+      document.querySelectorAll(".startHide").forEach((section) => {
+        section.classList.remove("hide");
+      });  */
+    /*       document.querySelector("#the_form_check").classList.add("hide");
+        document.querySelector("#the_form_check").classList.remove("flex"); */
+    //document.querySelector(".container1").style.overflow = "scroll";
+    /*  document.querySelector(".container1").removeEventListener("scroll", setPosition);
+      document.querySelector(".theFormText").classList.add("hide"); */
+    /*  }, 2000); */
+  } else {
+    console.log(email);
+    console.log("does not match");
+    document.querySelector("#email").classList.add("invalid");
+    window.addEventListener("keyup", function () {
+      document.querySelector("#email").classList.remove("invalid");
+    });
+  }
 }
 
 //POST
 
 function post(data) {
-  //OPTIMISTIC INSERTS
-  console.log(data);
-
   showHero(data);
 
   const postData = JSON.stringify(data);
@@ -73,61 +244,7 @@ function post(data) {
     body: postData,
   })
     .then((res) => res.json())
-    .then((data) => {});
-}
-
-function deleteIt(id) {
-  document.querySelector(`article[data-id="${id}"]`).remove();
-  fetch(`${endpoint}/${id}`, {
-    method: "delete",
-    headers: {
-      "Content-Type": "application/json; charset=utf-8",
-      "x-apikey": apiKey,
-      "cache-control": "no-cache",
-    },
-  })
-    .then((res) => res.json())
-    .then((data) => console.log(data));
-}
-
-//PUT
-
-function put(id) {
-  const data = {
-    real_name: "Master Yoda",
-    Alias: "JediMaster" + Math.random(),
-    Date: "unknown",
-    powers: ["infinite"],
-  };
-  let postData = JSON.stringify(data);
-
-  fetch(`${endpoint}/${id}`, {
-    method: "put",
-    headers: {
-      "Content-Type": "application/json; charset=utf-8",
-      "x-apikey": apiKey,
-      "cache-control": "no-cache",
-    },
-    body: postData,
-  })
-    .then((d) => d.json())
     .then((data) => {
-      const copy = document.querySelector(`article[data-id="${id}"]`);
-      copy.querySelector("h1").textContent = data.alias;
-      copy.querySelector("h2 span").textContent = data.real_name;
-      const ul = copy.querySelector("ul");
-      data.powers.forEach((power) => {
-        const li = document.createElement("li");
-        li.textContent = power;
-        ul.appendChild(li);
-      });
+      console.log(data);
     });
 }
-
-/* let form = document.querySelecter("form");
-
-form.addEventListener("submit", (e) => {
-  e.preventDefault();
-  return false;
-  console.log(submit);
-}); */

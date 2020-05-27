@@ -12,6 +12,11 @@ import { bar, brew, checkout } from "./modules/nav";
 //import { login } from "./modules/login";
 import { printKegs, updateAllDashboard, updatedArray } from "./modules/theBar/bottom";
 
+import { login, constDataman } from "./modules/login";
+
+/* let url = "https://foobar-exam.herokuapp.com/beertypes";
+let updateUrl = "https://foobar-exam.herokuapp.com"; */
+
 window.addEventListener("DOMContentLoaded", init);
 
 export let staticArray = [];
@@ -22,6 +27,8 @@ export let updatedCheckArray = [];
 function init() {
   console.log(staticArray);
   console.log("tis ");
+  constDataman();
+
   popBut.addEventListener("click", () => {
     popUp.classList.toggle("active");
   });
@@ -88,7 +95,8 @@ function delegateUpdates(jsonData) {
 }
 
 function receiptEventlisterner() {
-  payBut.addEventListener("click", displayConfirmation);
+  // PAYNOW = paymentbutton (see login.js) - needs to be depending on if the payment form validates, before calling displayConfirmation.
+  /*  paynow.addEventListener("click", displayConfirmation); */
   console.log(receipt);
   receiptBut.addEventListener("click", () => {
     receipt.classList.add("active");
