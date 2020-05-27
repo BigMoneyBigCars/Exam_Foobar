@@ -2,10 +2,59 @@
   justify-content: center;
   align-items: center;
   position: absolute;
-  display: none;
-  top: 25%;
+  display: none; // When active display: grid;
+  grid-template-columns: (1fr);
+  grid-template-rows: 250px auto;
+  top: 0;
   width: 100vw;
-  height: 50vh;
+  height: 100vh;
   background-color: #f5f5f5;
   z-index: 3000;
+}
+
+#confirmation a {
+  display: grid;
+}
+
+#confirmation img {
+  height: 250px;
+  max-width: 100vw;
+  justify-self: center;
+}
+
+.confirmcontainer {
+  padding-bottom: 50px;
+  justify-items: center;
+  align-items: center;
+  text-align: center;
+  align-self: center;
+  height: 100%;
+  display: grid;
+  grid-template-rows: auto;
+}
+
+#confirmation h1,
+#confirmation h2 {
+  font-size: 4rem;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+#confirmation h3 {
+  font-size: 0.9rem;
+  font-weight: 300;
+}
+
+#confirmation p {
+  font-size: 0.9rem;
+  text-transform: uppercase;
+}
+
+.closebtn {
+  width: 100%;
+  height: 5vh;
+  background: #6288cf !important;
+  color: #fff !important;
+  font-weight: 300;
+  text-transform: uppercase;
 }
