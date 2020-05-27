@@ -226,11 +226,17 @@
               <div class="input-field">
                 <div class="labelcontainer"> <label for="cardname">Name on card</label> <p class="invalid_text mail " > Please provide your work email</p></div> 
                 <input id="cardname" type="text" name="cardname" placeholder="Full name" autocomplete="nope" value="" required>
+                
+
+                
+
                 <p class="invalid_text"> Please provide your full name, as it appears on your credit card</p>
               </div>
               <div class="input-field">
                 <div class="labelcontainer"> <label for="ccnumber">Credit card number</label> <p class="invalid_text "> Please provide your work email</p> </div> 
-                <input id="ccnumber" type="tel" name="ccnumber" inputmode="numeric" pattern="[0-9\s]{16,16}" autocomplete="cc-number" maxlength="19" placeholder="1111-2222-3333-4444" value="" required>
+                <input id="credit-card" class="form-control" type="text" name="card-number"  pattern="[0-9\s]{16,16}" autocomplete="cc-number" maxlength="19" placeholder="1111-2222-3333-4444" value="" required>
+
+              
                 <p class="invalid_text"> Please provide a correct credit card number</p>
                
               </div>
