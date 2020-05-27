@@ -74,7 +74,7 @@ function filterData() {
   filterBeerArrays(staticArray, updatedCheckArray);
   receiptEventlisterner();
 
-  setTimeout(getUpdate, 1000);
+  // setTimeout(getUpdate, 1000);
 }
 
 function getUpdate() {
@@ -95,8 +95,6 @@ function delegateUpdates(jsonData) {
 }
 
 function receiptEventlisterner() {
-  // PAYNOW = paymentbutton (see login.js) - needs to be depending on if the payment form validates, before calling displayConfirmation.
-  /*  paynow.addEventListener("click", displayConfirmation); */
   console.log(receipt);
   receiptBut.addEventListener("click", () => {
     receipt.classList.add("active");

@@ -26,10 +26,7 @@ h2 {
 
 main {
 }
-.invalid {
-  color: red;
-  background-color: red;
-}
+
 #main-container {
   min-height: calc(100vh - var(--nav-height));
   max-height: calc(100vh - var(--nav-height));
@@ -42,6 +39,14 @@ main {
   top: calc(var(--nav-height));
   width: 100vw;
   max-width: 100vw;
+}
+
+#theBrew,
+#theBar,
+#checkout {
+  position: relative;
+  top: var(--nav-height);
+  overflow: hidden;
 }
 
 #theBrew {

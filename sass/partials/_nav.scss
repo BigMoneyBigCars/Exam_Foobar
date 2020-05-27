@@ -18,6 +18,8 @@ nav {
   justify-content: center;
   align-items: center;
   border-bottom: 1px solid black;
+  background: var(--color-7);
+  z-index: 3000;
 }
 
 nav .label {

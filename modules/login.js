@@ -1,4 +1,7 @@
 //GET
+import { displayConfirmation } from "./checkout";
+import { orderArray } from "./addRemoveBeer";
+
 const endpoint = "https://trellocopy-abcd.restdb.io/rest/login";
 const apiKey = "5e9844eb436377171a0c2461";
 let counter;
@@ -60,7 +63,17 @@ export function constDataman() {
     });
 
     validateForm(input, form);
+
+    if (counter > 0) {
+      console.log("CANNOT DO SHIT");
+    } else if (counter === 0) {
+      console.log("WORKS FFS");
+      setTimeout(() => {
+        displayConfirmation(orderArray);
+      }, 1000);
+    }
   });
+
   submit.addEventListener("click", (e) => {
     e.preventDefault();
 
@@ -113,8 +126,8 @@ function validateForm(input, form) {
     get();
   } else {
     input.forEach((el) => {
-      console.log("er her");
-      console.log(el);
+      //console.log("er her");
+      //console.log(el);
 
       if (!el.checkValidity()) {
         counter++;
@@ -127,9 +140,16 @@ function validateForm(input, form) {
   }
 }
 
+document.querySelectorAll("input").forEach((e) => {
+  console.log(e);
+  e.addEventListener("keyup", () => {
+    e.classList.remove("invalid");
+  });
+});
+
 async function get() {
   console.log("it workz");
-  document.querySelector(".testcontainer").innerHTML = "";
+
   let response = await fetch(endpoint, {
     method: "get",
     headers: {
@@ -166,7 +186,7 @@ async function get() {
 
 function loopData(data) {
   const email = document.querySelector("#email").value;
-  if (count > 1) {
+  if (count === 1) {
     console.log("email not unique");
     console.log("input: " + email + " " + "bd: " + data.email);
     document.querySelector("#email").classList.add("invalid");
@@ -183,9 +203,11 @@ function loopData(data) {
         email: form.elements.email.value,
         password: form.elements.password.value,
       }); */
-    form.reset();
-    /*       document.querySelector("#the_form").classList.remove("flex");
-      document.querySelector("#the_form").classList.add("hide");
+    signup.reset();
+    document.querySelector("#registerform").style.display = "none";
+    document.querySelector("#login").style.display = "block";
+
+    /* document.querySelector("#the_form").classList.add("hide");
       document.querySelector("#the_form_check").classList.remove("flex");
       document.querySelector("#the_form_check").classList.add("hide");
       document.querySelector(".container1").style.overflow = "scroll";
@@ -199,24 +221,28 @@ function loopData(data) {
 
 function checkData(data) {
   console.log("checkData");
+
+  let checkget = 0;
+
   const email = document.querySelector("#email").value;
   if (email == data.email) {
+    checkget;
     console.log("Already used");
     console.log("input: " + email + " " + "bd: " + data.email);
     document.querySelector(".welcome").classList.remove("hidden");
     document.querySelector(".welcome").textContent = "Welcome back " + data.firstname + "!";
     document.querySelector(".invalid_text").style.display = "none";
-    /*  setTimeout(() => {
+    setTimeout(() => {
       document.querySelector(".welcome").classList.add("hidden");
-      document.querySelectorAll(".startHide").forEach((section) => {
-        section.classList.remove("hide");
-      });  */
-    /*       document.querySelector("#the_form_check").classList.add("hide");
+
+      document.querySelector("#loginscreen").classList.add("active");
+
+      /*       document.querySelector("#the_form_check").classList.add("hide");
         document.querySelector("#the_form_check").classList.remove("flex"); */
-    //document.querySelector(".container1").style.overflow = "scroll";
-    /*  document.querySelector(".container1").removeEventListener("scroll", setPosition);
+      //document.querySelector(".container1").style.overflow = "scroll";
+      /*  document.querySelector(".container1").removeEventListener("scroll", setPosition);
       document.querySelector(".theFormText").classList.add("hide"); */
-    /*  }, 2000); */
+    }, 2000);
   } else {
     console.log(email);
     console.log("does not match");
@@ -230,8 +256,6 @@ function checkData(data) {
 //POST
 
 function post(data) {
-  showHero(data);
-
   const postData = JSON.stringify(data);
 
   fetch(endpoint, {

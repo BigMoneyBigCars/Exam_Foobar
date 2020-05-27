@@ -32,23 +32,22 @@
   </header>
   <body>
 
-    <section id="loginscreen">
-      <div class="testcontainer"></div>
-
+    <section id="loginscreen" class="active"> 
+  
+      <a href="index.html"><img src="/static/icons/logo.png" alt="Logo" /></a>
    
     
  
     
-      <div class="login-form" >
         <form id="login">
-          <a href="index.html"><img src="/static/icons/logo.png" alt="Logo" /></a>
+         
           <h1>Login</h1>
           <h2 class="welcome hidden"></h2>
           <div class="content">
             <div class="input-field">
               <div class="labelcontainer"> <label for="email">Email</label> </div> 
               <input id="email" type="email" name="email" placeholder="Email" autocomplete="nope" value="" required>
-              <p class="invalid_text"> The email must be the one you signed up with!</p>
+              <p class="invalid_text mail"> The email must be the one you signed up with!</p>
             </div>
             <div class="input-field">
               <div class="labelcontainer"> <label for="password">Password</label>  </div> 
@@ -67,8 +66,8 @@
               else you can watch this amazing video.
             </h1>
         
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/G9Y5Dhzciyc?&amp;autoplay=0"  frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
+<!--             <iframe width="560" height="315" src="https://www.youtube.com/embed/G9Y5Dhzciyc?&amp;autoplay=0"  frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+ -->
             </div>
           </section>
           <div class="action">
@@ -76,11 +75,10 @@
             <button class="signin">Sign in</button>
           </div>
         </form>
-      </div>
+     
 
-      <div class="login-form" >
         <form id="registerform" class="hidemyass" style="display: none">
-          <a href="index.html"><img src="/static/icons/logo.png" alt="Logo" /></a>
+     
           <h1>Signup</h1>
           <div class="content">
             
@@ -126,7 +124,7 @@
             <button class="showsignin">Create user</button>
           </div>
         </form>
-      </div> 
+   
 
     </section>
     <article id="confirmation">
@@ -232,11 +230,13 @@
               </div>
               <div class="input-field">
                 <div class="labelcontainer"> <label for="ccnumber">Credit card number</label> <p class="invalid_text "> Please provide your work email</p> </div> 
-                <input id="ccnumber" type="tel" name="ccnumber" inputmode="numeric" pattern="[0-9\s]{13,19}" autocomplete="cc-number" maxlength="19" placeholder="1111-2222-3333-4444" value="" required>
+                <input id="ccnumber" type="tel" name="ccnumber" inputmode="numeric" pattern="[0-9\s]{16,16}" autocomplete="cc-number" maxlength="19" placeholder="1111-2222-3333-4444" value="" required>
                 <p class="invalid_text"> Please provide a correct credit card number</p>
                
               </div>
-              <div id="expmonthbox" class="input-field">
+              <div class="smallContainer">
+
+              <div  class="input-field">
                 <div class="labelcontainer"> <label for="expmonth">Exp month</label> <p class="invalid_text "> Please provide your work email</p> </div> 
                 <input id="expmonth" type="tel" name="expmonth" inputmode="numeric" pattern="[0-2\s]{0,2}" autocomplete="exp-month" maxlength="2" placeholder="Exp month" value="" required>
                 <p class="invalid_text"> Please provide the correct experation month</p>
@@ -245,13 +245,13 @@
                 
              
                   </div>
-                  <div id="expmonthbox" class="input-field">
+                  <div  class="input-field">
                     <div class="labelcontainer"> <label for="expyear">Exp year</label> <p class="invalid_text "> Please provide your work email</p> </div> 
-                    <input id="expyear" type="tel" name="expyear" inputmode="numeric" pattern="[0-4\s]{0,4}" autocomplete="exp-year" maxlength="4" placeholder="2020" value="" required>
+                    <input id="expyear" type="tel" name="expyear" inputmode="numeric" pattern="[0-4\s]{4,4}" autocomplete="exp-year" maxlength="4" placeholder="2020" value="" required>
                     <p class="invalid_text"> Please provide a correct experation year</p>
                    
                   </div>
-                  <div id="expmonthbox" class="input-field">
+                  <div class="input-field">
                 
                     <div class="labelcontainer"> <label for="cvv">CVV</label> <p class="invalid_text "> Please provide your work email</p> </div> 
 
@@ -259,6 +259,7 @@
                     <p class="invalid_text"> Please provide a correct CVV number</p>
                   </div>
                 </div>
+              </div>
 
                 <div class="action">
                  
@@ -399,18 +400,7 @@
         </template>
       </div>
     </section>
-    <template id="testlogin">
-      <article>
-        <h1></h1>
-        <p></p>
-
-
-      </article>
-   
     
-      
-    
-  </template>
     
    
     </main>
