@@ -34,7 +34,7 @@ function init() {
   });
   brew.style.display = "none";
   checkout.style.display = "none";
-  bar.style.display = "block";
+  bar.style.display = "grid";
   fetchJson(url, fetchStaticArray);
   //fetchJson(updateUrl, printKegs);
 

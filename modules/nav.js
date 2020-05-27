@@ -28,7 +28,7 @@ mAtags.forEach((a) => {
     if (a.className == "theBar") {
       brew.style.display = "none";
       checkout.style.display = "none";
-      bar.style.display = "block";
+      bar.style.display = "grid";
       topLabel.textContent = "The Bar";
     }
 

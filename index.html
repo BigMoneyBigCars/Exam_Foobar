@@ -270,31 +270,8 @@
               </div>
              
            
-              </div>
-        <!--     <label for="cname">Name on Card</label>
-            <input type="text" id="cname" name="cardname" placeholder="John More Doe">
-            <label for="ccnum">Credit card number</label>
-            <input type="text" id="ccnum" name="cardnumber" placeholder="1111-2222-3333-4444">
-            <label for="expmonth">Exp Month</label>
-            <input type="text" id="expmonth" name="expmonth" placeholder="September">
-
-            <div class="row">
-              <div class="col-50">
-                <label for="expyear">Exp Year</label>
-                <input type="text" id="expyear" name="expyear" placeholder="2018">
-              </div>
-              <div class="col-50">
-                <label for="cvv">CVV</label>
-                <input type="text" id="cvv" name="cvv" placeholder="352">
-              </div>
-            </div>
-        
-
-        </div>  -->
-      <!--   <label>
-          <input type="checkbox" checked="checked" name="sameadr"> Shipping address same as billing
-        </label> -->
       
+    
         
       </form>
           </article>
@@ -342,68 +319,74 @@
           </div>
         </div>
 
-        <template class="avaliable"
-          ><article>
-            <div class="product">
-              <div class="img-container"><img src="#" alt="beer"><!-- <div class="img"></div> --></div>
-              <div class="desc-container">
-                <h1></h1>
-                <p></p>
-              </div>
-            </div>
-            <div class="counter">
-              <i class="fa fa-minus"></i>
-              <div class="count">0</div>
-              <i class="fa fa-plus"></i>
-            </div></article
-        ></template>
-        <template class="notAvaliable"
-        ><article>
-          <div class="product">
-            <div class="img-container"><img src="#" alt="beer"><!-- <div class="img"></div> --></div>
-            <div class="desc-container">
-              <h1></h1>
-              <p></p>
-            </div>
-          </div>
-          <div class="counter">
-            <i class="fa fa-minus"></i>
-            <div class="count">0</div>
-            <i class="fa fa-plus"></i>
-          </div></article
-      ></template>
-
-        <template class="bottom-bar">
-          
-          <div class="point">
-            <p>tis</p>
-            
-            <svg class="round" viewbox="0 0 100 100" width="80px" height="80px" data-percent="50" >
-              <defs>
-                <linearGradient id="linear" x1="0%" y1="0%" x2="100%" y2="0%">
-                  <stop offset="0%"   stop-color="#05a"/>
-                  <stop offset="100%" stop-color="#0a5"/>
-                </linearGradient>
-              </defs>
-              <circle cx="50" cy="50" r="40"  stroke="url(#linear)"/>
-            </svg>
-            <h2>Some Beer</h2>
-          </div>  
-        </template>
-        <template class="receipt-temp">
-          <article>
-            <p class="item-amount"></p>
-            <!--  <div class="img-container"><div class="img"></div></div> -->
-            <p class="item"></p>
-            <p class="price"></p>
-          </article>
-        </template>
+      </div>
       </div>
     </section>
     
     
    
     </main>
+
+
+    
+    <template class="avaliable">
+      <article>
+      <div class="product">
+        <div class="img-container"><img src="#" alt="beer"><!-- <div class="img"></div> --></div>
+        <div class="desc-container">
+          <h1></h1>
+          <p></p>
+        </div>
+      </div>
+      <div class="counter">
+        <i class="fa fa-minus"></i>
+        <div class="count">0</div>
+        <i class="fa fa-plus"></i>
+      </div></article>
+    </template>
+  <template class="notAvaliable">
+    <article>
+    <div class="product">
+      <div class="img-container"><img src="#" alt="beer"><!-- <div class="img"></div> --></div>
+      <div class="desc-container">
+        <h1></h1>
+        <p></p>
+      </div>
+    </div>
+    <div class="counter">
+      <i class="fa fa-minus"></i>
+      <div class="count">0</div>
+      <i class="fa fa-plus"></i>
+    </div></article>
+  </template>
+
+  
+    <template class="receipt-temp">
+      <article>
+        <p class="item-amount"></p>
+        <!--  <div class="img-container"><div class="img"></div></div> -->
+        <p class="item"></p>
+        <p class="price"></p>
+      </article>
+    </template>
+
+    <template class="bottom-bar">
+          
+      <div class="point">
+        <p>tis</p>
+        
+        <svg class="round" viewbox="0 0 100 100" width="80px" height="80px" data-percent="50" >
+          <defs>
+            <linearGradient id="linear" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%"   stop-color="#05a"/>
+              <stop offset="100%" stop-color="#0a5"/>
+            </linearGradient>
+          </defs>
+          <circle cx="50" cy="50" r="40"  stroke="url(#linear)"/>
+        </svg>
+        <h2>Some Beer</h2>
+      </div>  
+    </template>
     
   
   
