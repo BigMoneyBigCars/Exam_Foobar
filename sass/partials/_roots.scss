@@ -27,3 +27,8 @@ img {
   padding-left: 1.5rem;
   padding-right: 1.5rem;
 }
+
+@mixin button {
+  background: #6288cf !important;
+  color: #fff !important;
+}
