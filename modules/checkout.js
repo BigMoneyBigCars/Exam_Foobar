@@ -30,14 +30,13 @@ export function displayConfirmation(orderArray) {
 }
 
 function postArray(data) {
+  console.log(data);
   const postData = JSON.stringify(data);
 
-  fetch("https://foobar-exam.herokuapp.com", {
+  fetch("https://foobar-exam.herokuapp.com/", {
     method: "post",
     headers: {
       "Content-Type": "application/json; charset=utf-8",
-
-      "cache-control": "no-cache",
     },
     body: postData,
   })
