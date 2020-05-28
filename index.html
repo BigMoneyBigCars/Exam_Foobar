@@ -245,19 +245,17 @@
           
             <form id="paymentform">
           <div class="col-50">
-            <h3>Payment</h3>
-            <label for="fname">Accepted Cards</label>
-            <div class="icon-container">
-              <i class="fa fa-cc-visa" style="color:navy;"></i>
-              <i class="fa fa-cc-amex" style="color:blue;"></i>
-              <i class="fa fa-cc-mastercard" style="color:red;"></i>
-              <i class="fa fa-cc-discover" style="color:orange;"></i>
-            </div>
+            <div class="paymentwrap">
+            <h3>Accepted Cards</h3> <img src="static/icons/cards.png" alt="card-icons"> </div>
+            <div class="checkouttotalcontainer">   <label for="fname">total:</label> <p>240,- </p></div>
+         
+         
 
             <div class="content">
+              <div class="cardinformationtagline">Credit card information</div>
               <div class="input-field">
-                <div class="labelcontainer"> <label for="cardname">Name on card</label> <p class="invalid_text mail " > Please provide your work email</p></div> 
-                <input id="cardname" type="text" name="cardname" placeholder="Full name" autocomplete="nope" value="" required>
+                <div class="labelcontainer"> <label for="cardname">Name on card</label> </div> 
+                <input id="cardname" type="text" name="cardname" pattern="[A-Za-z]" placeholder="Full name" autocomplete="nope" value="" required>
                 
 
                 
@@ -265,7 +263,7 @@
                 <p class="invalid_text"> Please provide your full name, as it appears on your credit card</p>
               </div>
               <div class="input-field">
-                <div class="labelcontainer"> <label for="ccnumber">Credit card number</label> <p class="invalid_text "> Please provide your work email</p> </div> 
+                <div class="labelcontainer"> <label for="ccnumber">Credit card number</label>   </div> 
                 <input id="credit-card" class="form-control" type="text" name="card-number"  pattern="[1-9][0-9]{3}-[0-9]{4}-[0-9]{4}-[0-9]{4}" autocomplete="cc-number" maxlength="19" placeholder="1111-2222-3333-4444" value="" required>
 
               
@@ -275,8 +273,8 @@
               <div class="smallContainer">
 
               <div  class="input-field">
-                <div class="labelcontainer"> <label for="expmonth">Exp month</label> <p class="invalid_text "> Please provide your work email</p> </div> 
-                <input id="expmonth" type="tel" name="expmonth" inputmode="numeric" pattern="[0-2\s]{0,2}" autocomplete="exp-month" maxlength="2" placeholder="Exp month" value="" required>
+                <div class="labelcontainer"> <label for="expmonth">Exp month</label> </div> 
+                <input id="expmonth" type="tel" name="expmonth" inputmode="numeric" pattern="[0-2\s]{0,2}" autocomplete="exp-month" maxlength="2" placeholder="D/M" value="" required>
                 <p class="invalid_text"> Please provide the correct experation month</p>
                
 
@@ -284,25 +282,27 @@
              
                   </div>
                   <div  class="input-field">
-                    <div class="labelcontainer"> <label for="expyear">Exp year</label> <p class="invalid_text "> Please provide your work email</p> </div> 
+                    <div class="labelcontainer"> <label for="expyear">Exp year</label>  </div> 
                     <input id="expyear" type="tel" name="expyear" inputmode="numeric" pattern="[0-4\s]{4,4}" autocomplete="exp-year" maxlength="4" placeholder="2020" value="" required>
                     <p class="invalid_text"> Please provide a correct experation year</p>
                    
                   </div>
                   <div class="input-field">
                 
-                    <div class="labelcontainer"> <label for="cvv">CVV</label> <p class="invalid_text "> Please provide your work email</p> </div> 
+                    <div class="labelcontainer"> <label for="cvv">CVV</label>  </div> 
 
                     <input type="tel" name="cvv" id="cvv" name="cvv" inputmode="numeric" pattern="[0-3\s]{0,3}" maxlength="3"  placeholder="xxx" value="" required>
                     <p class="invalid_text"> Please provide a correct CVV number</p>
                   </div>
                 </div>
-              </div>
-
-                <div class="action">
+               
                  
-                  <button id="paynow" class="signin">Complete purchase</button>
-                </div>
+                 
+               
+              </div>
+              <button id="paynow" class="signin">Pay 240 DKK</button>
+
+               
            
                
               </div>
