@@ -24,6 +24,7 @@
               <a class="theBar" href="#home">The Bar</a>
               <a class="theBrew" href="#skills">The Brew</a>
               <a class="checkout" href="#projects">The Checkout</a>
+              <a class="orders" href="#orders">Your Orders</a>
             </div>
           </div>
         </div>
@@ -36,13 +37,17 @@
   
       <a href="index.html"><img src="/static/icons/logo.png" alt="Logo" /></a>
    
-    
  
-    
+   
         <form id="login">
+            
+      <div class="cont">
+        <h1>Login</h1>
+        <h2 class="welcome hidden"></h2>
+      </div>
+        
          
-          <h1>Login</h1>
-          <h2 class="welcome hidden"></h2>
+         
           <div class="content">
             <div class="input-field">
               <div class="labelcontainer"> <label for="email">Email</label> </div> 
@@ -77,16 +82,19 @@
         </form>
      
 
-        <form id="registerform" class="hidemyass" style="display: none">
-     
-          <h1>Signup</h1>
+        <form id="registerform"  style="display: none">
+          <div class="cont">
+            <h1>Signup</h1>
+            <h2 class="welcome hidden"></h2>
+          </div>
+         
           <div class="content">
             
             <div class="input-field">
               <div class="labelcontainer"> <label for="firstname">First name</label> </div> 
               
              
-              <input id="firstname" type="firstname" name="firstname" placeholder="First name" autocomplete="nope" value="" required>
+              <input id="firstname" type="text" name="firstname" pattern="^[a-zA-Z].*" placeholder="First name" autocomplete="nope" value="" required>
               <p class="invalid_text"> Please provide your first name!</p>
 
            
@@ -94,7 +102,7 @@
    
             <div class="input-field">
               <div class="labelcontainer"> <label for="lastname">Last name</label> </div> 
-              <input id="lastname" type="lastname" name="lastname" placeholder="Last name" autocomplete="nope" value="" required>
+              <input id="lastname" type="lastname" pattern="^[a-zA-Z].*" name="lastname" placeholder="Last name" autocomplete="nope" value="" required>
               <p class="invalid_text"> Please provide your last name!</p>
              
             </div>
@@ -102,7 +110,7 @@
               <div class="labelcontainer"> <label for="email">Email</label> </div> 
               <label for="email"></label>
               <input class="email" type="email" name="email" placeholder="Email" autocomplete="nope" value="" required>
-              <p class="invalid_text"> Please provide a valid email!</p>
+              <p class="invalid_text mail"> Please provide a valid email!</p>
               
             </div>
             <div class="input-field">
@@ -127,6 +135,7 @@
    
 
     </section>
+
     <article id="confirmation">
       <a href="index.html"><img src="/static/icons/logo.png" alt="Logo" /></a>
     <div class="confirmcontainer">
@@ -142,6 +151,7 @@
 
 
     </article>
+  
   
     <article id="receipt" class="">
       <div class="receipt-container">
@@ -186,7 +196,7 @@
         <div class="img"></div>
         <div class="top-container">
           <h1></h1>
-          <i class="fa fa-facebook"></i>
+       
         </div>
         <div class="container">
           <p>Beer type</p>
@@ -224,6 +234,12 @@
     </article>
     <main>
       <div id="main-container">
+<section id="orders">
+        <article>
+    
+    
+        </article>
+      </section>
         <section id="checkout">
           <article class="payment-screen">
           

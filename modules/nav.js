@@ -8,6 +8,7 @@ const mAtags = document.querySelectorAll(".atags-mobile-menu > a");
 export const bar = document.querySelector("#theBar");
 export const brew = document.querySelector("#theBrew");
 export const checkout = document.querySelector("#checkout");
+export const order = document.querySelector("#orders");
 export const topLabel = document.querySelector("nav .label");
 
 toggler.addEventListener("click", () => {
@@ -28,7 +29,10 @@ mAtags.forEach((a) => {
     if (a.className == "theBar") {
       brew.style.display = "none";
       checkout.style.display = "none";
+      order.style.display = "none";
+
       bar.style.display = "grid";
+      topLabel.textContent = "The Bar";
       topLabel.textContent = "The Bar";
     }
 
@@ -36,13 +40,23 @@ mAtags.forEach((a) => {
       checkout.style.display = "none";
       bar.style.display = "none";
       brew.style.display = "block";
+      order.style.display = "none";
+
       topLabel.textContent = "The Brew";
     }
     if (a.className == "checkout") {
       brew.style.display = "none";
       bar.style.display = "none";
+      order.style.display = "none";
       checkout.style.display = "block";
       topLabel.textContent = "Checkout";
+    }
+    if (a.className == "orders") {
+      brew.style.display = "none";
+      bar.style.display = "none";
+      checkout.style.display = "none";
+      order.style.display = "block";
+      topLabel.textContent = "Orders";
     }
   });
 });

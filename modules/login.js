@@ -38,8 +38,11 @@ export function constDataman() {
 
   submit3.addEventListener("click", (e) => {
     e.preventDefault();
+
     document.querySelector("form").style = "display: none";
     document.querySelector("#registerform").style = "display: block";
+
+    document.querySelector("#registerform").classList.add = "fadeObjectIn";
   });
   submit4.addEventListener("click", (e) => {
     e.preventDefault();
@@ -84,10 +87,10 @@ export function constDataman() {
     form.setAttribute("novalidate", true);
 
     let input = form.querySelectorAll("input");
-    console.log(input);
+    //console.log(input);
     input.forEach((el) => {
       el.classList.remove("invalid");
-      console.log(el);
+      // console.log(el);
     });
 
     validateForm(input, form);
@@ -103,10 +106,10 @@ export function constDataman() {
     form.setAttribute("novalidate", true);
 
     let input = form.querySelectorAll("input");
-    console.log(input);
+    //  console.log(input);
     input.forEach((el) => {
       el.classList.remove("invalid");
-      console.log(el);
+      //console.log(el);
     });
 
     validateForm(input, form);
@@ -119,11 +122,20 @@ export function constDataman() {
 }
 
 function validateForm(input, form) {
-  console.log(input);
+  // console.log(input);
+  console.log(form);
+  console.log(form.id);
 
   if (form.checkValidity()) {
     console.log("checking validity");
-    get();
+
+    if (form.id === "registerform") {
+      console.log("#email found");
+      getRegister();
+    } else {
+      console.log("#email NOT found");
+      getLogin();
+    }
   } else {
     input.forEach((el) => {
       //console.log("er her");
@@ -131,10 +143,10 @@ function validateForm(input, form) {
 
       if (!el.checkValidity()) {
         counter++;
-        console.log(el);
-        console.log(el.id);
+        //console.log(el);
+        // console.log(el.id);
         el.classList.add("invalid");
-        console.log("invalid");
+        // console.log("invalid");
       }
     });
   }
@@ -147,10 +159,10 @@ document.querySelectorAll("input").forEach((e) => {
   });
 });
 
-async function get() {
-  console.log("it workz");
+async function getRegister() {
+  console.log("REGISTER LOGIN ");
 
-  let response = await fetch(endpoint + `?q={"email": "jonas@j.dk"}`, {
+  let response = await fetch(endpoint + `?q={"email": "kk@dk.dk"}`, {
     method: "get",
     headers: {
       "Content-Type": "application/json; charset-utf-8",
@@ -176,7 +188,6 @@ async function get() {
     loopData(data);
   } else {
     console.log("loginform");
-    data.forEach(checkData);
   }
 
   /*  .then((e) => e.json())
@@ -184,15 +195,49 @@ async function get() {
   /*.then(showHeroes); */
 }
 
+async function getLogin() {
+  console.log("LOGIN LOGIN");
+
+  let emailLogin = document.querySelector("#email").value;
+  console.log(emailLogin);
+
+  let response = await fetch(endpoint + `?q={"email": "${emailLogin}"}`, {
+    method: "get",
+    headers: {
+      "Content-Type": "application/json; charset-utf-8",
+      "x-apikey": apiKey,
+      "cache-control": "no-cache",
+    },
+  });
+  data = await response.json();
+  console.log(data);
+
+  if (data.length != 0) {
+    data.forEach(checkData);
+    console.log("there is data");
+  } else {
+    console.log("there is not data");
+
+    console.log("does not match");
+    document.querySelector("#email").classList.add("invalid");
+    window.addEventListener("keyup", function () {
+      document.querySelector("#email").classList.remove("invalid");
+    });
+  }
+}
+
 function loopData(data) {
-  const email = document.querySelector("#email").value;
+  console.log(count);
+  const email = document.querySelector(".email").value;
   if (count === 1) {
     console.log("email not unique");
     console.log("input: " + email + " " + "bd: " + data.email);
-    document.querySelector("#email").classList.add("invalid");
-    document.querySelector(".mail").textContent = "|| Not unique. Go to 'already submitted'";
+    document.querySelector("#registerform > div.content > div:nth-child(3) > p").textContent = "Email already in use. Go back to login";
+    document.querySelector(".email").classList.add("invalid");
+
+    console.log(document.querySelector(".mail"), "HER");
     window.addEventListener("keyup", function () {
-      document.querySelector("#email").classList.remove("invalid");
+      document.querySelector(".email").classList.remove("invalid");
     });
   }
   if (count === 0) {
@@ -222,31 +267,43 @@ function loopData(data) {
 function checkData(data) {
   console.log("checkData");
 
+  console.log(data);
+  console.log(data.email);
+
   let checkget = 0;
 
-  const email = document.querySelector("#email").value;
-  if (email == data.email) {
-    checkget;
-    /*     console.log("Already used");
-    console.log("input: " + email + " " + "bd: " + data.email); */
-    document.querySelector(".welcome").classList.remove("hidden");
-    document.querySelector(".welcome").textContent = "Welcome back " + data.firstname + "!";
-    document.querySelector(".invalid_text").style.display = "none";
-    setTimeout(() => {
-      document.querySelector(".welcome").classList.add("hidden");
+  const emailLogin = document.querySelector("#email").value;
+  const passwordLogin = document.querySelector("#password").value;
+  console.log(emailLogin);
 
-      document.querySelector("#loginscreen").classList.add("active");
+  if (emailLogin == data.email && passwordLogin == data.password) {
+    console.log("Already used");
 
-      /*       document.querySelector("#the_form_check").classList.add("hide");
-        document.querySelector("#the_form_check").classList.remove("flex"); */
-      //document.querySelector(".container1").style.overflow = "scroll";
-      /*  document.querySelector(".container1").removeEventListener("scroll", setPosition);
-      document.querySelector(".theFormText").classList.add("hide"); */
-    }, 2000);
-  } else {
-    console.log(email);
+    document.querySelector("form#login .content").classList.add("fadeObjectOut");
+    document.querySelector("#loginscreen h1").classList.add("fadeObjectOut");
+    document.querySelector("#loginscreen .action").classList.add("fadeObjectOut");
+    document.querySelector("form#login").addEventListener("animationend", () => {
+      document.querySelector(".welcome").classList.remove("hidden");
+      document.querySelector(".welcome").textContent = "Welcome " + data.firstname + "!";
+      document.querySelector(".invalid_text").style.display = "none";
+
+      setTimeout(() => {
+        document.querySelector(".welcome").classList.add("hidden");
+
+        document.querySelector("#loginscreen").classList.add("active");
+
+        /*       document.querySelector("#the_form_check").classList.add("hide");
+          document.querySelector("#the_form_check").classList.remove("flex"); */
+        //document.querySelector(".container1").style.overflow = "scroll";
+        /*  document.querySelector(".container1").removeEventListener("scroll", setPosition);
+        document.querySelector(".theFormText").classList.add("hide"); */
+      }, 2000);
+    });
+  } else if (emailLogin == data.email && passwordLogin != data.password) {
     console.log("does not match");
-    document.querySelector("#email").classList.add("invalid");
+    document.querySelector("#password").classList.add("invalid");
+    document.querySelector("#login > div.content > div:nth-child(2) > p").textContent = "Password does not match email";
+
     window.addEventListener("keyup", function () {
       document.querySelector("#email").classList.remove("invalid");
     });

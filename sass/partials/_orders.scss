@@ -1,0 +1,23 @@
+@use "partials/roots";
+#orders {
+  height: 100%;
+  display: none;
+  height: calc(100vh - var(--nav-height));
+  article {
+    overflow-x: scroll;
+
+    height: 100%;
+    width: 100%;
+
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: repeat(8, 1fr);
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+    background: red;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+}

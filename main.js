@@ -6,7 +6,6 @@ import { fetchJson } from "./modules/fetchJson";
 import { displayBeer, filterBeerArrays, checkBeerArray } from "./modules/products";
 import { closeReceipt, updateReceipt } from "./modules/receipt";
 import { receiptBut, payBut, receipt, popUp, popBut, url, updateUrl } from "./modules/consts";
-import { formatCreditCard } from "./modules/checkout";
 
 import { bar, brew, checkout } from "./modules/nav";
 //import { login } from "./modules/login";
@@ -97,7 +96,6 @@ function delegateUpdates(jsonData) {
 function receiptEventlisterner() {
   console.log(receipt);
 
-  document.getElementById("credit-card").addEventListener("keydown", formatCreditCard);
   receiptBut.addEventListener("click", () => {
     receipt.classList.add("active");
     updateReceipt();

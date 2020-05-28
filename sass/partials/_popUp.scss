@@ -3,7 +3,7 @@
   position: absolute;
   z-index: 998;
   color: black;
-  background: #f5f5f5;
+  background: var(--background);
   min-height: 100vh;
 
   display: inline-block;
