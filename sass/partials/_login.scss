@@ -328,6 +328,9 @@ a.link {
 
   .invalid_text {
     display: none;
+
+    padding-left: 2px;
+    text-align: left;
   }
 
   .invalid + .invalid_text {

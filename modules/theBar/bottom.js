@@ -78,10 +78,14 @@ function updateRight(data) {
   // console.log(queue);
   //console.log(serving);
   //console.log(time);
-
   let queueTime = queue.length * 60;
   let servingTime = serving.length * 30;
+  let waitTime = ((queueTime + servingTime) / 60).toFixed(0);
+
+  console.log(waitTime);
   document.querySelector(".sbRight .theQueue").textContent = queue.length;
+  document.querySelector("#confirmation > div > h2").textContent = queue.length;
   document.querySelector(".sbRight .serving").textContent = serving.length;
-  document.querySelector(".sbRight .time").textContent = ((queueTime + servingTime) / 60).toFixed(0) + "min";
+  document.querySelector(".sbRight .time").textContent = waitTime + " min";
+  document.querySelector("#confirmation > div > p:nth-child(6)").textContent = waitTime + " min";
 }

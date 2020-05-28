@@ -40,10 +40,10 @@
 }
 
 #paymentform .checkouttotalcontainer {
-  display: grid;
-  grid-template-columns: 2;
-  grid-template-columns: repeat(2, 1fr);
-  grid-gap: 61vw;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
   margin-top: 1rem;
   padding-left: 1.5rem;
   padding-right: 1.5rem;

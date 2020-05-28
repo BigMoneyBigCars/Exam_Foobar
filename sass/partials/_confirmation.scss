@@ -1,6 +1,8 @@
+@use "partials/roots";
 #confirmation {
   justify-content: center;
   align-items: center;
+  justify-items: center;
   position: absolute;
   display: none; // When active display: grid;
   grid-template-columns: (1fr);
@@ -17,12 +19,12 @@
 }
 
 #confirmation img {
-  height: 100%;
+  height: 200px;
   max-height: 180px;
 }
 
 .confirmcontainer {
-  padding-bottom: 50px;
+  @include roots.padding1;
   justify-items: center;
   align-items: center;
   text-align: center;

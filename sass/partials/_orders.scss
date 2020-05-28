@@ -1,23 +1,53 @@
 @use "partials/roots";
+@use "partials/fonts";
 #orders {
   height: 100%;
   display: none;
   height: calc(100vh - var(--nav-height));
   article {
     overflow-x: scroll;
-
     height: 100%;
     width: 100%;
-
     display: grid;
-    grid-template-columns: repeat(12, 1fr);
-    grid-template-rows: repeat(8, 1fr);
+    justify-content: center;
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: 40px auto;
+    width: 100%;
     justify-content: center;
     justify-items: center;
     align-items: center;
-    background: red;
     &::-webkit-scrollbar {
       display: none;
     }
+  }
+  .wrapper {
+    @include roots.padding1;
+    width: 100%;
+    align-self: baseline;
+  }
+  .itemOrder {
+    border: 1px solid black;
+    border-radius: 5px;
+    @include roots.padding1;
+    @include fonts.industry();
+  }
+  .order-id-container {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border-bottom: 2px solid black;
+    margin-bottom: 1.5rem;
+  }
+  .orderItem-container .items {
+    @include roots.padding1;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
   }
 }

@@ -10,193 +10,164 @@
     <link rel="stylesheet" href="sass/styles.scss" />
     <title>Foobar</title>
   </head>
-
-  <header>
-    <nav>
-      <div class="nav-container">
-        <a href="#"><img src="/static/icons/logo.png" alt="Logo" /></a>
-        <div class="label">The Bar</div>
-        <div class="menu__toggler"><span></span></div>
-        <div id="mobile-menu">
-          <div id="nav" class="main-nav mobile-menu-dropdown" role="navigation">
-            <h2>Where to?</h2>
-            <div class="atags-mobile-menu">
-              <a class="theBar" href="#home">The Bar</a>
-              <a class="theBrew" href="#skills">The Brew</a>
-              <a class="checkout" href="#projects">The Checkout</a>
-              <a class="orders" href="#orders">Your Orders</a>
+  <body>
+    <header>
+      <nav>
+        <div class="nav-container">
+          <a href="#"><img src="/static/icons/logo.png" alt="Logo" /></a>
+          <div class="label">The Bar</div>
+          <div class="menu__toggler"><span></span></div>
+          <div id="mobile-menu">
+            <div id="nav" class="main-nav mobile-menu-dropdown" role="navigation">
+              <h2>Where to?</h2>
+              <div class="atags-mobile-menu">
+                <a class="theBar" href="#home">The Bar</a>
+                <a class="theBrew" href="#skills">The Brew</a>
+                <a class="checkout" href="#projects">The Checkout</a>
+                <a class="orders" href="#orders">Your Orders</a>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </nav>
-  </header>
-  <body>
+      </nav>
+    </header>
 
-    <section id="loginscreen" class="active"> 
-  
+    <section id="loginscreen" class="">
       <a href="index.html"><img src="/static/icons/logo.png" alt="Logo" /></a>
-   
- 
-   
-        <form id="login">
-            
-      <div class="cont">
-        <h1>Login</h1>
-        <h2 class="welcome hidden"></h2>
-      </div>
-        
-         
-         
-          <div class="content">
-            <div class="input-field">
-              <div class="labelcontainer"> <label for="email">Email</label> </div> 
-              <input id="email" type="email" name="email" placeholder="Email" autocomplete="nope" value="" required>
-              <p class="invalid_text mail"> The email must be the one you signed up with!</p>
-            </div>
-            <div class="input-field">
-              <div class="labelcontainer"> <label for="password">Password</label>  </div> 
-              <input id="password" type="password" name="password" placeholder="Password" autocomplete="new-password" value="" required>
-              <p class="invalid_text"> Please provide your password, to continue!</p>
-             
-            </div>
-            <a href="#forgotpassword" class="link">Forgot Your Password?</a>
+
+      <form id="login">
+        <div class="cont">
+          <h1>Login</h1>
+          <h2 class="welcome hidden"></h2>
+        </div>
+
+        <div class="content">
+          <div class="input-field">
+            <div class="labelcontainer"><label for="email">Email</label></div>
+            <input id="email" type="email" name="email" placeholder="Email" value="" required />
+            <p class="invalid_text mail">The email must be the one you signed up with!</p>
           </div>
-          <section id="forgotpassword" style="display: none">
-            <div>
-              <a href="index.html"><img src="/static/icons/logo.png" alt="Logo" /></a>
-            <h1>
-             <span>Whoops!</span>  <br>This is just a prototype! <br />
+          <div class="input-field">
+            <div class="labelcontainer"><label for="password">Password</label></div>
+            <input id="password" type="password" name="password" placeholder="Password" autocomplete="new-password" value="" required />
+            <p class="invalid_text">Please provide your password, to continue!</p>
+          </div>
+          <a href="#forgotpassword" class="link">Forgot Your Password?</a>
+        </div>
+        <section id="forgotpassword" style="display: none;">
+          <div>
+            <a href="index.html"><img src="/static/icons/logo.png" alt="Logo" /></a>
+            <h2>
+              <span>Whoops!</span> <br />This is just a prototype! <br />
               If you forgot your password, make a new user... <br />
               else you can watch this amazing video.
-            </h1>
-        
-<!--             <iframe width="560" height="315" src="https://www.youtube.com/embed/G9Y5Dhzciyc?&amp;autoplay=0"  frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </h2>
+
+            <!--             <iframe width="560" height="315" src="https://www.youtube.com/embed/G9Y5Dhzciyc?&amp;autoplay=0"  frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
  -->
-            </div>
-          </section>
-          <div class="action">
-            <button class="register">Register</button>
-            <button class="signin">Sign in</button>
           </div>
-        </form>
-     
+        </section>
+        <div class="action">
+          <button class="register">Register</button>
+          <button class="signin">Sign in</button>
+        </div>
+      </form>
 
-        <form id="registerform"  style="display: none">
-          <div class="cont">
-            <h1>Signup</h1>
-            <h2 class="welcome hidden"></h2>
-          </div>
-         
-          <div class="content">
-            
-            <div class="input-field">
-              <div class="labelcontainer"> <label for="firstname">First name</label> </div> 
-              
-             
-              <input id="firstname" type="text" name="firstname" pattern="^[a-zA-Z].*" placeholder="First name" autocomplete="nope" value="" required>
-              <p class="invalid_text"> Please provide your first name!</p>
+      <form id="registerform" style="display: none;">
+        <div class="cont">
+          <h1>Signup</h1>
+          <h2 class="welcome hidden"></h2>
+        </div>
 
-           
-          </div>
-   
-            <div class="input-field">
-              <div class="labelcontainer"> <label for="lastname">Last name</label> </div> 
-              <input id="lastname" type="lastname" pattern="^[a-zA-Z].*" name="lastname" placeholder="Last name" autocomplete="nope" value="" required>
-              <p class="invalid_text"> Please provide your last name!</p>
-             
-            </div>
-            <div class="input-field">
-              <div class="labelcontainer"> <label for="email">Email</label> </div> 
-              <label for="email"></label>
-              <input class="email" type="email" name="email" placeholder="Email" autocomplete="nope" value="" required>
-              <p class="invalid_text mail"> Please provide a valid email!</p>
-              
-            </div>
-            <div class="input-field">
-              <div class="labelcontainer"> <label for="password">Password</label>  </div> 
-              <input class="password" type="password" name="password" placeholder="Password" autocomplete="new-password" value="" required>
-              <p class="invalid_text"> Please select a password!</p>
-             
-            </div>
-            <div class="input-field">
-              <div class="labelcontainer"> <label for="confirmpassword">Confirm password</label> </div> 
-              <input id="confirmpassword" type="password" name="confirmpassword" placeholder="Confirm password" autocomplete="new-password" value="" required>
-              <p class="invalid_text"> To confirm, your passwords must be identical!</p>
-            
-            </div>
-           
-          </div>
-          <div class="action">
-            <button class="registeruser">Go back</button>
-            <button class="showsignin">Create user</button>
-          </div>
-        </form>
-   
+        <div class="content">
+          <div class="input-field">
+            <div class="labelcontainer"><label for="firstname">First name</label></div>
 
+            <input id="firstname" type="text" name="firstname" pattern="^[a-zA-Z].*" placeholder="First name" value="" required />
+            <p class="invalid_text">Please provide your first name!</p>
+          </div>
+
+          <div class="input-field">
+            <div class="labelcontainer"><label for="lastname">Last name</label></div>
+            <input id="lastname" type="lastname" pattern="^[a-zA-Z].*" name="lastname" placeholder="Last name" value="" required />
+            <p class="invalid_text">Please provide your last name!</p>
+          </div>
+          <div class="input-field">
+            <div class="labelcontainer"><label for="email">Email</label></div>
+            <label for="email"></label>
+            <input class="email" type="email" name="email" placeholder="Email" value="" required />
+            <p class="invalid_text mail">Please provide a valid email!</p>
+          </div>
+          <div class="input-field">
+            <div class="labelcontainer"><label for="password">Password</label></div>
+            <input class="password" type="password" name="password" placeholder="Password" autocomplete="new-password" value="" required />
+            <p class="invalid_text">Please select a password!</p>
+          </div>
+          <div class="input-field">
+            <div class="labelcontainer"><label for="confirmpassword">Confirm password</label></div>
+            <input id="confirmpassword" type="password" name="confirmpassword" placeholder="Confirm password" autocomplete="new-password" value="" required />
+            <p class="invalid_text">To confirm, your passwords must be identical!</p>
+          </div>
+        </div>
+        <div class="action">
+          <button class="registeruser">Go back</button>
+          <button class="showsignin">Create user</button>
+        </div>
+      </form>
     </section>
 
     <article id="confirmation">
       <a href="index.html"><img src="/static/icons/logo.png" alt="Logo" /></a>
-    <div class="confirmcontainer">
-      <h1>Success!</h1>
-      <h3>your order is being prepared!</h3>
-      <p>in queue</p>
-      <h2>28</h2>
-      <p>approx. wait time</p>
-      <p>03:02:12</p>
-      
+      <div class="confirmcontainer">
+        <h1>Success!</h1>
+        <h3>your order is being prepared!</h3>
+        <p>in queue</p>
+        <h2></h2>
+        <p>approx. wait time</p>
+        <p></p>
 
-      <button class="closebtn">Close</button></div>
-
-
+        <button class="closebtn">Close</button>
+      </div>
     </article>
-  
-  
+
     <article id="receipt" class="">
       <div class="receipt-container">
-        <div class="logo"><img src="/static/icons/logo.png" /></div><div class="title">
-  
-  
-        <h3>Checkout</h3>
-        <p class="total"></p>
-      </div>
-      <div class="wrapper">
-     
-        <div class="headline">
-          <p>QTY.</p>
-          <p>ITEMS</p>
-          <p class="end">PRICE</p>
-        </div>
-        <div class="container"></div>
-        <div class="total-container">
-          <h3>TOTAL</h3>
+        <div class="logo"><img src="/static/icons/logo.png" alt="#" /></div>
+        <div class="title">
+          <h3>Checkout</h3>
           <p class="total"></p>
         </div>
+        <div class="wrapper">
+          <div class="headline">
+            <p>QTY.</p>
+            <p>ITEMS</p>
+            <p class="end">PRICE</p>
+          </div>
+          <div class="container"></div>
+          <div class="total-container">
+            <h3>TOTAL</h3>
+            <p class="total"></p>
+          </div>
 
-        <div class="button-container">
-          <p class="edit" type="edit" for="edit">Edit my order</p>
+          <div class="button-container">
+            <p class="edit">Edit my order</p>
 
-          <div class="confirm">
-            <p>Confirm your order</p>
-            <div class=""></div>
-              <input type="checkbox" id="toggle" class="checkbox"  />
+            <div class="confirm">
+              <p>Confirm your order</p>
+              <div class=""></div>
+              <input type="checkbox" id="toggle" class="checkbox" />
               <label for="toggle" class="switch"></label>
             </div>
           </div>
         </div>
-            <button class="submit" disabled type="submit">Continue to payment</button>
+        <button class="submit" disabled type="submit">Continue to payment</button>
       </div>
-   
-  
-    </div>
     </article>
     <article id="product-details">
       <div class="wrapper">
         <div class="img"></div>
         <div class="top-container">
           <h1></h1>
-       
         </div>
         <div class="container">
           <p>Beer type</p>
@@ -234,171 +205,166 @@
     </article>
     <main>
       <div id="main-container">
-<section id="orders">
-        <article>
-    
-    
-        </article>
-      </section>
-        <section id="checkout">
-          <article class="payment-screen">
-          
-            <form id="paymentform">
-          <div class="col-50">
-            <div class="paymentwrap">
-            <h3>Accepted Cards</h3> <img src="static/icons/cards.png" alt="card-icons"> </div>
-            <div class="checkouttotalcontainer">   <label for="fname">total:</label> <p>240,- </p></div>
-         
-         
-
-            <div class="content">
-              <div class="cardinformationtagline">Credit card information</div>
-              <div class="input-field">
-                <div class="labelcontainer"> <label for="cardname">Name on card</label> </div> 
-                <input id="cardname" type="text" name="cardname" pattern="[A-Za-z]" placeholder="Full name" autocomplete="nope" value="" required>
-                
-
-                
-
-                <p class="invalid_text"> Please provide your full name, as it appears on your credit card</p>
-              </div>
-              <div class="input-field">
-                <div class="labelcontainer"> <label for="ccnumber">Credit card number</label>   </div> 
-                <input id="credit-card" class="form-control" type="text" name="card-number"  pattern="[1-9][0-9]{3}-[0-9]{4}-[0-9]{4}-[0-9]{4}" autocomplete="cc-number" maxlength="19" placeholder="1111-2222-3333-4444" value="" required>
-
-              
-                <p class="invalid_text"> Please provide a correct credit card number</p>
-               
-              </div>
-              <div class="smallContainer">
-
-              <div  class="input-field">
-                <div class="labelcontainer"> <label for="expmonth">Exp month</label> </div> 
-                <input id="expmonth" type="tel" name="expmonth" inputmode="numeric" pattern="[0-2\s]{0,2}" autocomplete="exp-month" maxlength="2" placeholder="D/M" value="" required>
-                <p class="invalid_text"> Please provide the correct experation month</p>
-               
-
-                
-             
-                  </div>
-                  <div  class="input-field">
-                    <div class="labelcontainer"> <label for="expyear">Exp year</label>  </div> 
-                    <input id="expyear" type="tel" name="expyear" inputmode="numeric" pattern="[0-4\s]{4,4}" autocomplete="exp-year" maxlength="4" placeholder="2020" value="" required>
-                    <p class="invalid_text"> Please provide a correct experation year</p>
-                   
-                  </div>
-                  <div class="input-field">
-                
-                    <div class="labelcontainer"> <label for="cvv">CVV</label>  </div> 
-
-                    <input type="tel" name="cvv" id="cvv" name="cvv" inputmode="numeric" pattern="[0-3\s]{0,3}" maxlength="3"  placeholder="xxx" value="" required>
-                    <p class="invalid_text"> Please provide a correct CVV number</p>
-                  </div>
-                </div>
-               
-                 
-                 
-               
-              </div>
-              <button id="paynow" class="signin">Pay 240 DKK</button>
-
-               
-           
-               
-              </div>
-             
-           
-      
-    
-        
-      </form>
+        <section id="orders">
+          <article>
+            <h2>Track your order on the display</h2>
+            <div class="wrapper">
+              <div class="itemOrder">¨</div>
+            </div>
           </article>
         </section>
-      <section id="theBar">
-        <div class="wrapper">
-          <div class="mainSection">
-            <div class="wrapper">
-              <div class="item"><p> placeholder</p></div>
-              <div class="item"><p> placeholder</p></div>
-              <div class="item"><p> placeholder</p></div>
+
+        <section id="checkout">
+          <article class="payment-screen">
+            <form id="paymentform">
+              <div class="col-50">
+                <div class="paymentwrap">
+                  <h3>Accepted Cards</h3>
+                  <img src="static/icons/cards.png" alt="card-icons" />
+                </div>
+                <div class="checkouttotalcontainer">
+                  <label for="fname">total:</label>
+                  <p>240,-</p>
+                </div>
+
+                <div class="content">
+                  <div class="cardinformationtagline">Credit card information</div>
+                  <div class="input-field">
+                    <div class="labelcontainer"><label for="cardname">Name on card</label></div>
+                    <input id="cardname" type="text" name="cardname" placeholder="Full name" value="" required />
+                    <p class="invalid_text">Please provide your full name, as it appears on your credit card</p>
+                  </div>
+                  <div class="input-field">
+                    <div class="labelcontainer"><label for="ccnumber">Credit card number</label></div>
+                    <input id="credit-card" class="form-control" type="text" name="card-number" autocomplete="cc-number" maxlength="19" placeholder="1111-2222-3333-4444" value="" required />
+
+                    <p class="invalid_text">Please provide a correct credit card number</p>
+                  </div>
+                  <div class="smallContainer">
+                    <div class="input-field">
+                      <div class="labelcontainer"><label for="expmonth">Exp month</label></div>
+                      <input id="expmonth" type="tel" name="expmonth" inputmode="numeric" pattern="[0-2\s]{0,2}" autocomplete="exp-month" maxlength="2" placeholder="D/M" value="" required />
+                      <p class="invalid_text">Please provide the correct experation month</p>
+                    </div>
+                    <div class="input-field">
+                      <div class="labelcontainer"><label for="expyear">Exp year</label></div>
+                      <input id="expyear" type="tel" name="expyear" inputmode="numeric" pattern="[0-4\s]{4,4}" autocomplete="exp-year" maxlength="4" placeholder="2020" value="" required />
+                      <p class="invalid_text">Please provide a correct experation year</p>
+                    </div>
+                    <div class="input-field">
+                      <div class="labelcontainer"><label for="cvv">CVV</label></div>
+
+                      <input type="tel" name="cvv" id="cvv" inputmode="numeric" pattern="[0-3\s]{0,3}" maxlength="3" placeholder="xxx" value="" required />
+                      <p class="invalid_text">Please provide a correct CVV number</p>
+                    </div>
+                  </div>
+                </div>
+                <button id="paynow" class="signin">Pay 240 DKK</button>
+              </div>
+            </form>
+          </article>
+        </section>
+        <section id="theBar">
+          <div class="wrapper">
+            <div class="mainSection">
+              <div class="wrapper">
+                <div class="item"><p>placeholder</p></div>
+                <div class="item"><p>placeholder</p></div>
+                <div class="item"><p>placeholder</p></div>
+              </div>
+            </div>
+            <div class="sbLeft">
+              <p class="time">Placeholder</p>
+              <p>Placeholder</p>
+              <p>Placeholder</p>
+            </div>
+            <div class="sbRight">
+              <div class="queue">
+                <i class="fa fa-2x fa-users"></i>
+                <p>People in queue</p>
+                <p class="theQueue"></p>
+              </div>
+              <div class="progress">
+                <i class="fa fa-2x fa-beer"></i>
+                <p>Orders Being Made</p>
+                <p class="serving"></p>
+              </div>
+              <div class="waittime">
+                <i class="fa fa-2x fa-times"></i>
+                <p>Avg. wait time</p>
+                <p class="time"></p>
+              </div>
+            </div>
+            <div class="sbBottom"></div>
+          </div>
+        </section>
+        <section id="theBrew">
+          <div id="products">
+            <div id="avaliable">
+              <h2 class="headline">Beers currently on tap</h2>
+              <div class="container"></div>
+            </div>
+
+            <div id="notAvaliable">
+              <h2 class="headline">Beers not currently on tap</h2>
+              <div class="container"></div>
+            </div>
+            <div id="order">
+              <div class="amount">Your basket is empty.</div>
+              <button class="receipt-button" type="submit" value="submit">Add to order</button>
             </div>
           </div>
-         <div class="sbLeft">
-           
-          <p class="time">Placeholder</p>
-          <p>Placeholder</p>
-          <p>Placeholder</p>
-        </div>
-          <div class="sbRight">
-            <div class="queue"><i class="fa fa-2x fa-users"></i><p>People in queue</p><p class="theQueue"></p></div>
-            <div class="progress"><i class="fa fa-2x fa-beer"></i><p >Orders Being Made</p><p class="serving"></p></div>
-            <div class="waittime"><i class="fa fa-2x fa-times"></i><p >Avg. wait time</p><p class="time"></p></div>
-        </div>
-         <div class="sbBottom"></div>
+        </section>
       </div>
-      </section>
-      <section id="theBrew">
-   
-        <div id="products">
-          <div id="avaliable">
-            <h2 class="headline">Beers currently on tap</h2>
-            <div class="container"></div>
-
-          
-          </div>
-          
-          <div id="notAvaliable">
-            <h2 class="headline">Beers not currently on tap</h2>
-            <div class="container"></div>
-          </div>
-          <div id="order">
-            <div class="amount">Your basket is empty.</div>
-            <button class="receipt-button" type="submit" value="submit">Add to order</button>
-          </div>
-        </div>
-
-      </div>
-      </div>
-    </section>
-    
-    
-   
     </main>
 
-
-    
-    <template class="avaliable">
-      <article>
-      <div class="product">
-        <div class="img-container"><img src="#" alt="beer"><!-- <div class="img"></div> --></div>
-        <div class="desc-container">
-          <h1></h1>
-          <p></p>
-        </div>
+    <template class="order-ID">
+      <div class="order-id-container">
+        <p>Your order id is</p>
+        <p class="orderNr">Your order id is</p>
       </div>
-      <div class="counter">
-        <i class="fa fa-minus"></i>
-        <p class="count">0</p>
-        <i class="fa fa-plus"></i>
-      </div></article>
+      <div class="orderItem-container"></div>
     </template>
-  <template class="notAvaliable">
-    <article>
-    <div class="product">
-      <div class="img-container"><img src="#" alt="beer"><!-- <div class="img"></div> --></div>
-      <div class="desc-container">
-        <h1></h1>
+
+    <template class="orderItems">
+      <div class="items">
+        <p></p>
         <p></p>
       </div>
-    </div>
-    <div class="counter">
-      <i class="fa fa-minus"></i>
-      <div class="count">0</div>
-      <i class="fa fa-plus"></i>
-    </div></article>
-  </template>
+    </template>
+    <template class="avaliable">
+      <article>
+        <div class="product">
+          <div class="img-container"><img src="#" alt="beer" /><!-- <div class="img"></div> --></div>
+          <div class="desc-container">
+            <h1></h1>
+            <p></p>
+          </div>
+        </div>
+        <div class="counter">
+          <i class="fa fa-minus"></i>
+          <p class="count">0</p>
+          <i class="fa fa-plus"></i>
+        </div>
+      </article>
+    </template>
+    <template class="notAvaliable">
+      <article>
+        <div class="product">
+          <div class="img-container"><img src="#" alt="beer" /><!-- <div class="img"></div> --></div>
+          <div class="desc-container">
+            <h1></h1>
+            <p></p>
+          </div>
+        </div>
+        <div class="counter">
+          <i class="fa fa-minus"></i>
+          <div class="count">0</div>
+          <i class="fa fa-plus"></i>
+        </div>
+      </article>
+    </template>
 
-  
     <template class="receipt-temp">
       <article>
         <p class="item-amount"></p>
@@ -409,25 +375,22 @@
     </template>
 
     <template class="bottom-bar">
-          
       <div class="point">
         <p>tis</p>
-        
-        <svg class="round" viewbox="0 0 100 100" width="80px" height="80px" data-percent="50" >
+
+        <svg class="round" viewbox="0 0 100 100" width="80px" height="80px" data-percent="50">
           <defs>
             <linearGradient id="linear" x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="0%"   stop-color="#05a"/>
-              <stop offset="100%" stop-color="#0a5"/>
+              <stop offset="0%" stop-color="#05a" />
+              <stop offset="100%" stop-color="#0a5" />
             </linearGradient>
           </defs>
-          <circle cx="50" cy="50" r="40"  stroke="url(#linear)"/>
+          <circle cx="50" cy="50" r="40" stroke="url(#linear)" />
         </svg>
         <h2>Some Beer</h2>
-      </div>  
+      </div>
     </template>
-    
-  
-  
+
     <script src="main.js"></script>
   </body>
 </html>
