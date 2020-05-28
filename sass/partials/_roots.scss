@@ -38,3 +38,8 @@ img {
   padding-left: 2rem;
   padding-right: 2rem;
 }
+
+@mixin button {
+  background: #6288cf !important;
+  color: #fff !important;
+}

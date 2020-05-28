@@ -54,3 +54,10 @@ function postArray(data) {
       console.log(data);
     });
 }
+
+const closeBtn = document.querySelector(".closebtn");
+const successScreen = document.querySelector("#confirmation");
+closeBtn.addEventListener("click", () => {
+  successScreen.style.display = "none";
+  console.log("LUK FOR SATAN");
+});
