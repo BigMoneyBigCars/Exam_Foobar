@@ -133,8 +133,10 @@
     </article>
   
     <article id="receipt" class="">
-      <div class="logo"><img src="/static/icons/logo.png" /></div>
-      <div class="title">
+      <div class="receipt-container">
+        <div class="logo"><img src="/static/icons/logo.png" /></div><div class="title">
+  
+  
         <h3>Checkout</h3>
         <p class="total"></p>
       </div>
@@ -162,8 +164,11 @@
             </div>
           </div>
         </div>
+            <button class="submit" disabled type="submit">Continue to payment</button>
       </div>
-      <button class="submit" disabled type="submit">Continue to payment</button>
+   
+  
+    </div>
     </article>
     <article id="product-details">
       <div class="wrapper">
@@ -234,7 +239,7 @@
               </div>
               <div class="input-field">
                 <div class="labelcontainer"> <label for="ccnumber">Credit card number</label> <p class="invalid_text "> Please provide your work email</p> </div> 
-                <input id="credit-card" class="form-control" type="text" name="card-number"  pattern="[0-9\s]{16,16}" autocomplete="cc-number" maxlength="19" placeholder="1111-2222-3333-4444" value="" required>
+                <input id="credit-card" class="form-control" type="text" name="card-number"  pattern="[1-9][0-9]{3}-[0-9]{4}-[0-9]{4}-[0-9]{4}" autocomplete="cc-number" maxlength="19" placeholder="1111-2222-3333-4444" value="" required>
 
               
                 <p class="invalid_text"> Please provide a correct credit card number</p>
@@ -346,7 +351,7 @@
       </div>
       <div class="counter">
         <i class="fa fa-minus"></i>
-        <div class="count">0</div>
+        <p class="count">0</p>
         <i class="fa fa-plus"></i>
       </div></article>
     </template>

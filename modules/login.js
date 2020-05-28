@@ -150,7 +150,7 @@ document.querySelectorAll("input").forEach((e) => {
 async function get() {
   console.log("it workz");
 
-  let response = await fetch(endpoint, {
+  let response = await fetch(endpoint + `?q={"email": "jonas@j.dk"}`, {
     method: "get",
     headers: {
       "Content-Type": "application/json; charset-utf-8",
@@ -227,8 +227,8 @@ function checkData(data) {
   const email = document.querySelector("#email").value;
   if (email == data.email) {
     checkget;
-    console.log("Already used");
-    console.log("input: " + email + " " + "bd: " + data.email);
+    /*     console.log("Already used");
+    console.log("input: " + email + " " + "bd: " + data.email); */
     document.querySelector(".welcome").classList.remove("hidden");
     document.querySelector(".welcome").textContent = "Welcome back " + data.firstname + "!";
     document.querySelector(".invalid_text").style.display = "none";

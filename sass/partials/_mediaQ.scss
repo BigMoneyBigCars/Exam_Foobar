@@ -1,4 +1,6 @@
 // BAR
+@use "partials/roots";
+
 @media only screen and (max-width: 1370px) {
   #theBar .wrapper {
     grid-template-columns: repeat(1, 1fr);
@@ -32,6 +34,75 @@
       grid-column: 1;
       grid-template-columns: auto;
       grid-template-rows: auto;
+    }
+  }
+}
+
+@media only screen and (min-width: 700px) {
+  #receipt {
+    .container {
+      padding-bottom: 2.5rem;
+      padding-top: 3rem;
+    }
+    .receipt-container {
+      position: relative;
+      top: 10%;
+    }
+  }
+  #avaliable .container,
+  #notAvaliable .container {
+    .desc-container {
+      padding-left: 2rem;
+    }
+    grid-gap: 1rem;
+    @include roots.padding2;
+    h1 {
+      font-size: 1.1rem;
+    }
+    p {
+      padding-top: 10px;
+      font-size: 0.7rem;
+      font-style: italic;
+    }
+    .img-container {
+      max-width: 65px;
+      max-height: 65px;
+      border-radius: 50%;
+      flex-basis: 150px;
+      flex-grow: 1;
+      justify-self: flex-start;
+    }
+    img {
+      height: 65px;
+      border: 2px solid black;
+      border-radius: 50%;
+      width: 65px;
+    }
+    .count {
+      margin: 0em;
+      padding: 0;
+      font-size: 1.1rem;
+    }
+  }
+  #products {
+    .amount {
+      font-size: 1.1rem;
+      padding-top: 1.5rem;
+      padding-bottom: 1.5rem;
+    }
+
+    .headline {
+      font-size: 1.2rem;
+      height: 80px;
+    }
+    button {
+      padding: 1.6rem;
+      font-size: 1.2rem;
+    }
+  }
+  #avaliable .container {
+    .count {
+      font-size: 1.5rem;
     }
   }
 }

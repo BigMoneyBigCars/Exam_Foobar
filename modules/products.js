@@ -84,7 +84,7 @@ function displayAvaliable(beer) {
 
   clone.querySelector(".count").dataset.count = "0";
 
-  clone.querySelector(".fa-plus").addEventListener("click", () => {
+  clone.querySelector(".fa-plus").addEventListener("click", (e) => {
     plusBeer(article);
   });
   clone.querySelector(".fa-minus").addEventListener("click", () => {
@@ -94,6 +94,7 @@ function displayAvaliable(beer) {
   clone.querySelector("img").src = "imgs/" + beer.label;
   //clone.querySelector(".img").style.backgroundImage = "url('/imgs/" + [beer.label] + "')";
   parent.appendChild(clone);
+  animate();
 }
 
 function displayNotAvaliable(beer) {
@@ -130,6 +131,30 @@ function displayNotAvaliable(beer) {
   clone.querySelector("img").src = "imgs/" + beer.label;
   //clone.querySelector(".img").style.backgroundImage = "url('/imgs/" + [beer.label] + "')";
   parent.appendChild(clone);
+}
+
+function animate() {
+  console.log("anaaaaa");
+
+  let plus = document.querySelectorAll(".counter");
+  plus.forEach((e) => {
+    let m = e.querySelector(".fa-minus");
+    let p = e.querySelector(".fa-plus");
+    p.addEventListener("click", () => {
+      p.style.transform = "scale(1.2)";
+
+      p.addEventListener("transitionend", () => {
+        p.style.transform = "scale(1)";
+      });
+    });
+
+    m.addEventListener("click", () => {
+      m.style.transform = "scale(1.2)";
+      m.addEventListener("transitionend", () => {
+        m.style.transform = "scale(1)";
+      });
+    });
+  });
 }
 
 function plusBeer(article) {

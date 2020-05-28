@@ -74,7 +74,7 @@ function filterData() {
   filterBeerArrays(staticArray, updatedCheckArray);
   receiptEventlisterner();
 
-  // setTimeout(getUpdate, 1000);
+  setTimeout(getUpdate, 1000);
 }
 
 function getUpdate() {
@@ -114,7 +114,7 @@ function checkTrue() {
   if (document.querySelector(".checkbox:checked") === null) {
     console.log("true");
 
-    document.querySelector("#receipt .submit").disabled = false;
+    document.querySelector(".receipt-container .submit").disabled = false;
   } else if (document.querySelector(".checkbox:checked") !== null) {
     console.log("false");
     document.querySelector("#receipt .submit").disabled = true;

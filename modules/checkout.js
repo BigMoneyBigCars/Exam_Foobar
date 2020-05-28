@@ -42,7 +42,7 @@ function postArray(data) {
   console.log(data);
   const postData = JSON.stringify(data);
 
-  fetch("https://foobar-exam.herokuapp.com/", {
+  fetch("https://foobar-exam2.herokuapp.com/order", {
     method: "post",
     headers: {
       "Content-Type": "application/json; charset=utf-8",

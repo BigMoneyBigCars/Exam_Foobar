@@ -18,8 +18,11 @@ nav {
   justify-content: center;
   align-items: center;
   border-bottom: 1px solid black;
-  background: var(--color-7);
+  background: var(--background);
   z-index: 3000;
+  a {
+    justify-self: center;
+  }
 }
 
 nav .label {
@@ -54,7 +57,7 @@ nav .label {
   text-decoration: none;
   color: black;
   @include fonts.industry();
-  padding-top: 2rem;
+  padding: 2rem;
   font-size: 1.5rem;
   text-transform: uppercase;
 }
