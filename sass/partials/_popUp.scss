@@ -5,6 +5,8 @@
   color: black;
   background: #f5f5f5;
   min-height: 100vh;
+  max-height: 100vh;
+  overflow: scroll;
 
   display: inline-block;
   transition: 500ms top cubic-bezier(0.42, 0.02, 0.52, 0.96);

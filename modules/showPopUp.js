@@ -12,6 +12,6 @@ export function showPopUp(beer) {
   popUp.querySelector(".impression p").textContent = beer.description.overallImpression;
   popUp.querySelector(".appearance p").textContent = beer.description.appearance;
   popUp.querySelector(".aroma p").textContent = beer.description.aroma;
-  popUp.querySelector(".flavour p").textContent = beer.description.flavour;
+  popUp.querySelector(".flavour p").textContent = beer.description.flavor;
   popUp.querySelector(".mouthfeel p").textContent = beer.description.mouthfeel;
 }
