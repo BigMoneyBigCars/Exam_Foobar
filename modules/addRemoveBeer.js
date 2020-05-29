@@ -1,3 +1,6 @@
+import { order } from "./nav";
+import { addToOrder } from "./products";
+
 export let orderArray = [];
 export function addBeerArray(beer, amount) {
   //  orderArray[beer] = amount;
@@ -15,6 +18,7 @@ export function addBeerArray(beer, amount) {
 
   console.log(orderArray);
   orderedItems();
+  checkAddToOrder();
 }
 
 export function removeBeerArray(beer, amount) {
@@ -32,9 +36,10 @@ export function removeBeerArray(beer, amount) {
       orderArray.splice(index, 1);
     } */
   orderedItems();
+  checkAddToOrder();
 }
 
-function orderedItems() {
+export function orderedItems() {
   let count = 0;
 
   orderArray.forEach((obj) => {
@@ -46,6 +51,20 @@ function orderedItems() {
     document.querySelector("#order .amount").textContent = "Your basket is empty";
   } else {
     document.querySelector("#order .amount").textContent = "You are about to add " + [count] + " items";
+  }
+}
+
+export function resetOrderArray() {
+  console.log(orderArray);
+  orderArray = [];
+  console.log(orderArray);
+}
+
+function checkAddToOrder() {
+  if (orderArray.length > 0) {
+    addToOrder.disabled = false;
+  } else {
+    addToOrder.disabled = true;
   }
 }
 // POPUP

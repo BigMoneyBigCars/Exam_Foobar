@@ -19,6 +19,7 @@
     font-style: italic;
   }
 }
+
 #avaliable .container,
 #notAvaliable .container {
   display: grid;
@@ -95,8 +96,10 @@
   }
 
   .counter {
-    i {
-      transition: all 100ms;
+    div.plus,
+    div.minus {
+      font-size: 40px;
+      transition: 150ms all;
     }
     display: flex;
     flex-wrap: nowrap;

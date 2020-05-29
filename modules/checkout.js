@@ -2,8 +2,8 @@ import { bar, brew, checkout, topLabel, order } from "./nav";
 
 import { confirmation, payBut, orderID } from "./consts";
 import { receipt } from "./consts";
-import { orderArray } from "./addRemoveBeer";
-
+import { orderArray, orderedItems, resetOrderArray } from "./addRemoveBeer";
+import { resetAll } from "../main";
 export function toggleCheckout() {
   console.log("toggle checkkout");
   brew.style.display = "none";
@@ -12,11 +12,9 @@ export function toggleCheckout() {
   topLabel.textContent = "Checkout";
 
   receipt.classList.toggle("active");
-
-  console.log(payBut);
 }
 
-export function formatCreditCard() {
+/* export function formatCreditCard() {
   console.log("ajskdasdjasldjkjn");
   var x = document.getElementById("credit-card");
   var index = x.value.lastIndexOf("-");
@@ -24,7 +22,7 @@ export function formatCreditCard() {
   if (test.length === 4 && x.value.length < 16) {
     x.value = x.value + "-";
   }
-}
+} */
 
 export function displayConfirmation(orderArray) {
   console.log(orderArray);
@@ -86,4 +84,5 @@ function printOrderItem(data) {
 
     parentOrder.appendChild(cloneOrder);
   });
+  resetAll();
 }

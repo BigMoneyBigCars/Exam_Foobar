@@ -23,7 +23,7 @@
               <div class="atags-mobile-menu">
                 <a class="theBar" href="#home">The Bar</a>
                 <a class="theBrew" href="#skills">The Brew</a>
-                <a class="checkout" href="#projects">The Checkout</a>
+
                 <a class="orders" href="#orders">Your Orders</a>
               </div>
             </div>
@@ -32,7 +32,7 @@
       </nav>
     </header>
 
-    <section id="loginscreen" class="">
+    <section id="loginscreen" class="active">
       <a href="index.html"><img src="/static/icons/logo.png" alt="Logo" /></a>
 
       <form id="login">
@@ -120,11 +120,10 @@
       <a href="index.html"><img src="/static/icons/logo.png" alt="Logo" /></a>
       <div class="confirmcontainer">
         <h1>Success!</h1>
-        <h3>your order is being prepared!</h3>
-        <p>in queue</p>
-        <h2></h2>
+        <h3>Your order has been accepted.</h3>
+
         <p>approx. wait time</p>
-        <p></p>
+        <p class="theWaitTime"></p>
 
         <button class="closebtn">Close</button>
       </div>
@@ -164,8 +163,9 @@
       </div>
     </article>
     <article id="product-details">
+      <div class="close"></h2>
       <div class="wrapper">
-        <div class="img"></div>
+        <img src="#" alt="Beer-Image" />
         <div class="top-container">
           <h1></h1>
         </div>
@@ -176,6 +176,10 @@
         <div class="container">
           <p>Alcohol percent</p>
           <div class="alc"></div>
+        </div>
+        <div class="container">
+          <p>Price</p>
+          <p>35 DKK</p>
         </div>
         <div class="bot-container">
           <div class="impression">
@@ -224,7 +228,7 @@
                 </div>
                 <div class="checkouttotalcontainer">
                   <label for="fname">total:</label>
-                  <p>240,-</p>
+                  <p></p>
                 </div>
 
                 <div class="content">
@@ -259,7 +263,7 @@
                     </div>
                   </div>
                 </div>
-                <button id="paynow" class="signin">Pay 240 DKK</button>
+                <button id="paynow" class="signin">Pay</button>
               </div>
             </form>
           </article>
@@ -342,10 +346,10 @@
           </div>
         </div>
         <div class="counter">
-          <i class="fa fa-minus"></i>
+          <div class="minus">-</div>
+          
           <p class="count">0</p>
-          <i class="fa fa-plus"></i>
-        </div>
+         <div class="plus">+</div>
       </article>
     </template>
     <template class="notAvaliable">
@@ -358,9 +362,9 @@
           </div>
         </div>
         <div class="counter">
-          <i class="fa fa-minus"></i>
+         
           <div class="count">0</div>
-          <i class="fa fa-plus"></i>
+       
         </div>
       </article>
     </template>

@@ -84,8 +84,8 @@ function updateRight(data) {
 
   console.log(waitTime);
   document.querySelector(".sbRight .theQueue").textContent = queue.length;
-  document.querySelector("#confirmation > div > h2").textContent = queue.length;
+
   document.querySelector(".sbRight .serving").textContent = serving.length;
   document.querySelector(".sbRight .time").textContent = waitTime + " min";
-  document.querySelector("#confirmation > div > p:nth-child(6)").textContent = waitTime + " min";
+  document.querySelector("#confirmation > div > .theWaitTime").textContent = waitTime + " min";
 }

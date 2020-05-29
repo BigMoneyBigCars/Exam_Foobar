@@ -5,9 +5,10 @@ import { updatedArray } from "./theBar/bottom";
 import { fetchJson } from "./fetchJson";
 import { updateUrl, url } from "./consts";
 import { staticArray, updatedCheckArray } from "main";
-
+export let addToOrder = document.querySelector("#order > button");
 let notAvaliable = [];
 let Avaliable = [];
+export let beerCounter = 0;
 
 export function checkBeerArray(updatedCheckArray) {
   let check = updatedCheckArray.taps;
@@ -27,6 +28,8 @@ export function checkBeerArray(updatedCheckArray) {
 export function filterBeerArrays(staticArray, updatedCheckArray) {
   notAvaliable = [];
   Avaliable = [];
+  addToOrder.disabled = true;
+
   console.log(staticArray, updatedCheckArray);
 
   updatedCheckArray = updatedCheckArray.taps;
@@ -84,10 +87,12 @@ function displayAvaliable(beer) {
 
   clone.querySelector(".count").dataset.count = "0";
 
-  clone.querySelector(".fa-plus").addEventListener("click", (e) => {
+  clone.querySelector(".plus").src = "/icons/multiply.png";
+  clone.querySelector(".plus").addEventListener("click", (e) => {
     plusBeer(article);
   });
-  clone.querySelector(".fa-minus").addEventListener("click", () => {
+  clone.querySelector(".minus").src = "/icons/subtract.png";
+  clone.querySelector(".minus").addEventListener("click", () => {
     minusBeer(article);
   });
   // console.log(beer.label);
@@ -123,9 +128,9 @@ function displayNotAvaliable(beer) {
   clone.querySelector("p").textContent = "Alcohol " + beer.alc + "%";
 
   clone.querySelector(".count").textContent = "Unavaliable";
-
-  clone.querySelector(".fa-plus").style.display = "none";
-  clone.querySelector(".fa-minus").style.display = "none";
+  /* 
+  clone.querySelector(".plus").style.display = "none";
+  clone.querySelector(".minus").style.display = "none"; */
 
   // console.log(beer.label);
   clone.querySelector("img").src = "imgs/" + beer.label;
@@ -138,8 +143,8 @@ function animate() {
 
   let plus = document.querySelectorAll(".counter");
   plus.forEach((e) => {
-    let m = e.querySelector(".fa-minus");
-    let p = e.querySelector(".fa-plus");
+    let m = e.querySelector(".minus");
+    let p = e.querySelector(".plus");
     p.addEventListener("click", () => {
       p.style.transform = "scale(1.2)";
 

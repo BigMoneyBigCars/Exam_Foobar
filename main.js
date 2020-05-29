@@ -1,12 +1,13 @@
 "use strict";
 import "@babel/polyfill";
 
-import { nav } from "./modules/nav.js";
+import { nav, order } from "./modules/nav.js";
 import { fetchJson } from "./modules/fetchJson";
-import { displayBeer, filterBeerArrays, checkBeerArray } from "./modules/products";
+import { orderArray, resetOrderArray } from "./modules/addRemoveBeer";
+import { displayBeer, filterBeerArrays, checkBeerArray, beerCounter } from "./modules/products";
 import { closeReceipt, updateReceipt } from "./modules/receipt";
 import { receiptBut, payBut, receipt, popUp, popBut, url, updateUrl } from "./modules/consts";
-
+import { addToOrder } from "./modules/products";
 import { bar, brew, checkout } from "./modules/nav";
 //import { login } from "./modules/login";
 import { printKegs, updateAllDashboard, updatedArray } from "./modules/theBar/bottom";
@@ -24,6 +25,7 @@ export let updatedCheckArray = [];
 //array
 
 function init() {
+  console.log(beerCounter, "BEER COUNTE RHER");
   console.log(staticArray);
   console.log("tis ");
   constDataman();
@@ -96,6 +98,10 @@ function delegateUpdates(jsonData) {
 function receiptEventlisterner() {
   console.log(receipt);
 
+  addToOrder.addEventListener("click", () => {
+    document.querySelector("#toggle").checked = false;
+    document.querySelector("#receipt > div > button").disabled = true;
+  });
   receiptBut.addEventListener("click", () => {
     receipt.classList.add("active");
     updateReceipt();
@@ -117,4 +123,30 @@ function checkTrue() {
     console.log("false");
     document.querySelector("#receipt .submit").disabled = true;
   }
+}
+
+export function resetAll() {
+  console.log(orderArray, "HER ");
+  console.log("RESET ALLL");
+  console.log(orderArray);
+
+  console.log(beerCounter);
+  let beerCounter = 0;
+  console.log(beerCounter);
+  resetOrderArray();
+  //orderedItems();
+  updateReceipt();
+
+  let things = document.querySelectorAll("p.count");
+  document.querySelector("#order > div").textContent = "Your basket is empty.";
+  document.querySelector("#toggle").checked = false;
+  document.querySelector("#receipt > div > button").disabled = true;
+  document.querySelector("#order > button").disabled = true;
+
+  console.log(things);
+  things.forEach((e) => {
+    console.log(e);
+    e.dataset.count = 0;
+    e.textContent = 0;
+  });
 }

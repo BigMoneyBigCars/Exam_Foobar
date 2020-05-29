@@ -65,7 +65,7 @@ export function constDataman() {
       console.log(el);
     });
 
-    validateForm(input, form);
+    validateFormPayment(input, form);
 
     if (counter > 0) {
       console.log("CANNOT DO SHIT");
@@ -119,6 +119,28 @@ export function constDataman() {
       post({ firstname: elements.firstname.value, lastname: elements.lastname.value, email: elements.email.value, password: elements.password.value });
     }
   });
+}
+function validateFormPayment(input, form) {
+  // console.log(input);
+  console.log(form);
+  console.log(form.id);
+
+  if (form.checkValidity()) {
+    console.log("checking validity PAYMENTFORM");
+  } else {
+    input.forEach((el) => {
+      //console.log("er her");
+      //console.log(el);
+
+      if (!el.checkValidity()) {
+        counter++;
+        //console.log(el);
+        // console.log(el.id);
+        el.classList.add("invalid");
+        // console.log("invalid");
+      }
+    });
+  }
 }
 
 function validateForm(input, form) {
