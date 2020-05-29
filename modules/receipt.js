@@ -58,4 +58,4 @@ function checkTrue() {
   }
 }
 
-document.querySelector(".receipt-container > button.submit").addEventListener("click", toggleCheckout);
+document.querySelector("#receipt > div > button.submit").addEventListener("click", toggleCheckout);

@@ -1,4 +1,4 @@
-export const popBut = document.querySelector("#product-details");
+export const popBut = document.querySelector("#product-details  > button");
 export const popUp = document.querySelector("#product-details");
 
 export const receipt = document.querySelector("#receipt");

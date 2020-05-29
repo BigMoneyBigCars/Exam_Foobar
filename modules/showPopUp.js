@@ -6,7 +6,7 @@ export function showPopUp(beer) {
   console.log(beer);
   popUp.querySelector("h1").textContent = beer.name;
   // popUp.querySelector(".img").style.backgroundImage = "url('/imgs/" + [beer.label] + "')";
-  popUp.querySelector("img").src = "/imgs/" + [beer.label];
+  popUp.querySelector(".product-image").src = "/imgs/1x/" + [beer.label];
   popUp.querySelector(".type").textContent = beer.category;
   popUp.querySelector(".alc").textContent = beer.alc;
 

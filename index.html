@@ -14,13 +14,16 @@
     <header>
       <nav>
         <div class="nav-container">
-          <a href="#"><img src="/static/icons/logo.png" alt="Logo" /></a>
+          <a href="#"><img class="logo" src="/static/icons/logo.png" alt="Logo" /></a>
           <div class="label">The Bar</div>
           <div class="menu__toggler"><span></span></div>
           <div id="mobile-menu">
             <div id="nav" class="main-nav mobile-menu-dropdown" role="navigation">
+              
+
               <h2>Where to?</h2>
               <div class="atags-mobile-menu">
+                <a class="logoM" href="#"><img class="logo" src="/static/icons/logo.png" alt="Logo" /></a>
                 <a class="theBar" href="#home">The Bar</a>
                 <a class="theBrew" href="#skills">The Brew</a>
 
@@ -33,7 +36,7 @@
     </header>
 
     <section id="loginscreen" class="active">
-      <a href="index.html"><img src="/static/icons/logo.png" alt="Logo" /></a>
+      <a href="#"><img class="logo" src="/static/icons/logo.png" alt="Logo" /></a>
 
       <form id="login">
         <div class="cont">
@@ -56,7 +59,7 @@
         </div>
         <section id="forgotpassword" style="display: none;">
           <div>
-            <a href="index.html"><img src="/static/icons/logo.png" alt="Logo" /></a>
+            <a href="#"><img class="logo" src="/static/icons/logo.png" alt="Logo" /></a>
             <h2>
               <span>Whoops!</span> <br />This is just a prototype! <br />
               If you forgot your password, make a new user... <br />
@@ -68,8 +71,9 @@
           </div>
         </section>
         <div class="action">
-          <button class="register">Register</button>
           <button class="signin">Sign in</button>
+          <button class="register">Register</button>
+      
         </div>
       </form>
 
@@ -110,8 +114,9 @@
           </div>
         </div>
         <div class="action">
-          <button class="registeruser">Go back</button>
           <button class="showsignin">Create user</button>
+          <button class="registeruser">Go back</button>
+         
         </div>
       </form>
     </section>
@@ -121,17 +126,17 @@
       <div class="confirmcontainer">
         <h1>Success!</h1>
         <h3>Your order has been accepted.</h3>
-
+<div>
         <p>approx. wait time</p>
         <p class="theWaitTime"></p>
-
+      </div>
         <button class="closebtn">Close</button>
       </div>
     </article>
 
     <article id="receipt" class="">
       <div class="receipt-container">
-        <div class="logo"><img src="/static/icons/logo.png" alt="#" /></div>
+        <a href="#"><img class="logo" src="/static/icons/logo.png" alt="Logo" /></a>
         <div class="title">
           <h3>Checkout</h3>
           <p class="total"></p>
@@ -161,11 +166,13 @@
         </div>
         <button class="submit" disabled type="submit">Continue to payment</button>
       </div>
+
     </article>
     <article id="product-details">
-      <div class="close"></h2>
+      <img class="close" src="/static/icons/backarrow.png" alt="go back icon">
+    
       <div class="wrapper">
-        <img src="#" alt="Beer-Image" />
+        <img class="product-image" src="#" alt="Beer-Image" />
         <div class="top-container">
           <h1></h1>
         </div>
@@ -204,8 +211,9 @@
           </div>
         </div>
 
-        <button class="button">Go back</button>
+
       </div>
+      <button class="button">Go back</button>
     </article>
     <main>
       <div id="main-container">
@@ -213,7 +221,7 @@
           <article>
             <h2>Track your order on the display</h2>
             <div class="wrapper">
-              <div class="itemOrder">¨</div>
+       <div class="itemOrder"></div> 
             </div>
           </article>
         </section>

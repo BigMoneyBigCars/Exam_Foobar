@@ -6,7 +6,7 @@
   background: var(--background);
   height: 100vh;
   display: inline-block;
-  transition: 500ms cubic-bezier(0.42, 0.02, 0.52, 0.96);
+  transition: 500ms ease-in-out;
 
   width: 100%;
   top: 100vh;
@@ -17,11 +17,18 @@
   .wrapper {
     padding-left: 1.5rem;
     padding-right: 1.5rem;
+    padding-bottom: 3rem;
+    padding-top: 1.5rem;
   }
 
   .receipt-container {
     max-width: 600px;
     margin: 0 auto;
+    min-height: calc(100vh - 55px);
+    max-height: calc(100vh - 55px);
+    button {
+      //  position: absolute;
+    }
   }
 }
 
@@ -40,9 +47,11 @@
   .price {
     justify-self: end;
   }
-
+  a {
+    display: grid;
+    justify-items: center;
+  }
   .logo {
-    text-align: center;
     height: 150px;
   }
   img {
@@ -55,9 +64,10 @@
     flex-wrap: nowrap;
     justify-content: space-between;
     align-items: center;
-    background-color: var(--color-7);
+    background-color: var(--color-5);
     padding: 0.7rem;
 
+    margin-top: 2rem;
     margin-bottom: 2rem;
   }
   .total-container {
@@ -154,23 +164,11 @@
     grid-gap: 50px;
   }
   button {
-    transition: all 1s;
-    border-radius: 10px;
-    width: 100%;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    background-color: lightblue;
+    @include roots.button;
+  }
 
-    margin-top: 4rem;
-  }
-  button.submit:disabled {
-    filter: grayscale(50%);
-  }
   .button.submit {
-    background-color: lightblue;
-    filter: grayscale(0%);
+    @include roots.button;
   }
   .switch {
     position: relative;
@@ -197,7 +195,7 @@
     left: 20px;
   }
   .checkbox:checked + .switch {
-    background-color: #7983ff;
+    background-color: var(--buttonB);
   }
 
   .checkbox {

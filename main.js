@@ -1,14 +1,13 @@
 "use strict";
 import "@babel/polyfill";
 
-import { nav, order } from "./modules/nav.js";
+import { nav, bar, brew, order, topLabel } from "./modules/nav.js";
 import { fetchJson } from "./modules/fetchJson";
 import { orderArray, resetOrderArray } from "./modules/addRemoveBeer";
 import { displayBeer, filterBeerArrays, checkBeerArray, beerCounter } from "./modules/products";
 import { closeReceipt, updateReceipt } from "./modules/receipt";
 import { receiptBut, payBut, receipt, popUp, popBut, url, updateUrl } from "./modules/consts";
 import { addToOrder } from "./modules/products";
-import { bar, brew, checkout } from "./modules/nav";
 //import { login } from "./modules/login";
 import { printKegs, updateAllDashboard, updatedArray } from "./modules/theBar/bottom";
 
@@ -30,6 +29,10 @@ function init() {
   console.log("tis ");
   constDataman();
 
+  document.querySelector("#product-details > img.close").addEventListener("click", () => {
+    console.log("close this");
+    popUp.classList.toggle("active");
+  });
   popBut.addEventListener("click", () => {
     popUp.classList.toggle("active");
   });
@@ -97,10 +100,33 @@ function delegateUpdates(jsonData) {
 
 function receiptEventlisterner() {
   console.log(receipt);
+  //document.querySelector("#paymentform button").disabled = true;
+  let payInput = document.querySelectorAll("#paymentform input");
+  console.log(payInput);
+  payInput.forEach((e) => {
+    e.addEventListener("input", () => {
+      console.log(e, "her er jeg ");
 
+      document.querySelector("#paymentform button").disabled = false;
+    });
+    console.log(e);
+  });
+
+  document.querySelector("button#paynow").disabled = true;
+  let logoReturn = document.querySelectorAll("img.logo");
+  logoReturn.forEach((logo) => {
+    logo.addEventListener("click", () => {
+      bar.style.display = "block";
+      brew.style.display = "none";
+      order.style.display = "none";
+
+      topLabel.textContent = "The Bar";
+      document.querySelector("article#receipt").classList.remove("active");
+    });
+  });
   addToOrder.addEventListener("click", () => {
     document.querySelector("#toggle").checked = false;
-    document.querySelector("#receipt > div > button").disabled = true;
+    document.querySelector("#receipt >div > button").disabled = true;
   });
   receiptBut.addEventListener("click", () => {
     receipt.classList.add("active");
@@ -118,7 +144,7 @@ function checkTrue() {
   if (document.querySelector(".checkbox:checked") === null) {
     console.log("true");
 
-    document.querySelector(".receipt-container .submit").disabled = false;
+    document.querySelector("#receipt .submit").disabled = false;
   } else if (document.querySelector(".checkbox:checked") !== null) {
     console.log("false");
     document.querySelector("#receipt .submit").disabled = true;

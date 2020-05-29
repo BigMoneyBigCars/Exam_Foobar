@@ -86,3 +86,73 @@ function printOrderItem(data) {
   });
   resetAll();
 }
+/* 
+function createOrderItem(classs, callback) {
+  const e = document.createElement("div");
+  e.classList.add(classs);
+  console.log(e);
+  callback(e);
+}
+
+function printOrderItem(data) {
+  console.log(data);
+  let id = data.id;
+  console.log(id);
+
+  createOrderItem("itemOrder", cloneStuff);
+}
+
+function cloneStuff(element) {
+  console.log(element);
+  const cloneOrderID = document.querySelector(".order-ID").cloneNode(true).content;
+  const parentOrderID = document.querySelector("#orders > article > .wrapper");
+
+  cloneOrderID.querySelector(".orderNr").textContent = id;
+  parentOrderID.appendChild(cloneOrderID);
+
+  orderArray.forEach((e) => {
+    console.log(id);
+
+    const cloneOrder = document.querySelector(".orderItems").cloneNode(true).content;
+    const parentOrder = document.querySelector("#orders > article > .wrapper .orderItem-container");
+    cloneOrder.querySelector(".items p").textContent = e.name;
+    cloneOrder.querySelector(".items p + p").textContent = e.amount;
+
+    parentOrder.appendChild(cloneOrder);
+  });
+  resetAll();
+} 
+
+function printOrderItem(data) {
+  console.log(data);
+  let id = data.id;
+  console.log(id);
+
+  const cloneOrderID = document.querySelector(".order-ID").cloneNode(true).content;
+  const parentOrderID = document.querySelector("#orders > article > .wrapper");
+
+  cloneOrderID.querySelector(".orderNr").textContent = id;
+  cloneOrderID.querySelector(".order-id-container").id = id;
+  parentOrderID.appendChild(cloneOrderID);
+
+  orderArray.forEach((e) => {
+    console.log(id);
+
+    const cloneOrder = document.querySelector(".orderItems").cloneNode(true).content;
+    const parentOrder = document.getElementById(id);
+    console.log(parentOrder);
+    console.log(parentParentOrder);
+
+    const parentParentOrder = parentOrder.querySelector(".orderItem-container");
+
+    cloneOrder.querySelector(".items p").textContent = e.name;
+    cloneOrder.querySelector(".items p + p").textContent = e.amount;
+
+    parentParentOrder.appendChild(cloneOrder);
+  });
+  resetAll();
+}
+
+
+
+*/

@@ -87,5 +87,5 @@ function updateRight(data) {
 
   document.querySelector(".sbRight .serving").textContent = serving.length;
   document.querySelector(".sbRight .time").textContent = waitTime + " min";
-  document.querySelector("#confirmation > div > .theWaitTime").textContent = waitTime + " min";
+  document.querySelector("#confirmation > div > div > p.theWaitTime").textContent = waitTime + " min";
 }
