@@ -19,8 +19,6 @@
           <div class="menu__toggler"><span></span></div>
           <div id="mobile-menu">
             <div id="nav" class="main-nav mobile-menu-dropdown" role="navigation">
-              
-
               <h2>Where to?</h2>
               <div class="atags-mobile-menu">
                 <a class="logoM" href="#"><img class="logo" src="/static/icons/logo.png" alt="Logo" /></a>
@@ -35,7 +33,7 @@
       </nav>
     </header>
 
-    <section id="loginscreen" class="">
+    <section id="loginscreen" class="active">
       <a href="#"><img class="logo" src="/static/icons/logo.png" alt="Logo" /></a>
 
       <form id="login">
@@ -73,7 +71,6 @@
         <div class="action">
           <button class="signin">Sign in</button>
           <button class="register">Register</button>
-      
         </div>
       </form>
 
@@ -116,7 +113,6 @@
         <div class="action">
           <button class="showsignin">Create user</button>
           <button class="registeruser">Go back</button>
-         
         </div>
       </form>
     </section>
@@ -126,10 +122,10 @@
       <div class="confirmcontainer">
         <h1>Success!</h1>
         <h3>Your order has been accepted.</h3>
-<div>
-        <p>approx. wait time</p>
-        <p class="theWaitTime"></p>
-      </div>
+        <div>
+          <p>approx. wait time</p>
+          <p class="theWaitTime"></p>
+        </div>
         <button class="closebtn">Close</button>
       </div>
     </article>
@@ -166,11 +162,10 @@
         </div>
         <button class="submit" disabled type="submit">Continue to payment</button>
       </div>
-
     </article>
     <article id="product-details">
-      <img class="close" src="/static/icons/backarrow.png" alt="go back icon">
-    
+      <img class="close" src="/static/icons/backarrow.png" alt="go back icon" />
+
       <div class="wrapper">
         <img class="product-image" src="#" alt="Beer-Image" />
         <div class="top-container">
@@ -210,8 +205,6 @@
             <p></p>
           </div>
         </div>
-
-
       </div>
       <button class="button">Go back</button>
     </article>
@@ -221,7 +214,7 @@
           <article>
             <h2>Track your order on the display</h2>
             <div class="wrapper">
-       <div class="itemOrder"></div> 
+              <div class="itemOrder"></div>
             </div>
           </article>
         </section>
@@ -278,31 +271,104 @@
         </section>
         <section id="theBar">
           <div class="wrapper">
+            <div class="sbTop">
+              <h2>Due to covid 19</h2>
+              <div>
+                <p>We only take orders through our app, access it on your phone or feel free to use our tablets.</p>
+                <p>Please keep appropriate distance to other guests and our staff.</p>
+              </div>
+              <!--  <p>All guests are required to order through our tablets located around the bar, or through their phones.</p>
+              <p>When your order is ready it will be displayed in the "order tap". Please help eachother out by keepeing distance when collecting your beer and otherwise moving around the bar. Thank you!</p>
+        -->
+            </div>
             <div class="mainSection">
               <div class="wrapper">
-                <div class="item"><p>placeholder</p></div>
-                <div class="item"><p>placeholder</p></div>
+                <div class="bartenders">
+                  <div id="dannie">
+                    <div class="nameTag">
+                      <h2>Dannie</h2>
+                      <div class="contain">
+                        <div class="makingOrder">
+                          <p>232</p>
+                          <p></p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="theOrder">
+                      <h2>Order Items</h2>
+                      <div class="contain"></div>
+                    </div>
+
+                    <!--     <div class="status"><p></p></div>
+                  <div class="statusDetail"><p></p></div> -->
+                    <div class="usingTap">
+                      <h2>Status</h2>
+                      <div class="contain">
+                        <div class="conta">
+                          <p class="tap"></p>
+                          <div class="tracker">
+                            <p></p>
+                            <p></p>
+                          </div>
+                        </div>
+                        <div class="currentBeer">
+                          <p></p>
+                          <div class="cont">
+                            <p class=""></p>
+                            <p>100%</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div id="peter">
+                    <div class="nameTag">Peter</div>
+                    <div class="status"></div>
+                    <div class="statusDetail"></div>
+                    <div class="makingOrder"></div>
+                    <div class="usingTap"></div>
+                  </div>
+                  <div id="jonas">
+                    <div class="nameTag">Jonas</div>
+                    <div class="status"></div>
+                    <div class="statusDetail"></div>
+                    <div class="makingOrder"></div>
+                    <div class="usingTap"></div>
+                  </div>
+                </div>
+
                 <div class="item"><p>placeholder</p></div>
               </div>
             </div>
+            <div class="orderSection"></div>
             <div class="sbLeft">
-              <p class="time">Placeholder</p>
-              <p>Placeholder</p>
-              <p>Placeholder</p>
+              <div>
+                <img class="logo" style="pointer-events: none;" src="/static/icons/logo.png" alt="logo" />
+                <p class="time">Placeholder</p>
+              </div>
+
+              <div class="readyOrders">
+                <h2>Orders ready</h2>
+
+                <h3>271</h3>
+                <h3>271</h3>
+                <h3>271</h3>
+                <h3>271</h3>
+              </div>
             </div>
             <div class="sbRight">
               <div class="queue">
-                <i class="fa fa-2x fa-users"></i>
+                <img src="/static/icons/queue.png" alt="Icon for Queue" />
                 <p>People in queue</p>
                 <p class="theQueue"></p>
               </div>
               <div class="progress">
-                <i class="fa fa-2x fa-beer"></i>
+                <img src="/static/icons/progress.png" alt="Icon for Queue" />
                 <p>Orders Being Made</p>
                 <p class="serving"></p>
               </div>
               <div class="waittime">
-                <i class="fa fa-2x fa-times"></i>
+                <img src="/static/icons/wait_1.png" alt="Icon for Queue" />
                 <p>Avg. wait time</p>
                 <p class="time"></p>
               </div>
@@ -355,9 +421,10 @@
         </div>
         <div class="counter">
           <div class="minus">-</div>
-          
+
           <p class="count">0</p>
-         <div class="plus">+</div>
+          <div class="plus">+</div>
+        </div>
       </article>
     </template>
     <template class="notAvaliable">
@@ -370,9 +437,7 @@
           </div>
         </div>
         <div class="counter">
-         
           <div class="count">0</div>
-       
         </div>
       </article>
     </template>
@@ -385,19 +450,27 @@
         <p class="price"></p>
       </article>
     </template>
+    <template class="items-in-order">
+      <div>
+        <p class="beer"></p>
+        <!--         <p class="beerAmount"></p>
+ -->
+      </div>
+    </template>
 
     <template class="bottom-bar">
       <div class="point">
         <p>tis</p>
 
-        <svg class="round" viewbox="0 0 100 100" width="80px" height="80px" data-percent="50">
-          <defs>
+        <svg class="round" viewbox="0 0 100 100" width="100%" height="100%" data-percent="50">
+          <!--       <defs>
             <linearGradient id="linear" x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="0%" stop-color="#05a" />
-              <stop offset="100%" stop-color="#0a5" />
+              <stop offset="0%" stop-color="snow" />
+              <stop offset="100%" stop-color="snow" />
             </linearGradient>
-          </defs>
-          <circle cx="50" cy="50" r="40" stroke="url(#linear)" />
+          </defs> 
+        stroke="url(#linear)"-->
+          <circle cx="50" cy="50" r="40" />
         </svg>
         <h2>Some Beer</h2>
       </div>

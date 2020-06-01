@@ -18,9 +18,9 @@ export function checkBeerArray(updatedCheckArray) {
     const exists = notAvaliable.find((x) => x.name === check.beer);
 
     if (exists) {
-      console.log(e.name + " TIME FOR UPDATE");
+      //   console.log(e.name + " TIME FOR UPDATE");
     } else {
-      console.log(e.name + " everythings fine");
+      // console.log(e.name + " everythings fine");
     }
   });
 }
@@ -39,10 +39,10 @@ export function filterBeerArrays(staticArray, updatedCheckArray) {
     const exists = updatedCheckArray.find((x) => x.beer === e.name);
 
     if (exists) {
-      console.log(e.name + " does exist");
+      // console.log(e.name + " does exist");
       Avaliable.push(e);
     } else {
-      console.log(e.name + " does NOT exist");
+      // console.log(e.name + " does NOT exist");
       notAvaliable.push(e);
     }
   });

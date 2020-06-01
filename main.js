@@ -95,21 +95,21 @@ function delegateUpdates(jsonData) {
   //updates the Dashboard
   updateAllDashboard(updatedCheckArray);
 
-  // setTimeout(getUpdate, 1000);
+  setTimeout(getUpdate, 4000);
 }
 
 function receiptEventlisterner() {
   console.log(receipt);
   //document.querySelector("#paymentform button").disabled = true;
   let payInput = document.querySelectorAll("#paymentform input");
-  console.log(payInput);
+  // console.log(payInput);
   payInput.forEach((e) => {
     e.addEventListener("input", () => {
       console.log(e, "her er jeg ");
 
       document.querySelector("#paymentform button").disabled = false;
     });
-    console.log(e);
+    // console.log(e);
   });
 
   document.querySelector("button#paynow").disabled = true;

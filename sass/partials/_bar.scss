@@ -1,4 +1,5 @@
 @use "partials/roots";
+@use "partials/fonts";
 #theBar {
   height: 100%;
 
@@ -9,45 +10,130 @@
     height: 100%;
     display: grid;
     grid-template-columns: repeat(12, 1fr);
-    grid-template-rows: repeat(8, 1fr);
+    grid-template-rows: repeat(12, 1fr);
     justify-content: center;
     justify-items: center;
     align-items: center;
     &::-webkit-scrollbar {
       display: none;
     }
+    max-height: 100vh;
 
+    .sbTop {
+      grid-column: 3 / span 8;
+      grid-row: 1 / span 1;
+
+      // background-color: var(--background2);
+      color: var(--text);
+
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      width: 100%;
+      h2 {
+        height: 100%;
+
+        background: -webkit-linear-gradient(#7c98b3, #637081);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+
+        font-size: 2rem;
+        text-align: left;
+        font-weight: 800;
+
+        @include roots.padding2;
+      }
+      p {
+        @include roots.padding2;
+      }
+    }
     .sbLeft {
-      background-color: var(--color-7);
+      // background-color: var(--background2);
+      @include fonts.industry;
+      color: var(--text);
       grid-column: 1 / span 2;
-      grid-row: 1 / span 6;
+      grid-row: 1 / span 10;
       height: 100%;
       width: 100%;
       display: grid;
-      grid-template-rows: repeat(auto-fit, minmax(60px, 1fr));
+      grid-template-rows: repeat(3, 1fr);
       grid-template-columns: 100%;
       justify-items: center;
       justify-content: center;
       align-items: center;
-      font-size: 2rem;
-      font-weight: bold;
+
+      img.logo {
+        height: 140px;
+      }
+      div {
+        text-align: center;
+        grid-column: 1;
+        p {
+          margin-top: 1rem;
+          font-size: 1.3rem;
+          font-weight: bold;
+        }
+      }
+      .readyOrders {
+        align-self: center;
+        grid-row: 2 / span 2;
+        grid-column: 1;
+
+        h2 {
+          padding-bottom: 2rem;
+          font-size: 2rem;
+        }
+        h3 {
+          padding-top: 2rem;
+          font-size: 1.5rem;
+          color: #7ed6df;
+        }
+      }
+
+      p {
+        font-size: 1.2rem;
+      }
+      p.time {
+        font-size: 2.3rem;
+        align-self: baseline;
+        padding-top: 1rem;
+      }
     }
 
     .sbRight {
-      background-color: var(--color-7);
+      //  background-color: var(--background2);
       grid-column: 11 / span 2;
-      grid-row: 1 / span 6;
+      color: var(--text);
+      grid-row: 1 / span 10;
       height: 100%;
       width: 100%;
       display: grid;
-      grid-template-rows: repeat(auto-fit, minmax(60px, 1fr));
+      grid-template-rows: repeat(3, 1fr);
       grid-template-columns: 100%;
       justify-items: center;
       justify-content: center;
       align-items: center;
+
+      @include fonts.industry;
+
       p {
-        font-size: 1.5rem;
+        font-size: 1.2rem;
+        color: grey;
       }
+      img {
+        width: 60px;
+        height: auto;
+        margin-bottom: 0.5rem;
+      }
+      p.theQueue,
+      p.serving,
+      p.time {
+        font-size: 2rem;
+        font-weight: bold;
+        padding-top: 1.5rem;
+        color: snow;
+      }
+
       .queue {
         text-align: center;
       }
@@ -60,9 +146,11 @@
     }
 
     .sbBottom {
-      background-color: var(--color-7);
+      @include fonts.industry;
+      //    background-color: var(--background2);
+      color: var(--text);
       grid-column: 1 / span 12;
-      grid-row: 7 / span 2;
+      grid-row: 11 / span 2;
       height: 100%;
       width: 100%;
       display: grid;
@@ -71,17 +159,24 @@
       justify-items: center;
       justify-content: center;
       align-items: center;
+      overflow: hidden;
 
       p {
         position: relative;
-        top: 50%;
-        left: 44%;
+        top: 46%;
       }
       .point {
-        height: 100%;
-        width: 100%;
-        display: grid;
+        height: 80%;
+        width: 80%;
+        display: flex;
+        flex-wrap: nowrap;
+        flex-direction: column;
         justify-content: center;
+        align-items: center;
+
+        h2 {
+          padding-top: 6px;
+        }
       }
       .round {
         transform: rotate(90deg);
@@ -89,9 +184,9 @@
 
         /* SVG */
         fill: none;
-        stroke: red;
-        stroke-width: 14;
-        stroke-linecap: round;
+        stroke: #7ed6df;
+        stroke-width: 8;
+        stroke-linecap: square;
         stroke-dasharray: 0 999;
         circle {
           transition: all 1s ease-in-out;
@@ -99,22 +194,218 @@
         }
       }
     }
-    .mainSection {
-      background-color: var(--color-7);
-      grid-row: 1 / span 6;
+    .orderSection {
+      display: none;
+      grid-row: 9 / span 2;
       grid-column: 3 / span 8;
       height: 100%;
       width: 100%;
+      background-color: red;
+    }
+    .mainSection {
+      /*   background-color: #637081;
+      background-image: linear-gradient(315deg, #637081 0%, #7c98b3 74%);
+      background-color: #000000;
+      background-image: linear-gradient(147deg, #000000 0%, #1f2e3d 74%); */
+      grid-row: 2 / span 9;
+      grid-column: 3 / span 8;
+      height: 100%;
+      width: 100%;
+      p {
+        padding-top: 3px;
+        padding-bottom: 3px;
+        font-size: 1.2rem;
+        font-weight: 500;
+      }
+
+      .bartenders {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        grid-template-rows: 33%;
+        grid-gap: 0.5rem;
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+        height: 100%;
+        width: 100%;
+        overflow: hidden;
+        color: snow;
+
+        .nameTag,
+        .theOrder,
+        .usingTap {
+          display: grid;
+          grid-template-rows: 0.2fr 0.8fr;
+          grid-template-columns: 100%;
+          justify-content: center;
+          align-items: center;
+          overflow: hidden;
+        }
+
+        .contain {
+          height: 100%;
+        }
+        .contain h2 {
+          align-self: baseline;
+        }
+      }
 
       .wrapper {
         width: 100%;
         height: 100%;
         display: grid;
         grid-template-columns: 1fr;
-        grid-template-rows: repeat(3, 1fr);
+        grid-template-rows: 100%;
+      }
+      .nameTag {
+        width: 100%;
+        text-align: center;
+        height: 100%;
+
+        grid-row: 1;
+        grid-column: 1;
+      }
+
+      #dannie,
+      #peter,
+      #jonas {
+        border: 2px solid rgba(255, 255, 255, 0.376);
+        display: grid;
+        grid-template-rows: 100%;
+        grid-template-columns: 25% 25% 50%;
+        font-size: 1.3rem;
+        border-radius: 20px 20px 20px 20px;
+        justify-content: center;
+        align-items: center;
+        justify-items: center;
+        overflow-x: hidden;
+        h2 {
+          font-size: 1.5rem;
+          font-weight: bold;
+          text-align: left;
+          @include roots.padding1;
+          border-bottom: 2px solid black;
+          height: 100%;
+          background: rgba(255, 250, 250, 0.486);
+          display: flex;
+          color: rgba(0, 0, 0, 0.781);
+          align-items: center;
+        }
+
+        .container {
+          width: 100%;
+          display: grid;
+          grid-row: 1;
+          grid-column: 3;
+          grid-template-rows: 100%;
+          height: 100%;
+          justify-content: center;
+          align-items: center;
+        }
+      }
+
+      .currentBeer {
+        display: flex;
+        flex-wrap: nowrap;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+      }
+      .theOrder,
+      .usingTap,
+      .makingOrder {
+        width: 100%;
+        height: 100%;
+        // @include roots.padding2;
+      }
+      .makingOrder p + p {
+        position: relative;
+        top: 50%;
+        font-weight: bold;
+        font-size: 1.5rem;
+      }
+      .nameTag .contain {
+        display: flex;
+        flex-wrap: nowrap;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: flex-start;
+        text-align: left;
+        @include roots.padding1;
+        padding-top: 1rem;
+      }
+      .theOrder .contain {
+        @include roots.padding1;
+        display: flex;
+        flex-wrap: nowrap;
+        flex-direction: column;
+        justify-content: baseline;
+        padding-top: 1rem;
+      }
+      .usingTap .contain {
+        @include roots.padding1;
+        display: grid;
+        grid-template-rows: 1fr 1fr;
+        grid-template-columns: auto;
+
+        .conta {
+          padding-top: 1rem;
+          display: flex;
+          flex-wrap: nowrap;
+          flex-direction: row;
+          justify-content: space-between;
+
+          .tracker {
+            display: flex;
+            flex-wrap: nowrap;
+            flex-direction: row;
+          }
+        }
+      }
+
+      .cont {
+        display: flex;
+        justify-content: center;
+        flex-wrap: nowrap;
+        flex-direction: row;
         justify-content: center;
         align-items: center;
       }
+      .cont p + p {
+        position: relative;
+
+        left: -65px;
+      }
+    }
+  }
+  .loader {
+    border: 8px solid rgba(128, 128, 128, 0);
+    border-radius: 50%;
+    border-top: 8px solid lightblue;
+    width: 80px;
+    height: 80px;
+    position: relative;
+
+    -webkit-animation: spin 0.7s ease-in-out infinite; /* Safari */
+    animation: spin 0.7s cubic-bezier(0.24, 0.47, 0.76, 0.64) infinite;
+  }
+
+  /* Safari */
+  @-webkit-keyframes spin {
+    0% {
+      -webkit-transform: rotate(0deg);
+    }
+    100% {
+      -webkit-transform: rotate(360deg);
+    }
+  }
+
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
     }
   }
 }
