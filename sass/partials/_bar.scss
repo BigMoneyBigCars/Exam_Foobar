@@ -307,9 +307,17 @@
           height: 100%;
           background: snow;
           color: black;
+          .flex {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            justify-content: center;
+            align-items: center;
+          }
+
           p {
             font-weight: bold;
-            font-size: 1.2rem;
+            font-size: 1.5rem;
           }
         }
 
@@ -365,19 +373,23 @@
       }
 
       .usingTap .contain {
-        @include roots.padding1;
+        padding-left: 3rem;
+        padding-left: 3rem;
         padding-top: 1rem;
         display: flex;
         flex-wrap: nowrap;
         flex-direction: row;
-        justify-content: space-evenly;
+        justify-content: space-between;
         align-items: center;
 
-        .tracker {
-          display: flex;
-          flex-wrap: nowrap;
-          flex-direction: row;
+        p {
+          font-size: 2rem;
         }
+      }
+      .tracker {
+        display: flex;
+        flex-wrap: nowrap;
+        flex-direction: row;
       }
 
       .cont {
@@ -391,7 +403,7 @@
       .cont p + p {
         position: relative;
 
-        left: -65px;
+        left: -93px;
       }
     }
   }
@@ -399,12 +411,19 @@
     border: 8px solid rgba(128, 128, 128, 0);
     border-radius: 50%;
     border-top: 8px solid lightblue;
-    width: 80px;
-    height: 80px;
+    width: 120px;
+    height: 120px;
     position: relative;
 
     -webkit-animation: spin 0.7s ease-in-out infinite; /* Safari */
-    animation: spin 0.7s cubic-bezier(0.24, 0.47, 0.76, 0.64) infinite;
+    animation: spin 0.7s linear infinite;
+  }
+  .completed {
+    color: Green;
+    /*     background: url(/static/billeder/yes4.png) no-repeat scroll 7px 7px;
+    background-size: contain;
+    background-size: 50px;
+    background-position: 99.3% 70%; */
   }
 
   /* Safari */
