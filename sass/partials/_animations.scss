@@ -1,9 +1,7 @@
 //hourglass rotate
 .bola {
   width: 40px !important;
-  transform: rotate(-15deg);
-  -webkit-animation: rodaroda 8.5s linear alternate 3;
-
+  transform: rotate(-15deg); // If removed, wierd stuff happens, with the animation.
   animation: rodaroda 8.5s linear infinite;
 }
 
@@ -15,7 +13,7 @@
     transform: rotate(340deg);
   }
   80% {
-    transform: rotate(400deg);
+    transform: rotate(390deg);
   }
   100% {
     transform: rotate(360deg);
