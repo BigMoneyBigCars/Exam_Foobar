@@ -1,0 +1,51 @@
+//hourglass rotate
+.bola {
+  transform: rotate(-15deg);
+  -webkit-animation: rodaroda 8.5s linear alternate 3;
+
+  animation: rodaroda 8.5s linear infinite;
+}
+
+@keyframes rodaroda {
+  0% {
+    transform: rotate(0deg);
+  }
+  75% {
+    transform: rotate(340deg);
+  }
+  80% {
+    transform: rotate(400deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+//queue pulse
+
+.pulse {
+  animation: pulse 1.5s infinite ease-in-out alternate;
+}
+@keyframes pulse {
+  from {
+    transform: scale(0.9);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+//Orders being made rotate
+
+.rotate {
+  animation: rotation 8s infinite linear;
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}
