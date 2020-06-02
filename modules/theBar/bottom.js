@@ -99,38 +99,48 @@ function updateRight(data) {
 
 function updateBartenders(data) {
   //console.log(kegArray);
-  peterB(data[0]);
-  dannieB(data[2]);
-  jonasB(data[1]);
-
+  //peterB(data[0]);
+  // jonasB(data[1]);
   const dannie = document.querySelector("#dannie");
   const peter = document.querySelector("#peter");
   const jonas = document.querySelector("#jonas");
 
+  dannieB(data[2], dannie);
+
   //  dannie.querySelector(".status").textContent = data[2].status;
 }
 
-function dannieB(data) {
+/* let danniesCounter;
+let danniesCount = 0;
+let dannieAnimationRunning = false; */
+
+function dannieB(data, bartender) {
   console.log(data);
-  const dannie = document.querySelector("#dannie");
-  const danTracker = document.querySelector("#dannie .tracker");
+
+  let orderLength;
 
   if (data) {
-    dannie.querySelector("#dannie .makingOrder p").textContent = "Preparing order";
-    if (data.servingCustomer != null) {
-      dannie.querySelector("#dannie .makingOrder p + p").textContent = "Nr. " + data.servingCustomer;
-    } else {
-      dannie.querySelector("#dannie .makingOrder p + p").textContent = "";
-    }
     const findOrder = servingArray.find(({ id }) => id === data.servingCustomer);
+    //  dannie.querySelector("#dannie .makingOrder p").textContent = "Preparing order";
+    if (data.servingCustomer != null) {
+      if (!dannie.dataset.beersleft) {
+        dannie.dataset.beersleft = findOrder.order.length;
+        dannie.querySelector("p.tracker").textContent = findOrder.order.length;
+      }
+      dannie.querySelector("#dannie .makingOrder p ").textContent = "Nr. " + data.servingCustomer;
+    } else {
+      dannie.querySelector("#dannie .makingOrder p ").textContent = "";
+    }
     if (findOrder) {
       let order = findOrder.order;
       console.log(order);
+      orderLength = order.length;
+      console.log(orderLength);
 
-      danTracker.querySelector("p").textContent = 0;
+      //danTracker.querySelector("p").textContent = 0;
       dannie.querySelector(".theOrder > h2").textContent = "Order Items (" + order.length + ")";
-      danTracker.querySelector("p+p").textContent = "/" + order.length;
-      document.querySelector(".theOrder .contain").innerHTML = "";
+      //  danTracker.querySelector("p+p").textContent = "/" + order.length;
+      dannie.querySelector(".theOrder .contain").innerHTML = "";
       order.forEach((item) => {
         console.log(item);
         const clone = document.querySelector(".items-in-order").cloneNode(true).content;
@@ -142,34 +152,56 @@ function dannieB(data) {
     }
   }
 
+  console.log(data);
   // dannie.querySelector(".status").textContent = "Bartender is currently " + data.status;
 
   // dannie.querySelector(".statusDetail").textContent = data.statusDetail;
 
-  if ((data.statusDetail = "pourBeer")) {
+  if (data.statusDetail === "releaseTap") {
+    console.log(data.statusDetail);
+    dannie.dataset.beersleft = dannie.dataset.beersleft - 1;
+    dannie.dataset.count = 0;
+    clearInterval(dannie.dataset.counter);
+    dannie.dataset.animationrunning = false;
+
+    dannie.querySelector(" #dannie .tap").textContent = "releasing tap";
+  } else if (data.statusDetail === "replaceKeg") {
+    console.log(data.statusDetail);
+    dannie.querySelector("#dannie .tap").textContent = "Replacing a keg";
+  } else if (data.statusDetail === "pourBeer") {
     console.log(data.statusDetail);
     let existss = kegArray.find(({ id }) => id === data.usingTap);
     if (existss) {
       let beerBeingServed = existss.beer;
       console.log(beerBeingServed);
-      dannie.querySelector("#dannie .tap").textContent = "Pouring beer on tap " + (data.usingTap + 1);
-      dannie.querySelector("#dannie .currentBeer p").textContent = beerBeingServed;
+      dannie.querySelector("#dannie .usingTap .con .tap").textContent = "Pouring beer on tap " + (data.usingTap + 1);
+      dannie.querySelector("#dannie .usingTap .contain p").textContent = beerBeingServed;
       dannie.querySelector("#dannie .cont p").classList.add("loader");
+
+      if (dannie.dataset.animationrunning == "false") {
+        dannie.dataset.animationrunning = true;
+        dannie.dataset.counter = setInterval(function () {
+          if (dannie.dataset.count < 101) {
+            document.querySelector("#dannie > div.usingTap > div.contain > div > p:nth-child(2)").textContent = dannie.dataset.count + "%";
+            dannie.dataset.count++;
+          } else {
+            clearInterval(dannie.dataset.counter);
+            dannie.dataset.animationrunning = false;
+          }
+        }, 100);
+      }
     }
-  } else if ((data.statusDetail = "releaseTap")) {
-    console.log(data.statusDetail);
-    dannie.querySelector(" #dannie .tap").textContent = "releasing tap";
-  } else if ((data.statusDetail = "replaceKeg")) {
-    console.log(data.statusDetail);
-    dannie.querySelector("#dannie .tap").textContent = "Replacing a keg";
+  } else if (data.statusDetail === "receivePayment") {
+    dannie.removeAttribute("data-beersleft");
   } else {
-    dannie.querySelector("#dannie .currentBeer p").textContent = "";
-    dannie.querySelector("#dannie.tap").textContent = "";
+    dannie.querySelector("#dannie .usingTap .contain p").textContent = "";
+    dannie.querySelector("#dannie .usingTap .con .tap").textContent = "";
     dannie.querySelector("#dannie .cont p").classList.remove("loader");
   }
 
   console.log(data);
 }
+
 /* 
 function trackerTime(danOrderTracker) {
   console.log(danOrderTracker);
@@ -200,5 +232,5 @@ function testss() {
     } else {
       clearInterval(counting);
     }
-  }, 80);
+  }, 100);
 }
