@@ -106,6 +106,8 @@ function updateBartenders(data) {
   const jonas = document.querySelector("#jonas");
 
   bartenderWorks(data[2], dannie);
+  bartenderWorks(data[0], peter);
+  bartenderWorks(data[1], jonas);
 
   //  dannie.querySelector(".status").textContent = data[2].status;
 }
@@ -144,10 +146,10 @@ function bartenderWorks(data, bartender) {
       bartender.querySelector(".theOrder .contain").innerHTML = "";
       order.forEach((item) => {
         console.log(item);
-        const clone = document.querySelector(".items-in-order").cloneNode(true).content;
+        let clone = bartender.querySelector(".items-in-order").cloneNode(true).content;
         clone.querySelector(".beer").textContent = item;
 
-        const parent = document.querySelector(".theOrder .contain");
+        let parent = bartender.querySelector(".theOrder .contain");
         parent.appendChild(clone);
       });
     }
@@ -184,7 +186,7 @@ function bartenderWorks(data, bartender) {
         bartender.dataset.animationrunning = true;
         bartender.dataset.counter = setInterval(function () {
           if (bartender.dataset.count < 101) {
-            document.querySelector("div.usingTap > div.contain > div > p:nth-child(2)").textContent = bartender.dataset.count + "%";
+            bartender.querySelector("div.usingTap > div.contain > div > p:nth-child(2)").textContent = bartender.dataset.count + "%";
             bartender.dataset.count++;
           } else {
             clearInterval(bartender.dataset.counter);
