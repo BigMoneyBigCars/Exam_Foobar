@@ -4,3 +4,11 @@
 @mixin sedgwick() {
   font-family: "Sedgwick Ave";
 }
+
+@mixin raleway() {
+  font-family: "Playfair Display", serif;
+  font-family: "Raleway", sans-serif;
+}
+@mixin playfair() {
+  font-family: "Playfair Display", serif;
+}

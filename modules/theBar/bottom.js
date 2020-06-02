@@ -1,14 +1,26 @@
 import { staticArray, updatedCheckArray } from "../../main";
+import { bar } from "../nav";
 
 const bottom = document.querySelector("#theBar .sbBottom");
-
+export let printArray = [];
 export let updatedArray = [];
 export let kegArray = [];
 export let servingArray = [];
+setInterval(() => {
+  const now = new Date().getTime();
+  printArray.forEach((item, index) => {
+    if (item.time + 20000 < now) {
+      console.log(item.id, "tiem to delete");
+      document.getElementById(item.id).remove();
+      printArray.splice(index, 1);
+      console.log(printArray);
+    }
+  });
+}, 1000);
 export function printKegs(data) {
   data = data.taps;
   updatedArray = data;
-  console.log(updatedArray);
+  // console.log(updatedArray);
 
   let percent = 30;
   let dash = percent * 2.5;
@@ -46,7 +58,7 @@ function updateLeft(time) {
   // Will display time in 10:30:23 format
   var formattedTime = hours + ":" + minutes.substr(-2) + ":" + seconds.substr(-2);
 
-  console.log(formattedTime);
+  // console.log(formattedTime);
   document.querySelector(".time").textContent = formattedTime;
 }
 
@@ -117,8 +129,8 @@ let danniesCount = 0;
 let dannieAnimationRunning = false; */
 
 function bartenderWorks(data, bartender) {
-  console.log(bartender);
-  console.log(data);
+  //console.log(bartender);
+  // console.log(data);
 
   let orderLength;
 
@@ -128,6 +140,8 @@ function bartenderWorks(data, bartender) {
     if (data.servingCustomer != null) {
       if (!bartender.dataset.beersleft) {
         bartender.dataset.beersleft = findOrder.order.length;
+        bartender.dataset.total = findOrder.order.length;
+
         bartender.querySelector(".tracker p + p").textContent = "/ " + findOrder.order.length + ")";
       }
       bartender.querySelector(".makingOrder p ").textContent = "Nr. " + data.servingCustomer;
@@ -136,16 +150,16 @@ function bartenderWorks(data, bartender) {
     }
     if (findOrder) {
       let order = findOrder.order;
-      console.log(order);
+      //   console.log(order);
       orderLength = order.length;
-      console.log(orderLength);
+      // console.log(orderLength);
 
       //danTracker.querySelector("p").textContent = 0;
       bartender.querySelector(".theOrder > h2").textContent = "Order Items (" + order.length + ")";
       //  danTracker.querySelector("p+p").textContent = "/" + order.length;
       bartender.querySelector(".theOrder .contain").innerHTML = "";
       order.forEach((item) => {
-        console.log(item);
+        ///  console.log(item);
         let clone = bartender.querySelector(".items-in-order").cloneNode(true).content;
         clone.querySelector(".beer").textContent = item;
 
@@ -155,29 +169,28 @@ function bartenderWorks(data, bartender) {
     }
   }
 
-  console.log(data);
+  //  console.log(data);
   // dannie.querySelector(".status").textContent = "Bartender is currently " + data.status;
 
   // dannie.querySelector(".statusDetail").textContent = data.statusDetail;
 
   if (data.statusDetail === "releaseTap") {
-    console.log(data.statusDetail);
+    //  console.log(data.statusDetail);
     bartender.dataset.beersleft = bartender.dataset.beersleft - 1;
+    bartender.querySelector(".tracker p").textContent = "(" + (bartender.dataset.total - bartender.dataset.beersleft);
+
     //bartender.querySelector(".tracker p").textContent = bartender.dataset.beersleft;
     bartender.dataset.count = 0;
     clearInterval(bartender.dataset.counter);
     bartender.dataset.animationrunning = false;
 
     bartender.querySelector(".tap").textContent = "releasing tap";
-  } else if (data.statusDetail === "replaceKeg") {
-    console.log(data.statusDetail);
-    bartender.querySelector(".usingTap .con .tap").textContent = "Replacing a keg";
   } else if (data.statusDetail === "pourBeer") {
-    console.log(data.statusDetail);
+    // console.log(data.statusDetail);
     let existss = kegArray.find(({ id }) => id === data.usingTap);
     if (existss) {
       let beerBeingServed = existss.beer;
-      console.log(beerBeingServed);
+      // console.log(beerBeingServed);
       bartender.querySelector(".usingTap .con .tap").textContent = "Pouring beer on tap " + (data.usingTap + 1);
       bartender.querySelector(".usingTap .contain p").textContent = beerBeingServed;
       bartender.querySelector(".cont p").classList.add("loader");
@@ -201,27 +214,121 @@ function bartenderWorks(data, bartender) {
 
     bartender.querySelector(".cont p").classList.remove("loader");
     bartender.querySelector(".usingTap .contain p").classList.add("completed");
+    checkIfOrderExists(data.servingCustomer);
     bartender.querySelector(".usingTap .cont p").textContent = "";
     bartender.querySelector(".usingTap .cont p + p").textContent = "";
 
     bartender.removeAttribute("data-beersleft");
   } else if (data.statusDetail === "reserveTap") {
     bartender.querySelector(".usingTap .con .tap").textContent = "Waiting on a tap";
+  } else if (data.statusDetail === "replaceKeg") {
+    console.log(data.statusDetail);
+    bartender.querySelector(".usingTap .con .tap").textContent = "Replacing a keg";
+    bartender.querySelector(".theOrder .contain").innerHTML = "";
+    bartender.querySelector(".makingOrder p").textContent = "";
+    bartender.querySelector(".usingTap .contain p").textContent = "";
   } else if (data.statusDetail === "waiting") {
     bartender.querySelector(".usingTap .con .tap").textContent = "Ready for new order";
     bartender.querySelector(".usingTap .contain p").textContent = "";
   } else if (data.statusDetail === "startServing") {
+    bartender.querySelector(".tracker p").textContent = "(0";
     bartender.querySelector(".usingTap .contain p").classList.remove("completed");
     bartender.querySelector(".usingTap .contain p").textContent = "";
     bartender.querySelector(".usingTap .con .tap").textContent = "Next order";
+    bartender.querySelector(".theOrder .contain").innerHTML = "";
+    bartender.querySelector(".makingOrder p").textContent = "";
   } else {
     bartender.querySelector(".usingTap .contain p").textContent = "";
     bartender.querySelector(".usingTap .con .tap").textContent = "";
     bartender.querySelector(".usingTap .contain p").classList.remove("completed");
   }
 
-  console.log(data);
+  // console.log(data);
 }
+
+function checkIfOrderExists(orderNr) {
+  // console.log(orderNr);
+  const date = new Date();
+  const orderItemNr = {
+    time: date.getTime(),
+    id: orderNr,
+  };
+
+  if (!printArray.some((e) => e.id === orderItemNr.id)) {
+    printArray.push(orderItemNr);
+    printOrder(orderItemNr.id);
+  }
+
+  // console.log(printArray);
+}
+
+function printOrder(orderNr) {
+  let clonePrint = document.querySelector(".printOrderTemp").cloneNode(true).content;
+  clonePrint.querySelector("h2").id = orderNr;
+  clonePrint.querySelector("h2").textContent = orderNr;
+  clonePrint.querySelector("h2").dataset.id = orderNr;
+
+  const parentPrint = document.querySelector(".printContainer");
+
+  parentPrint.appendChild(clonePrint);
+
+  // console.log(printArray);
+  // console.log(orderNr);
+}
+
+function tissemand(e) {
+  console.log(e);
+
+  e.remove();
+  console.log(e);
+}
+
+function deleteSelf(elementDelete) {
+  console.log(elementDelete);
+  /*  console.log(orderNr);
+  const container = document.querySelector(".printContainer");
+  console.log(container);
+  let orders = document.querySelectorAll(".printContainer h2");
+  console.log(orders); */
+
+  /*   orders.forEach((e) => {
+    console.log(e.dataset.id);
+    console.log(orderNr);
+    if (e.dataset.id === orderNr) {
+      console.log("DET ER KUN DENNE ORDRE SOME FINDES ", orderNr);
+      //  e.removeElement();
+    }
+  }); */
+  /* 
+  console.log(printArray);
+  let existPrint = printArray.find((id) => id === orderNr);
+  if (existPrint) {
+    console.log("it exists");
+    console.log(existPrint); */
+  /*   orders.forEach((orderE) => {
+      console.log(orderE, existPrint);
+      if (orderE.dataset.id == existPrint) {
+        orderE.textContent = "DELETE ME";
+      }
+    }); */
+
+  //   console.log(document.querySelector(".printContainer h2").dataset.id === existPrint);
+  /*   } else {
+    console.log("it does not exists");
+  }
+ */
+  // console.log(orders);
+}
+/*   console.log(orderNr);
+
+  let clonePrint = document.querySelector(".printOrderTemp").cloneNode(true).content;
+  clonePrint.querySelector("h2").textContent = orderNr;
+  clonePrint.querySelector("h2").dataset.id = orderNr;
+
+  const parentPrint = document.querySelector(".printContainer");
+
+  parentPrint.appendChild(clonePrint); */
+//  clonePrint.querySelector("h2").dataset.active = "active";
 
 /* 
 function trackerTime(danOrderTracker) {

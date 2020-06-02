@@ -3,9 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Sedgwick+Ave&display=swap" rel="stylesheet" />
+
     <link href="//db.onlinewebfonts.com/c/5d35a36bacbab824395170f9d9d949ea?family=IndustryW00-Book" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;0,800;0,900;1,400;1,500;1,900&family=Raleway:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.css" />
     <link rel="stylesheet" href="sass/styles.scss" />
     <title>Foobar</title>
@@ -248,18 +249,18 @@
                   <div class="smallContainer">
                     <div class="input-field">
                       <div class="labelcontainer"><label for="expmonth">Exp month</label></div>
-                      <input id="expmonth" type="tel" name="expmonth" inputmode="numeric" pattern="[0-2\s]{0,2}" autocomplete="exp-month" maxlength="2" placeholder="D/M" value="" required />
+                      <input id="expmonth" type="tel" name="expmonth" inputmode="numeric" pattern="[0-9\s]{0,2}" autocomplete="exp-month" maxlength="2" placeholder="D/M" value="" required />
                       <p class="invalid_text">Please provide the correct experation month</p>
                     </div>
                     <div class="input-field">
                       <div class="labelcontainer"><label for="expyear">Exp year</label></div>
-                      <input id="expyear" type="tel" name="expyear" inputmode="numeric" pattern="[0-4\s]{4,4}" autocomplete="exp-year" maxlength="4" placeholder="2020" value="" required />
+                      <input id="expyear" type="tel" name="expyear" inputmode="numeric" pattern="[0-9\s]{4,4}" autocomplete="exp-year" maxlength="4" placeholder="2020" value="" required />
                       <p class="invalid_text">Please provide a correct experation year</p>
                     </div>
                     <div class="input-field">
                       <div class="labelcontainer"><label for="cvv">CVV</label></div>
 
-                      <input type="tel" name="cvv" id="cvv" inputmode="numeric" pattern="[0-3\s]{0,3}" maxlength="3" placeholder="xxx" value="" required />
+                      <input type="tel" name="cvv" id="cvv" inputmode="numeric" pattern="[0-9\s]{0,3}" maxlength="3" placeholder="xxx" value="" required />
                       <p class="invalid_text">Please provide a correct CVV number</p>
                     </div>
                   </div>
@@ -310,7 +311,7 @@
                         <div class="flex">
                           <h2>Status</h2>
                           <div class="tracker">
-                            <p></p>
+                            <p>(0</p>
                             <p></p>
                           </div>
                         </div>
@@ -352,7 +353,7 @@
                         <div class="flex">
                           <h2>Status</h2>
                           <div class="tracker">
-                            <p></p>
+                            <p>(0</p>
                             <p></p>
                           </div>
                         </div>
@@ -394,7 +395,7 @@
                         <div class="flex">
                           <h2>Status</h2>
                           <div class="tracker">
-                            <p></p>
+                            <p>(0</p>
                             <p></p>
                           </div>
                         </div>
@@ -421,11 +422,7 @@
 
               <div class="readyOrders">
                 <h2>Orders ready</h2>
-
-                <h3>271</h3>
-                <h3>271</h3>
-                <h3>271</h3>
-                <h3>271</h3>
+                <div class="printContainer"></div>
               </div>
             </div>
             <div class="sbRight">
@@ -481,6 +478,10 @@
         <p></p>
         <p></p>
       </div>
+    </template>
+
+    <template class="printOrderTemp">
+      <h2></h2>
     </template>
     <template class="avaliable">
       <article>

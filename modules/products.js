@@ -12,7 +12,7 @@ export let beerCounter = 0;
 
 export function checkBeerArray(updatedCheckArray) {
   let check = updatedCheckArray.taps;
-  console.log(notAvaliable, check);
+  //console.log(notAvaliable, check);
 
   notAvaliable.forEach((e) => {
     const exists = notAvaliable.find((x) => x.name === check.beer);

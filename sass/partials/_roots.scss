@@ -1,5 +1,7 @@
+@use "partials/fonts";
 html {
-  font-family: "Montserrat", sans-serif;
+  @include fonts.raleway;
+
   font-weight: 300;
 }
 img {
@@ -22,7 +24,7 @@ img {
   --buttonB: #7983ff;
   --buttonB3: #7983ff;
 
-  --text: snow;
+  --text: black;
   --background: snow;
   --background2: #38383d;
   --background3: #28313b;

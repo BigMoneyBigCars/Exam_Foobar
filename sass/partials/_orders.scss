@@ -4,6 +4,12 @@
   height: 100%;
   display: none;
   height: calc(100vh - var(--nav-height));
+
+  height: calc(100vh - var(--nav-height));
+  position: fixed;
+  position: relative;
+  top: var(--nav-height);
+  overflow: scroll;
   article {
     overflow-x: scroll;
     height: 100%;

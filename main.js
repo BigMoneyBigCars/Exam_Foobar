@@ -88,7 +88,7 @@ function getUpdate() {
 
 function delegateUpdates(jsonData) {
   updatedCheckArray = jsonData;
-  console.log(staticArray, updatedCheckArray);
+  //  console.log(staticArray, updatedCheckArray);
 
   checkBeerArray(updatedCheckArray);
 

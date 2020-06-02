@@ -5,7 +5,7 @@
 
   .wrapper {
     overflow-x: scroll;
-
+    padding: 1rem;
     width: 100%;
     height: 100%;
     display: grid;
@@ -27,9 +27,17 @@
       color: var(--text);
 
       display: flex;
+      height: 100%;
       justify-content: flex-start;
       align-items: center;
-      width: 100%;
+      margin-left: 1rem;
+      margin-right: 1rem;
+      font-weight: 600;
+      padding-left: 1rem;
+      background: white;
+      box-shadow: 0px 0px 26px -3px rgba(0, 0, 0, 0.75);
+      border-radius: 15px 15px 15px 15px;
+
       h2 {
         height: 100%;
 
@@ -49,7 +57,7 @@
     }
     .sbLeft {
       // background-color: var(--background2);
-      @include fonts.industry;
+      @include fonts.raleway;
       color: var(--text);
       grid-column: 1 / span 2;
       grid-row: 1 / span 10;
@@ -61,6 +69,9 @@
       justify-items: center;
       justify-content: center;
       align-items: center;
+      background: white;
+      box-shadow: 0px 0px 26px -3px rgba(0, 0, 0, 0.75);
+      border-radius: 15px 15px 15px 15px;
 
       img.logo {
         height: 140px;
@@ -83,10 +94,10 @@
           padding-bottom: 2rem;
           font-size: 2rem;
         }
-        h3 {
+        .printContainer {
           padding-top: 2rem;
           font-size: 1.5rem;
-          color: #7ed6df;
+          color: rgb(95, 161, 184);
         }
       }
 
@@ -113,8 +124,11 @@
       justify-items: center;
       justify-content: center;
       align-items: center;
+      background: white;
+      box-shadow: 0px 0px 26px -3px rgba(0, 0, 0, 0.75);
+      border-radius: 15px 15px 15px 15px;
 
-      @include fonts.industry;
+      @include fonts.raleway;
 
       p {
         font-size: 1.2rem;
@@ -131,7 +145,7 @@
         font-size: 2rem;
         font-weight: bold;
         padding-top: 1.5rem;
-        color: snow;
+        color: black;
       }
 
       .queue {
@@ -146,7 +160,8 @@
     }
 
     .sbBottom {
-      @include fonts.industry;
+      @include fonts.raleway;
+      margin-top: 1rem;
       //    background-color: var(--background2);
       color: var(--text);
       grid-column: 1 / span 12;
@@ -160,6 +175,9 @@
       justify-content: center;
       align-items: center;
       overflow: hidden;
+      background: white;
+      box-shadow: 0px 0px 26px -3px rgba(0, 0, 0, 0.75);
+      border-radius: 15px 15px 15px 15px;
 
       p {
         position: relative;
@@ -184,7 +202,7 @@
 
         /* SVG */
         fill: none;
-        stroke: #7ed6df;
+        stroke: rgb(95, 161, 184);
         stroke-width: 8;
         stroke-linecap: square;
         stroke-dasharray: 0 999;
@@ -207,6 +225,7 @@
       background-image: linear-gradient(315deg, #637081 0%, #7c98b3 74%);
       background-color: #000000;
       background-image: linear-gradient(147deg, #000000 0%, #1f2e3d 74%); */
+      padding: 1rem;
       grid-row: 2 / span 9;
       grid-column: 3 / span 8;
       height: 100%;
@@ -278,6 +297,8 @@
         align-items: center;
         justify-items: center;
         overflow-x: hidden;
+        background: white;
+        color: black;
 
         .contain {
           border-left: 1px solid white;
@@ -290,9 +311,9 @@
           @include roots.padding1;
 
           height: 100%;
-          background: snow;
+          background: #28313b;
           display: flex;
-          color: rgba(0, 0, 0, 0.781);
+          color: snow;
           align-items: center;
         }
         .con {
@@ -305,8 +326,8 @@
           font-weight: bold;
           @include roots.padding1;
           height: 100%;
-          background: snow;
-          color: black;
+          background: #28313b;
+          color: snow;
           .flex {
             display: flex;
             flex-direction: row;
