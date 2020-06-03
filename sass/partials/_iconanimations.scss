@@ -1,0 +1,56 @@
+//hourglass rotate
+.rotation {
+  animation: hourglass 4s ease-in infinite;
+  animation-delay: 1s;
+}
+
+@keyframes hourglass {
+  0% {
+    transform: rotate(0deg);
+  }
+  70% {
+    transform: rotate(195deg);
+  }
+  80% {
+    transform: rotate(165deg);
+  }
+  85% {
+    transform: rotate(185deg);
+  }
+  90% {
+    transform: rotate(170deg);
+  }
+  95%,
+  100% {
+    transform: rotate(180deg);
+  }
+}
+
+//queue pulse
+
+.pulse {
+  animation: pulse 2.5s infinite ease-in-out alternate;
+}
+@keyframes pulse {
+  from {
+    transform: scale(0.9);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+//Orders being made rotate
+
+.rotate {
+  animation: rotation 30s infinite linear;
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}
