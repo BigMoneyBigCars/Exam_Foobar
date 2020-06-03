@@ -1,7 +1,7 @@
 import { staticArray, updatedCheckArray } from "../../main";
 import { bar } from "../nav";
 
-const bottom = document.querySelector("#theBar .sbBottom");
+const bottom = document.querySelector("#theBar .sbBottom .bottom-container");
 export let printArray = [];
 export let updatedArray = [];
 export let kegArray = [];
@@ -9,7 +9,7 @@ export let servingArray = [];
 setInterval(() => {
   const now = new Date().getTime();
   printArray.forEach((item, index) => {
-    if (item.time + 20000 < now) {
+    if (item.time + 50000 < now) {
       console.log(item.id, "tiem to delete");
       document.getElementById(item.id).remove();
       printArray.splice(index, 1);
@@ -26,7 +26,7 @@ export function printKegs(data) {
   let dash = percent * 2.5;
   data.forEach((element) => {
     const clone = document.querySelector(".bottom-bar").cloneNode(true).content;
-    clone.querySelector("p").textContent = percent.toFixed(0);
+    // clone.querySelector("p").textContent = percent.toFixed(0);
     clone.querySelector(".round").style.strokeDasharray = dash + "," + 999;
     const parent = bottom;
     parent.appendChild(clone);
@@ -65,13 +65,14 @@ function updateLeft(time) {
 function updateBottom(data) {
   data = data.taps;
   kegArray = data;
-
+  console.log(data);
   updatedArray = data;
   // console.log(updatedArray);
   // console.log(data);
   let count = -1;
   let bottomBarsParent = document.querySelectorAll(".point");
-  let bottomBars = document.querySelectorAll(".round");
+  let bottomBars = document.querySelectorAll(".round .circle");
+
   data.forEach((element) => {
     count++;
     // console.log(element);
@@ -82,8 +83,8 @@ function updateBottom(data) {
     let percent = (level / capacity) * 100;
     let dash = percent * 2.5;
 
-    bottomBars[count].style.strokeDasharray = dash + "," + 999;
-    bottomBarsParent[count].querySelector("p").textContent = percent.toFixed(0) + "%";
+    bottomBars[count].style.strokeDasharray = percent + "," + 999;
+    bottomBarsParent[count].querySelector(".percentage").textContent = percent.toFixed(0) + "%";
     bottomBarsParent[count].querySelector("h2").textContent = element.beer;
   });
 
@@ -155,7 +156,7 @@ function bartenderWorks(data, bartender) {
       // console.log(orderLength);
 
       //danTracker.querySelector("p").textContent = 0;
-      bartender.querySelector(".theOrder > h2").textContent = "Order Items (" + order.length + ")";
+      bartender.querySelector(".theOrder > .con > h2").textContent = "Order Items (" + order.length + ")";
       //  danTracker.querySelector("p+p").textContent = "/" + order.length;
       bartender.querySelector(".theOrder .contain").innerHTML = "";
       order.forEach((item) => {
@@ -230,6 +231,11 @@ function bartenderWorks(data, bartender) {
   } else if (data.statusDetail === "waiting") {
     bartender.querySelector(".usingTap .con .tap").textContent = "Ready for new order";
     bartender.querySelector(".usingTap .contain p").textContent = "";
+    bartender.querySelector(".usingTap .contain p").classList.remove("completed");
+    bartender.querySelector(".usingTap .contain p").textContent = "";
+    bartender.querySelector(".usingTap .con .tap").textContent = "Next order";
+    bartender.querySelector(".theOrder .contain").innerHTML = "";
+    bartender.querySelector(".makingOrder p").textContent = "";
   } else if (data.statusDetail === "startServing") {
     bartender.querySelector(".tracker p").textContent = "(0";
     bartender.querySelector(".usingTap .contain p").classList.remove("completed");

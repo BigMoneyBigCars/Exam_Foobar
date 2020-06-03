@@ -28,6 +28,9 @@ h2 {
 
 main {
 }
+.section-title {
+  display: none;
+}
 
 #main-container {
   min-height: calc(100vh - var(--nav-height));
@@ -41,7 +44,7 @@ main {
   background-image: linear-gradient(147deg, #000000 0%, #2c3e50 74%); */
   background: #d3d3d3;
   overflow: scroll;
-
+  position: fixed;
   scroll-behavior: smooth;
   perspective: 2px;
   transition: 0.5s ease-in-out;
