@@ -8,7 +8,7 @@
     display: grid;
     justify-content: center;
     align-items: center;
-    background-color: var(--color-10);
+    background-color: darkorange;
   }
   h1 {
     font-size: 0.9rem;
@@ -28,6 +28,8 @@
   width: 100%;
   padding-top: 1.5rem;
   padding-bottom: 1.5rem;
+  background: white;
+
   @include roots.padding1;
 
   @include fonts.industry();
