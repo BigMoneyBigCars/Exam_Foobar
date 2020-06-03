@@ -257,9 +257,83 @@
 }
 
 @media only screen and (max-width: 700px) {
+  //FONTS START
+
+  #theBar {
+    height: 100%;
+    font-size: 1rem;
+    font-weight: 600;
+    text-shadow: -1px 1px 1px black;
+    h2 {
+      font-weight: 400;
+    }
+    .percentage {
+      font-size: 0.3rem;
+      text-shadow: 0px 1px 1px black;
+    }
+
+    h2,
+    p.tap,
+    .tracker p,
+    .contain p {
+      font-size: 1rem;
+    }
+    .sbBottom,
+    .sbRight,
+    .sbBottom h2 {
+      text-shadow: 1px 1px 1px black;
+      font-weight: 400;
+    }
+
+    .sbRight {
+      p {
+        font-size: 1rem;
+      }
+      p.theQueue,
+      p.time,
+      p.serving {
+        font-size: 1.6rem;
+        font-weight: bold;
+        padding-top: 2rem;
+        text-shadow: 1px 1px 1px black;
+      }
+    }
+    .readyOrders h2 {
+      padding-top: 2rem;
+      font-size: 1.5rem;
+      font-weight: 400;
+    }
+    .printContainer h2 {
+      font-weight: bold;
+      text-shadow: -1px 2px 1px black;
+    }
+    .makingOrder > p,
+    p.completed {
+      font-size: 1.2rem;
+      font-weight: bold;
+      text-shadow: -1px 2px 3px black;
+    }
+
+    .usingTap .contain p:first-child {
+      font-size: 1.2rem;
+      font-weight: bold;
+    }
+    .bottom-container {
+      grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+      grid-template-rows: auto;
+    }
+    h2 {
+      font-size: 0.6rem;
+    }
+  }
+  //FONTS END
   #main-container {
     #theBar {
       .wrapper {
+        .sbBottom .bottom-container {
+          grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+          grid-template-rows: auto;
+        }
         .readyOrders {
           min-height: 100px;
         }
