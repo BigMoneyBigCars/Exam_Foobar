@@ -95,7 +95,7 @@ function delegateUpdates(jsonData) {
   //updates the Dashboard
   updateAllDashboard(updatedCheckArray);
 
-  setTimeout(getUpdate, 500);
+  setTimeout(getUpdate, 52200);
 }
 
 function receiptEventlisterner() {

@@ -88,7 +88,7 @@
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
 
-        font-size: 2rem;
+        font-size: 2vw;
         text-align: left;
         font-weight: 800;
 
@@ -116,9 +116,9 @@
       border-radius: 15px 15px 15px 15px;
 
       p.time {
-        font-size: 2.3rem;
+        font-size: 2.3vw;
         align-self: baseline;
-        padding-top: 1rem;
+        padding-top: 1vw;
         font-weight: 600;
         letter-spacing: 3px;
       }
@@ -130,7 +130,7 @@
         grid-column: 1;
         p {
           margin-top: 1rem;
-          font-size: 1.3rem;
+          font-size: 1.3vw;
           font-weight: bold;
         }
       }
@@ -141,28 +141,28 @@
 
         h2 {
           padding-bottom: 2rem;
-          font-size: 2rem;
+          font-size: 2vw;
         }
         .printContainer {
           display: grid;
           grid-template-columns: repeat(2, 1fr);
 
           padding-top: 2rem;
-          font-size: 2rem;
+
           color: rgb(95, 161, 184);
           font-weight: bold;
           color: darkorange;
           text-shadow: #474747 1px 3px 1px;
-          font-size: 4rem;
-          font-size: 3.5rem;
+
+          font-size: 2.6vw;
           h2 {
-            font-size: 2.5rem !important;
+            font-size: 1.8vw;
           }
         }
       }
 
       p {
-        font-size: 1.2rem;
+        font-size: 1.2vw;
       }
     }
 
@@ -183,7 +183,7 @@
       border-radius: 15px 15px 15px 15px;
 
       p {
-        font-size: 1.2rem;
+        font-size: 1.2vw;
         color: black;
         font-weight: 500;
         color: #28313b;
@@ -196,15 +196,15 @@
       p.theQueue,
       p.serving,
       p.time {
-        font-size: 2rem;
+        font-size: 2vw;
         font-weight: bold;
 
         color: black;
         font-weight: bold;
         color: darkorange;
         text-shadow: #474747 1px 3px 1px;
-        font-size: 4rem;
-        font-size: 3.5rem;
+
+        font-size: 2.6vw;
       }
 
       .queue {
@@ -356,7 +356,7 @@
       p {
         padding-top: 3px;
         padding-bottom: 3px;
-        font-size: 1.2rem;
+        font-size: 1.2vw;
         font-weight: 500;
       }
 
@@ -411,7 +411,7 @@
         display: grid;
         grid-template-rows: 100%;
         grid-template-columns: 25% 25% 50%;
-        font-size: 1.3rem;
+        font-size: 1.3vw;
         //border-radius: 20px 20px 20px 20px;
         justify-content: center;
         align-items: center;
@@ -421,7 +421,7 @@
         background-color: #ececec;
         background-image: linear-gradient(315deg, #e5e2e2 0%, #d1cfce 84%);
         h2 {
-          font-size: 1.5rem;
+          font-size: 1.5vw;
           font-weight: bold;
           text-align: left;
           @include roots.padding1;
@@ -440,7 +440,7 @@
           flex-direction: row;
           justify-content: space-between;
           align-items: center;
-          font-size: 1.5rem;
+          font-size: 1.5vw;
 
           @include roots.padding1;
           height: 100%;
@@ -459,7 +459,7 @@
 
           p {
             font-weight: bold;
-            font-size: 1.5rem;
+            font-size: 1.5vw;
           }
         }
 
@@ -493,12 +493,10 @@
       }
       .makingOrder p {
         font-weight: bold;
-        font-size: 2.5rem;
+        font-size: 2.8vw;
         font-weight: bold;
         color: darkorange;
         text-shadow: #474747 -1px 3px 1px;
-        font-size: 1rem;
-        font-size: 3.5rem;
       }
       .nameTag .contain {
         display: flex;
@@ -514,7 +512,7 @@
       }
       .theOrder .contain p {
         font-weight: 700 !important;
-        font-size: 1.5rem !important;
+        font-size: 1.2vw !important;
         // text-shadow: #474747 1px 1px 1px;
       }
       .theOrder .contain {
@@ -539,7 +537,7 @@
 
         p {
           font-weight: 500;
-          font-size: 2.2rem;
+          font-size: 1.6vw;
           text-shadow: #474747 1px 1px 1px;
         }
       }
