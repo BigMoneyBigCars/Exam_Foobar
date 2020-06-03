@@ -145,7 +145,7 @@ function bartenderWorks(data, bartender) {
 
         bartender.querySelector(".tracker p + p").textContent = "/ " + findOrder.order.length + ")";
       }
-      bartender.querySelector(".makingOrder p ").textContent = "Nr. " + data.servingCustomer;
+      bartender.querySelector(".makingOrder p ").textContent = "No. " + data.servingCustomer;
     } else {
       bartender.querySelector(" .makingOrder p ").textContent = "";
     }
