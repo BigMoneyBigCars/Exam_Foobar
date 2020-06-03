@@ -8,7 +8,8 @@
     display: grid;
     justify-content: center;
     align-items: center;
-    background-color: darkorange;
+    background-color: cornflowerblue;
+    color: white;
   }
   h1 {
     font-size: 0.9rem;
@@ -29,6 +30,8 @@
   padding-top: 1.5rem;
   padding-bottom: 1.5rem;
   background: white;
+  background-color: #b8c6db;
+  background-image: linear-gradient(180deg, rgb(236, 239, 245) 0, #fafafa 94%);
 
   @include roots.padding1;
 
@@ -119,8 +122,8 @@
     width: 100%;
     padding-top: 1rem;
     padding-bottom: 1rem;
-    background-color: var(--color-5);
-    color: black;
+    background-color: cornflowerblue;
+    color: white;
     justify-items: center;
     font-weight: 400;
     display: grid;

@@ -30,9 +30,8 @@
           <div class="menu__toggler"><span></span></div>
           <div id="mobile-menu">
             <div id="nav" class="main-nav mobile-menu-dropdown" role="navigation">
-              <h2>Where to?</h2>
               <div class="atags-mobile-menu">
-                <a class="logoM" href="#"><img class="logo" src="/static/icons/logo.png" alt="Logo" /></a>
+                <a class="logoM" href="index.html"><img class="logo" src="/static/icons/logoblack.png" alt="Logo" /></a>
                 <a class="theBar" href="#home">The Bar</a>
                 <a class="theBrew" href="#skills">The Brew</a>
 
@@ -45,7 +44,7 @@
     </header>
 
     <section id="loginscreen" class="active">
-      <a href="#"><img class="logo" src="/static/icons/logo.png" alt="Logo" /></a>
+      <a href="#"><img class="logo" src="/static/icons/logoblack.png" alt="Logo" /></a>
 
       <form id="login">
         <div class="cont">
@@ -64,21 +63,9 @@
             <input id="password" type="password" name="password" placeholder="Password" autocomplete="new-password" value="" required />
             <p class="invalid_text">Please provide your password, to continue!</p>
           </div>
-          <a href="#forgotpassword" class="link">Forgot Your Password?</a>
+          <a href="#" class="link">Forgot Your Password?</a>
         </div>
-        <section id="forgotpassword" style="display: none;">
-          <div>
-            <a href="#"><img class="logo" src="/static/icons/logo.png" alt="Logo" /></a>
-            <h2>
-              <span>Whoops!</span> <br />This is just a prototype! <br />
-              If you forgot your password, make a new user... <br />
-              else you can watch this amazing video.
-            </h2>
 
-            <!--             <iframe width="560" height="315" src="https://www.youtube.com/embed/G9Y5Dhzciyc?&amp;autoplay=0"  frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
- -->
-          </div>
-        </section>
         <div class="action">
           <button class="signin">Sign in</button>
           <button class="register">Register</button>
@@ -101,7 +88,7 @@
 
           <div class="input-field">
             <div class="labelcontainer"><label for="lastname">Last name</label></div>
-            <input id="lastname" type="lastname" pattern="^[a-zA-Z].*" name="lastname" placeholder="Last name" value="" required />
+            <input id="lastname" type="text" pattern="^[a-zA-Z].*" name="lastname" placeholder="Last name" value="" required />
             <p class="invalid_text">Please provide your last name!</p>
           </div>
           <div class="input-field">
@@ -129,7 +116,7 @@
     </section>
 
     <article id="confirmation">
-      <a href="index.html"><img src="/static/icons/logo.png" alt="Logo" /></a>
+      <a href="index.html"><img src="/static/icons/logoblack.png" alt="Logo" /></a>
       <div class="confirmcontainer">
         <h1>Success!</h1>
         <h3>Your order has been accepted.</h3>
@@ -143,7 +130,7 @@
 
     <article id="receipt" class="">
       <div class="receipt-container">
-        <a href="#"><img class="logo" src="/static/icons/logo.png" alt="Logo" /></a>
+        <a href="#"><img class="logo" src="/static/icons/logoblack.png" alt="Logo" /></a>
         <div class="title">
           <h3>Checkout</h3>
           <p class="total"></p>
@@ -239,7 +226,7 @@
                   <img src="static/icons/cards.png" alt="card-icons" />
                 </div>
                 <div class="checkouttotalcontainer">
-                  <label for="fname">total:</label>
+                  <div class="totalorange">total:</div>
                   <p></p>
                 </div>
 
@@ -251,7 +238,7 @@
                     <p class="invalid_text">Please provide your full name, as it appears on your credit card</p>
                   </div>
                   <div class="input-field">
-                    <div class="labelcontainer"><label for="ccnumber">Credit card number</label></div>
+                    <div class="labelcontainer"><label for="credit-card">Credit card number</label></div>
                     <input id="credit-card" class="form-control" type="text" name="card-number" autocomplete="cc-number" maxlength="19" placeholder="1111-2222-3333-4444" value="" required />
 
                     <p class="invalid_text">Please provide a correct credit card number</p>
@@ -259,12 +246,12 @@
                   <div class="smallContainer">
                     <div class="input-field">
                       <div class="labelcontainer"><label for="expmonth">Exp month</label></div>
-                      <input id="expmonth" type="tel" name="expmonth" inputmode="numeric" pattern="[0-9\s]{0,2}" autocomplete="exp-month" maxlength="2" placeholder="D/M" value="" required />
+                      <input id="expmonth" type="tel" name="expmonth" inputmode="numeric" pattern="[0-9\s]{0,2}" maxlength="2" placeholder="D/M" value="" required />
                       <p class="invalid_text">Please provide the correct experation month</p>
                     </div>
                     <div class="input-field">
                       <div class="labelcontainer"><label for="expyear">Exp year</label></div>
-                      <input id="expyear" type="tel" name="expyear" inputmode="numeric" pattern="[0-9\s]{4,4}" autocomplete="exp-year" maxlength="4" placeholder="2020" value="" required />
+                      <input id="expyear" type="tel" name="expyear" inputmode="numeric" pattern="[0-9\s]{4,4}" maxlength="4" placeholder="2020" value="" required />
                       <p class="invalid_text">Please provide a correct experation year</p>
                     </div>
                     <div class="input-field">
@@ -351,7 +338,7 @@
                     </template>
                     <div class="nameTag">
                       <div class="con">
-                        <h2 class="completed">Dannie</h2>
+                        <h2 class="completed">Peter</h2>
                       </div>
                       <div class="contain makingOrder">
                         <p></p>
@@ -364,8 +351,6 @@
                       <div class="contain"></div>
                     </div>
 
-                    <!--     <div class="status"><p></p></div>
-                  <div class="statusDetail"><p></p></div> -->
                     <div class="usingTap">
                       <div class="con">
                         <div class="flex">
@@ -391,13 +376,11 @@
                     <template class="items-in-order">
                       <div>
                         <p class="beer"></p>
-                        <!--         <p class="beerAmount"></p>
-                 -->
                       </div>
                     </template>
                     <div class="nameTag">
                       <div class="con">
-                        <h2 class="completed">Dannie</h2>
+                        <h2 class="completed">Jonas</h2>
                       </div>
                       <div class="contain makingOrder">
                         <p></p>
@@ -410,8 +393,6 @@
                       <div class="contain"></div>
                     </div>
 
-                    <!--     <div class="status"><p></p></div>
-                  <div class="statusDetail"><p></p></div> -->
                     <div class="usingTap">
                       <div class="con">
                         <div class="flex">
@@ -439,13 +420,13 @@
             <div class="sbLeft">
               <h1 class="section-title">Orders Ready for pickup</h1>
 
-              <img class="logo" style="pointer-events: none;" src="/static/icons/logo.png" alt="logo" />
-              <p class="time">Placeholder</p>
+              <img class="logo" style="pointer-events: none;" src="/static/icons/logoblack.png" alt="logo" />
 
               <div class="readyOrders">
                 <h2>Orders ready</h2>
                 <div class="printContainer"></div>
               </div>
+              <p class="time"></p>
             </div>
             <div class="sbRight">
               <div class="queue">
@@ -454,12 +435,12 @@
                 <p class="theQueue"></p>
               </div>
               <div class="progress">
-                <img class="rotate" src="/static/icons/progress3.png" alt="Icon for progress" />
+                <img class="rotate" src="/static/icons/progress.png" alt="Icon for progress" />
                 <p>Orders Being Made</p>
                 <p class="serving"></p>
               </div>
               <div class="waittime">
-                <img class="rotation" src="/static/icons/waittime.png" alt="Icon for waittime" />
+                <img class="rotation" src="/static/icons/wait_1.png" alt="Icon for waittime" />
                 <p>Avg. wait time</p>
                 <p class="time"></p>
               </div>
@@ -553,7 +534,7 @@
       <div class="point">
         <!--  <p>tis</p>
  -->
-        <svg class="round" viewBox="0 0 36 36" class="circular-chart orange">
+        <svg viewBox="0 0 36 36" class="round circular-chart orange">
           <path
             class="circle-bg"
             d="M18 2.0845

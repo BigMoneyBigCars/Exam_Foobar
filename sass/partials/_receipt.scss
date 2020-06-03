@@ -1,12 +1,15 @@
 @use "partials/roots";
 #receipt {
+  font-weight: 500;
   position: fixed;
   z-index: 1100;
   color: black;
-  background: var(--background);
+  background: white;
   height: 100vh;
   display: inline-block;
   transition: 500ms ease-in-out;
+  background-color: #b8c6db;
+  background-image: linear-gradient(180deg, rgb(236, 239, 245) 0, #fafafa 94%);
 
   width: 100%;
   top: 100vh;
@@ -64,11 +67,12 @@
     flex-wrap: nowrap;
     justify-content: space-between;
     align-items: center;
-    background-color: var(--color-5);
+    background-color: cornflowerblue;
     padding: 0.7rem;
-
+    color: white;
     margin-top: 2rem;
     margin-bottom: 2rem;
+    font-weight: 500;
   }
   .total-container {
     display: flex;
@@ -79,6 +83,10 @@
     padding-top: 3rem;
     border-bottom: 1px solid grey;
     padding-bottom: 0.5rem;
+    font-weight: 500;
+    color: darkorange;
+    font-weight: 700;
+    font-size: 1.2em;
   }
 
   .headline {
@@ -105,6 +113,7 @@
     border-bottom: 1px solid grey;
     padding-bottom: 0.5rem;
     padding-top: 1rem;
+    font-weight: 500;
     article {
       padding-top: 1rem;
       display: grid;

@@ -1,6 +1,6 @@
 //hourglass rotate
 .rotation {
-  animation: hourglass 4s ease-in infinite;
+  animation: hourglass 1s ease-in infinite;
   animation-delay: 1s;
 }
 
@@ -29,7 +29,7 @@
 //queue pulse
 
 .pulse {
-  animation: pulse 2.5s infinite ease-in-out alternate;
+  animation: pulse 0.8s infinite ease-in-out alternate;
 }
 @keyframes pulse {
   from {
@@ -43,7 +43,7 @@
 //Orders being made rotate
 
 .rotate {
-  animation: rotation 30s infinite linear;
+  animation: rotation 10s infinite linear;
 }
 
 @keyframes rotation {

@@ -5,6 +5,7 @@ nav {
   z-index: 200;
   position: fixed;
   top: 0;
+  background: darkorange;
 
   border-bottom: 1px solid var(--color-1);
   height: var(--nav-height);
@@ -17,9 +18,10 @@ nav {
   grid-template-rows: var(--nav-height);
   justify-content: center;
   align-items: center;
-  border-bottom: 1px solid black;
-  background: var(--background);
+
+  background: #4558c0;
   z-index: 3000;
+
   a {
     justify-self: center;
   }
@@ -29,13 +31,17 @@ nav .label {
   grid-column: 2 / span 3;
   @include fonts.industry();
   text-align: center;
+  color: white;
+  font-weight: 500;
+  font-size: 1.2rem;
 }
 
 .mobile-menu-dropdown {
   position: absolute;
   z-index: 998;
   color: black;
-  background: var(--background);
+  background-color: #b8c6db;
+  background-image: linear-gradient(180deg, #eceff5 0, #fafafa 94%);
   height: 100vh;
   display: inline-block;
   transition: 400ms right ease-in-out;
@@ -70,12 +76,13 @@ nav .label {
   padding: 2rem;
   width: 100%;
   font-size: 1.5rem;
-  font-weight: 600;
+  font-weight: 800;
   text-transform: uppercase;
 }
 #nav h2 {
   @include fonts.sedgwick();
   padding: 2rem;
+  font-size: 1.2rem;
 }
 .atags-mobile-menu {
   padding: 1.5rem;
@@ -88,6 +95,9 @@ nav .label {
   grid-template-rows: 180px 80px 80px 80px;
 }
 
+.atags-mobile-menu a:nth-child(n + 2) {
+  width: 80%;
+}
 /* burgermenu'en & span's rotationer  -START- */
 .menu__toggler {
   z-index: 999;
@@ -108,7 +118,7 @@ nav .label {
 
   width: 28px;
   height: 2.5px;
-  background: black;
+  background: white;
   border-radius: 20px;
   transition: 500ms ease-in-out;
   margin-left: 21px;
@@ -121,7 +131,7 @@ nav .label {
 
   width: 28px;
   height: 2.5px;
-  background: black;
+  background: white;
   border-radius: 20px;
   transition: 500ms ease-in-out;
 }

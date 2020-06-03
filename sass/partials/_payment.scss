@@ -9,6 +9,10 @@
   align-content: center;
   align-self: center;
   font-size: 0.9rem;
+  background: white;
+  font-weight: 500;
+  background-color: #b8c6db;
+  background-image: linear-gradient(180deg, rgb(236, 239, 245) 0, #fafafa 94%);
 }
 
 #paymentform h3 {
@@ -43,17 +47,22 @@
   font-size: 1rem;
   font-weight: 800;
   text-transform: uppercase;
-  background-color: var(--color-5);
+  background-color: cornflowerblue;
   height: 5vh;
   align-items: center;
   @include roots.padding15();
+  p {
+    color: white;
+  }
 }
 
 #paymentform .paymentwrap {
   display: grid;
   grid-template-columns: repeat(1, 1fr);
   margin-top: 1rem;
-  margin-bottom: 2rem;
+  justify-content: center;
+  align-items: center;
+  justify-items: center;
 }
 
 #paymentform .paymentwrap img {
@@ -92,4 +101,7 @@
 
 #paymentform > div > div.checkouttotalcontainer > label {
   font-weight: 800;
+}
+#paymentform > div > div.checkouttotalcontainer > .totalorange {
+  color: white;
 }
