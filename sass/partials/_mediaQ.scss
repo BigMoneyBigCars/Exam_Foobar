@@ -64,6 +64,14 @@
       font-size: 2rem;
       font-weight: bold;
     }
+    .nameTag h2,
+    .theOrder h2,
+    .usingTap h2,
+    .usingTap p.tap {
+      font-weight: bold !important;
+      text-shadow: none !important;
+      font-size: 1rem;
+    }
   }
   //FONTS DONE //////
 
@@ -518,11 +526,18 @@
   #theBrew {
     display: none;
   }
+  #main-container {
+    overflow: scroll;
+    -ms-overflow-style: none;
+  }
+  #main.container::-webkit-scrollbar {
+    display: none;
+  }
 
   main #theBrew,
   main #theBar,
   main #checkout {
-    // min-height: 100vh;
+    //  min-height: 100vh;
   }
   main {
     #main-container {
