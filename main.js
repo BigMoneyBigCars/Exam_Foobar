@@ -36,9 +36,9 @@ function init() {
   popBut.addEventListener("click", () => {
     popUp.classList.toggle("active");
   });
-  brew.style.display = "block";
+  /*   brew.style.display = "block";
   checkout.style.display = "none";
-  bar.style.display = "none";
+  bar.style.display = "none"; */
   fetchJson(url, fetchStaticArray);
   //fetchJson(updateUrl, printKegs);
 

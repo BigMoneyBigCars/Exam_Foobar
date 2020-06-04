@@ -7,7 +7,7 @@ const mAtags = document.querySelectorAll(".atags-mobile-menu > a");
 
 export const bar = document.querySelector("#theBar");
 export const brew = document.querySelector("#theBrew");
-export const checkout = document.querySelector("#checkout");
+export const checkout = document.querySelector("#checkout #paymentform");
 export const order = document.querySelector("#orders");
 export const topLabel = document.querySelector("nav .label");
 

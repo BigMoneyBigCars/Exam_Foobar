@@ -4,6 +4,7 @@
 
 @media only screen and (max-width: 1370px) {
   //FONTS START
+
   #theBar {
     height: 100%;
     font-size: 1.5rem;
@@ -511,11 +512,17 @@
   #loginscreen {
     display: none;
   }
+  #theBar {
+    display: grid;
+  }
+  #theBrew {
+    display: none;
+  }
 
   main #theBrew,
   main #theBar,
   main #checkout {
-    min-height: 100vh;
+    // min-height: 100vh;
   }
   main {
     #main-container {

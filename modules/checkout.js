@@ -8,7 +8,7 @@ export function toggleCheckout() {
   console.log("toggle checkkout");
   brew.style.display = "none";
   bar.style.display = "none";
-  checkout.style.display = "block";
+  checkout.style.display = "grid";
   topLabel.textContent = "Checkout";
 
   receipt.classList.toggle("active");

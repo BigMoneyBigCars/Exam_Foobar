@@ -2,7 +2,8 @@
 //paymentform
 
 #paymentform {
-  display: grid;
+  display: none;
+
   grid-template-columns: repeat(1, 1fr);
   grid-template-rows: repeat(autofit, minmax(50px, 1fr));
   justify-content: center;
@@ -11,6 +12,7 @@
   font-size: 0.9rem;
   background: white;
   font-weight: 500;
+  z-index: 300;
   background-color: #b8c6db;
   background-image: linear-gradient(180deg, rgb(236, 239, 245) 0, #fafafa 94%);
 }

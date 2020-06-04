@@ -2,6 +2,7 @@
 @use "partials/roots";
 
 #products {
+  display: grid;
   .headline {
     height: 45px;
     width: 100%;
