@@ -36,9 +36,9 @@ function init() {
   popBut.addEventListener("click", () => {
     popUp.classList.toggle("active");
   });
-  brew.style.display = "none";
+  brew.style.display = "block";
   checkout.style.display = "none";
-  bar.style.display = "grid";
+  bar.style.display = "none";
   fetchJson(url, fetchStaticArray);
   //fetchJson(updateUrl, printKegs);
 
@@ -116,8 +116,8 @@ function receiptEventlisterner() {
   let logoReturn = document.querySelectorAll("img.logo");
   logoReturn.forEach((logo) => {
     logo.addEventListener("click", () => {
-      bar.style.display = "block";
-      brew.style.display = "none";
+      bar.style.display = "none";
+      brew.style.display = "block";
       order.style.display = "none";
 
       topLabel.textContent = "The Bar";

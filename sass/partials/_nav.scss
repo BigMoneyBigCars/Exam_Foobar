@@ -44,7 +44,7 @@ nav .label {
   background-image: linear-gradient(180deg, #eceff5 0, #fafafa 94%);
   height: 100vh;
   display: inline-block;
-  transition: 400ms right ease-in-out;
+  transition: 300ms right ease-in-out;
   width: 100%;
   top: 0;
   right: -150%;
@@ -119,7 +119,7 @@ nav .label {
   height: 2.5px;
   background: white;
   border-radius: 20px;
-  transition: 500ms ease-in-out;
+  transition: 300ms ease-in-out;
   margin-left: 21px;
 }
 .menu__toggler span::before,
@@ -132,7 +132,7 @@ nav .label {
   height: 2.5px;
   background: white;
   border-radius: 20px;
-  transition: 500ms ease-in-out;
+  transition: 300ms ease-in-out;
 }
 
 .menu__toggler span::before {
@@ -163,9 +163,9 @@ nav .label {
   -webkit-transform: rotate(225deg);
   transform: rotate(225deg);
 }
-
+/* 
 .fade-in-left {
-  animation: fadeinleft 800ms ease-in-out;
+  animation: fadeinleft 300ms linear;
 }
 
 @keyframes fadeinleft {
@@ -178,4 +178,4 @@ nav .label {
     opacity: 1;
     transform: translateX(0px);
   }
-}
+} */
