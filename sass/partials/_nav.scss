@@ -29,7 +29,7 @@ nav {
 
 nav .label {
   grid-column: 2 / span 3;
-  @include fonts.industry();
+
   text-align: center;
   color: white;
   font-weight: 500;
@@ -72,7 +72,7 @@ nav .label {
   list-style: none;
   text-decoration: none;
   color: black;
-  @include fonts.industry();
+
   padding: 2rem;
   width: 100%;
   font-size: 1.5rem;
@@ -80,7 +80,6 @@ nav .label {
   text-transform: uppercase;
 }
 #nav h2 {
-  @include fonts.sedgwick();
   padding: 2rem;
   font-size: 1.2rem;
 }

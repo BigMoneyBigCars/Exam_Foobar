@@ -69,12 +69,13 @@
   #thebar .mainSection #jonas > div.nameTag > div.con {
     justify-content: center !important;
   }
+
   #main-container {
     @include fonts.raleway;
 
     #dannie,
     .con {
-      justify-content: space-around;
+      justify-content: space-around !important;
     }
     .section-title {
       display: flex;
