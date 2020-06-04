@@ -9,7 +9,7 @@ import { closeReceipt, updateReceipt } from "./modules/receipt";
 import { receiptBut, payBut, receipt, popUp, popBut, url, updateUrl } from "./modules/consts";
 import { addToOrder } from "./modules/products";
 
-import { printKegs, updateAllDashboard, updatedArray } from "./modules/theBar/bottom";
+import { printKegs, updateAllDashboard, updatedArray } from "./modules/theBar/dashboard";
 
 import { login, constDataman } from "./modules/login";
 

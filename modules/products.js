@@ -1,7 +1,7 @@
 import { addBeerArray, orderArray } from "./addRemoveBeer";
 import { removeBeerArray } from "./addRemoveBeer";
 import { showPopUp } from "./showPopUp";
-import { updatedArray } from "./theBar/bottom";
+import { updatedArray } from "./theBar/dashboard";
 import { fetchJson } from "./fetchJson";
 import { updateUrl, url } from "./consts";
 import { staticArray, updatedCheckArray } from "main";
