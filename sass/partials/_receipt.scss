@@ -174,10 +174,20 @@
   }
   button {
     @include roots.button;
+    text-transform: uppercase;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 1rem;
   }
 
   .button.submit {
     @include roots.button;
+    text-transform: uppercase;
+    font-weight: 500;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 1rem;
   }
   .switch {
     position: relative;

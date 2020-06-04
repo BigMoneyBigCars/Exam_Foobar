@@ -27,6 +27,9 @@
 
 #paynow {
   @include roots.button;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 1rem;
 }
 
 #expmonthbox {

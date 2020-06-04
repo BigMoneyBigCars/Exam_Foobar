@@ -1,6 +1,6 @@
 //hourglass rotate
 .rotation {
-  animation: hourglass 1s ease-in infinite;
+  animation: hourglass 7s ease-in infinite forwards;
   animation-delay: 1s;
 }
 
@@ -8,21 +8,42 @@
   0% {
     transform: rotate(0deg);
   }
-  70% {
-    transform: rotate(195deg);
+  20% {
+    transform: rotate(190deg);
   }
-  80% {
-    transform: rotate(165deg);
-  }
-  85% {
-    transform: rotate(185deg);
-  }
-  90% {
+  22% {
     transform: rotate(170deg);
   }
-  95%,
-  100% {
+  24% {
+    transform: rotate(186deg);
+  }
+  26% {
+    transform: rotate(174deg);
+  }
+  28% {
     transform: rotate(180deg);
+  }
+
+  50% {
+    transform: rotate(180deg);
+  }
+  70% {
+    transform: rotate(370deg);
+  }
+  72% {
+    transform: rotate(350deg);
+  }
+  74% {
+    transform: rotate(366deg);
+  }
+  76% {
+    transform: rotate(354deg);
+  }
+  78% {
+    transform: rotate(360deg);
+  }
+  100% {
+    transform: rotate(360deg);
   }
 }
 

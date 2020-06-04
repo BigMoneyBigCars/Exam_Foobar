@@ -70,6 +70,10 @@ img {
   transition: 1s all;
   position: relative;
   bottom: 0;
+  font-family: "Raleway", sans-serif;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 1rem;
   cursor: pointer;
   &:disabled {
     filter: grayscale(90%);
@@ -80,6 +84,7 @@ img {
   width: 100%;
   border: none;
   padding: 18px;
+  font-family: "Raleway", sans-serif;
   font-family: "Rubik", sans-serif;
   cursor: pointer;
   text-transform: uppercase;
@@ -97,6 +102,7 @@ img {
 @mixin lButtonRight {
   width: 100%;
   border: none;
+  font-family: "Raleway", sans-serif;
   padding: 18px;
   font-family: "Rubik", sans-serif;
   cursor: pointer;

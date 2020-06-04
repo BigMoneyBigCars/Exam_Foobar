@@ -14,14 +14,18 @@
     font-size: 0.4vw;
     text-shadow: 0px 1px 1px black;
   }
-
+  h2,
+  div.usingTap > div.con > p,
+  .tracker p {
+    font-weight: 600;
+  }
   h2,
   p.tap,
   .tracker p,
   .contain p {
     font-size: 1vw;
   }
-  .sbBottom,
+  div.usingTap > div.con > p .sbBottom,
   .sbRight,
   .sbBottom h2 {
     text-shadow: 1px 1px 1px black;
@@ -56,7 +60,6 @@
 
   .usingTap .contain p:first-child {
     font-size: 2vw;
-    font-weight: bold;
   }
 
   //fonts done
@@ -236,6 +239,7 @@
       p.serving,
       p.time {
         color: darkorange;
+        font-weight: 800;
       }
 
       .queue {
@@ -580,6 +584,7 @@
   }
   .completed {
     color: #3bb143;
+    font-weight: bold;
     /*     background: url(/static/billeder/yes4.png) no-repeat scroll 7px 7px;
     background-size: contain;
     background-size: 50px;

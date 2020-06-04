@@ -18,13 +18,17 @@
     display: grid;
     justify-content: center;
     grid-template-columns: repeat(1, 1fr);
-    grid-template-rows: 40px auto;
+    grid-template-rows: 80px auto;
     width: 100%;
     justify-content: center;
     justify-items: center;
     align-items: center;
     &::-webkit-scrollbar {
       display: none;
+    }
+    h2 {
+      font-size: 1.5rem;
+      font-weight: 600;
     }
   }
   .wrapper {
