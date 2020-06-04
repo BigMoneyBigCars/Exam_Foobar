@@ -215,7 +215,7 @@ input.invalid:not(:focus):not(#consent):not(#check_email) {
     outline: none;
     transition: all 0.2s;
     &::placeholder {
-      text-transform: capitalize;
+      text-transform: none;
     }
 
     &:focus {
