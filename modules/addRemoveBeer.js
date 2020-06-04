@@ -3,7 +3,6 @@ import { addToOrder } from "./products";
 
 export let orderArray = [];
 export function addBeerArray(beer, amount) {
-  //  orderArray[beer] = amount;
   const obj = {
     name: beer,
     amount: amount,
@@ -31,10 +30,7 @@ export function removeBeerArray(beer, amount) {
 
   orderArray = orderArray.filter((x) => x.amount > 0);
   console.log(orderArray);
-  /*   const index = orderArray.indexOf(beer);
-    if (index > -1) {
-      orderArray.splice(index, 1);
-    } */
+
   orderedItems();
   checkAddToOrder();
 }
@@ -45,7 +41,6 @@ export function orderedItems() {
   orderArray.forEach((obj) => {
     count += obj.amount;
   });
-  // console.log(count);
 
   if (count == 0) {
     document.querySelector("#order .amount").textContent = "Your basket is empty";
@@ -67,4 +62,3 @@ function checkAddToOrder() {
     addToOrder.disabled = true;
   }
 }
-// POPUP

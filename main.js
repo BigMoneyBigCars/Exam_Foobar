@@ -8,20 +8,15 @@ import { displayBeer, filterBeerArrays, checkBeerArray, beerCounter } from "./mo
 import { closeReceipt, updateReceipt } from "./modules/receipt";
 import { receiptBut, payBut, receipt, popUp, popBut, url, updateUrl } from "./modules/consts";
 import { addToOrder } from "./modules/products";
-//import { login } from "./modules/login";
+
 import { printKegs, updateAllDashboard, updatedArray } from "./modules/theBar/bottom";
 
 import { login, constDataman } from "./modules/login";
-
-/* let url = "https://foobar-exam.herokuapp.com/beertypes";
-let updateUrl = "https://foobar-exam.herokuapp.com"; */
 
 window.addEventListener("DOMContentLoaded", init);
 
 export let staticArray = [];
 export let updatedCheckArray = [];
-
-//array
 
 function init() {
   console.log(beerCounter, "BEER COUNTE RHER");
@@ -36,13 +31,8 @@ function init() {
   popBut.addEventListener("click", () => {
     popUp.classList.toggle("active");
   });
-  /*   brew.style.display = "block";
-  checkout.style.display = "none";
-  bar.style.display = "none"; */
-  fetchJson(url, fetchStaticArray);
-  //fetchJson(updateUrl, printKegs);
 
-  // setTimeout(updateDashboard, 20);
+  fetchJson(url, fetchStaticArray);
 }
 //gets First Json   /beertypes
 function fetchStaticArray(jsonData) {
@@ -64,12 +54,6 @@ function collectBothArrays() {
   filterData();
 }
 
-// ??? skkal nok ikke bruges
-function updateDashboard() {
-  printKegs(updatedCheckArray);
-  filterData();
-}
-
 // Første funktion som sætter en tomt dashboard og printer øllene ind i avaliable/not avaliable.
 function filterData() {
   console.log("filterData");
@@ -88,7 +72,6 @@ function getUpdate() {
 
 function delegateUpdates(jsonData) {
   updatedCheckArray = jsonData;
-  //  console.log(staticArray, updatedCheckArray);
 
   checkBeerArray(updatedCheckArray);
 
@@ -100,16 +83,15 @@ function delegateUpdates(jsonData) {
 
 function receiptEventlisterner() {
   console.log(receipt);
-  //document.querySelector("#paymentform button").disabled = true;
+
   let payInput = document.querySelectorAll("#paymentform input");
-  // console.log(payInput);
+
   payInput.forEach((e) => {
     e.addEventListener("input", () => {
       console.log(e, "her er jeg ");
 
       document.querySelector("#paymentform button").disabled = false;
     });
-    // console.log(e);
   });
 
   document.querySelector("button#paynow").disabled = true;
@@ -160,7 +142,7 @@ export function resetAll() {
   let beerCounter = 0;
   console.log(beerCounter);
   resetOrderArray();
-  //orderedItems();
+
   updateReceipt();
 
   let things = document.querySelectorAll("p.count");

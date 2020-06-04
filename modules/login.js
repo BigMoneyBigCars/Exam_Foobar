@@ -20,8 +20,6 @@ export function constDataman() {
   const submit4 = document.querySelector("#registerform > div.action > button.registeruser");
   const paynow = document.querySelector("#paynow");
   const forgot = document.querySelector("a.link");
-  /*  validateForm(signup.elements, signup); */
-  // validateForm(login.elements, login);
 
   const data = {
     firstname: "",
@@ -121,7 +119,6 @@ export function constDataman() {
   });
 }
 function validateFormPayment(input, form) {
-  // console.log(input);
   console.log(form);
   console.log(form.id);
 
@@ -129,22 +126,15 @@ function validateFormPayment(input, form) {
     console.log("checking validity PAYMENTFORM");
   } else {
     input.forEach((el) => {
-      //console.log("er her");
-      //console.log(el);
-
       if (!el.checkValidity()) {
         counter++;
-        //console.log(el);
-        // console.log(el.id);
         el.classList.add("invalid");
-        // console.log("invalid");
       }
     });
   }
 }
 
 function validateForm(input, form) {
-  // console.log(input);
   console.log(form);
   console.log(form.id);
 
@@ -160,15 +150,9 @@ function validateForm(input, form) {
     }
   } else {
     input.forEach((el) => {
-      //console.log("er her");
-      //console.log(el);
-
       if (!el.checkValidity()) {
         counter++;
-        //console.log(el);
-        // console.log(el.id);
         el.classList.add("invalid");
-        // console.log("invalid");
       }
     });
   }
@@ -211,10 +195,6 @@ async function getRegister() {
   } else {
     console.log("loginform");
   }
-
-  /*  .then((e) => e.json())
-    /*  .then((e) => console.log(e)) */
-  /*.then(showHeroes); */
 }
 
 async function getLogin() {
@@ -273,15 +253,6 @@ function loopData(data) {
     signup.reset();
     document.querySelector("#registerform").style.display = "none";
     document.querySelector("#login").style.display = "block";
-
-    /* document.querySelector("#the_form").classList.add("hide");
-      document.querySelector("#the_form_check").classList.remove("flex");
-      document.querySelector("#the_form_check").classList.add("hide");
-      document.querySelector(".container1").style.overflow = "scroll";
-      document.querySelector(".container1").removeEventListener("scroll", setPosition);
-      document.querySelector("#bc_site").classList.remove("hide");
-      document.querySelector(".theFormText").classList.add("hide");
-      document.querySelector("header").classList.remove("hide"); */
   }
   count = 0;
 }
@@ -313,12 +284,6 @@ function checkData(data) {
         document.querySelector(".welcome").classList.add("hidden");
 
         document.querySelector("#loginscreen").classList.add("active");
-
-        /*       document.querySelector("#the_form_check").classList.add("hide");
-          document.querySelector("#the_form_check").classList.remove("flex"); */
-        //document.querySelector(".container1").style.overflow = "scroll";
-        /*  document.querySelector(".container1").removeEventListener("scroll", setPosition);
-        document.querySelector(".theFormText").classList.add("hide"); */
       }, 2000);
     });
   } else if (emailLogin == data.email && passwordLogin != data.password) {

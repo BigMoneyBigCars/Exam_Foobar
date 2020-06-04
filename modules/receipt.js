@@ -33,9 +33,6 @@ export function updateReceipt() {
     if (article == "hollabacklager") {
       article = "hollaback";
     }
-
-    //receiptTemp.querySelector("img").src = "/imgs/" + article + ".png";
-    //ceiptTemp.querySelector(".img").style.backgroundImage = "url('/imgs/" + [article] + ".png')";
     receiptTemp.querySelector(".item").textContent = beer.name;
     receiptTemp.querySelector(".item-amount").textContent = beer.amount;
     receiptTemp.querySelector(".price").textContent = beer.amount * 35 + " DKK";

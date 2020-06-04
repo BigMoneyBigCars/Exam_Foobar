@@ -16,9 +16,4 @@ export function checkPrice() {
   document.querySelector("#receipt .total-container .total").textContent = totalPrice + " DKK";
   document.querySelector("#paymentform > div > div.checkouttotalcontainer > p").textContent = totalPrice + " DKK";
   document.querySelector("#paynow").textContent = "Pay " + totalPrice + " DKK";
-
-  /*   const exists = orderArray.find((x) => x.amount > 0);
-  
-  
-    orderArray = orderArray.filter((x) => x.amount > 0); */
 }

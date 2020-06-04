@@ -50,23 +50,18 @@ export function filterBeerArrays(staticArray, updatedCheckArray) {
   console.log(notAvaliable);
   console.log(Avaliable);
 
-  //const cloneNotAvaliable = document.querySelector("notAvaliable").cloneNode(true).content;
-  //const panretNotAvaliable = document.querySelector(".notAvaliable-container");
   document.querySelector("#notAvaliable > .container").innerHTML = "";
   document.querySelector("#avaliable > .container").innerHTML = "";
   Avaliable.forEach(displayAvaliable);
   notAvaliable.forEach(displayNotAvaliable);
-
-  //staticArray.forEach(displayBeer(staticArray, updatedCheckArray));
 }
 
 function displayAvaliable(beer) {
   const clone = document.querySelector("template.avaliable").cloneNode(true).content;
   const parent = document.querySelector("#avaliable > .container");
 
-  // console.log(beer);
   let article = beer.name.trim().toLowerCase();
-  // console.log(article);
+
   let firstSpace = article.indexOf(" ");
   let firstName = article.substring(0, firstSpace);
   let lastSpace = article.lastIndexOf(" ");
@@ -95,9 +90,8 @@ function displayAvaliable(beer) {
   clone.querySelector(".minus").addEventListener("click", () => {
     minusBeer(article);
   });
-  // console.log(beer.label);
+
   clone.querySelector("img").src = "imgs/" + beer.label;
-  //clone.querySelector(".img").style.backgroundImage = "url('/imgs/" + [beer.label] + "')";
   parent.appendChild(clone);
   animate();
 }
@@ -106,9 +100,8 @@ function displayNotAvaliable(beer) {
   const clone = document.querySelector("template.notAvaliable").cloneNode(true).content;
   const parent = document.querySelector("#notAvaliable > .container");
 
-  // console.log(beer);
   let article = beer.name.trim().toLowerCase();
-  // console.log(article);
+
   let firstSpace = article.indexOf(" ");
   let firstName = article.substring(0, firstSpace);
   let lastSpace = article.lastIndexOf(" ");
@@ -126,15 +119,8 @@ function displayNotAvaliable(beer) {
   });
   clone.querySelector("h1").textContent = beer.name;
   clone.querySelector("p").textContent = "Alcohol " + beer.alc + "%";
-
   clone.querySelector(".count").textContent = "Unavaliable";
-  /* 
-  clone.querySelector(".plus").style.display = "none";
-  clone.querySelector(".minus").style.display = "none"; */
-
-  // console.log(beer.label);
   clone.querySelector("img").src = "imgs/" + beer.label;
-  //clone.querySelector(".img").style.backgroundImage = "url('/imgs/" + [beer.label] + "')";
   parent.appendChild(clone);
 }
 
@@ -173,30 +159,21 @@ function plusBeer(article) {
   beerCounter++;
 
   element.querySelector(".count").dataset.count = beerCounter;
-
   elementCount.textContent = beerCounter;
-
-  // console.log(element.querySelector(".count").dataset);
   addBeerArray(element.dataset.name, beerCounter);
 }
 
 function minusBeer(article) {
   let beerCounter;
-  // console.log(beerCounter);
   const element = document.querySelector("#" + [article]);
   const elementCount = element.querySelector(".count");
   const dataCount = element.querySelector(".count").dataset.count;
   beerCounter = dataCount;
-  //console.log(beerCounter);
 
   if (beerCounter > 0) {
     beerCounter--;
   }
-
-  // console.log(beerCounter);
   element.querySelector(".count").dataset.count = beerCounter;
   elementCount.textContent = beerCounter;
-  //console.log(element.querySelector(".count").dataset);
-
   removeBeerArray(element.dataset.name, beerCounter);
 }
