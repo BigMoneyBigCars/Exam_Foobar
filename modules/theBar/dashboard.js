@@ -6,17 +6,7 @@ export let printArray = [];
 export let updatedArray = [];
 export let kegArray = [];
 export let servingArray = [];
-setInterval(() => {
-  const now = new Date().getTime();
-  printArray.forEach((item, index) => {
-    if (item.time + 50000 < now) {
-      console.log(item.id, "tiem to delete");
-      document.getElementById(item.id).remove();
-      printArray.splice(index, 1);
-      console.log(printArray);
-    }
-  });
-}, 1000);
+
 export function printKegs(data) {
   data = data.taps;
   updatedArray = data;
@@ -236,4 +226,19 @@ function printOrder(orderNr) {
   const parentPrint = document.querySelector(".printContainer");
 
   parentPrint.appendChild(clonePrint);
+  deleteSelf();
+}
+
+function deleteSelf() {
+  setInterval(() => {
+    const now = new Date().getTime();
+    printArray.forEach((item, index) => {
+      if (item.time + 50000 < now) {
+        console.log(item.id, "tiem to delete");
+        document.getElementById(item.id).remove();
+        printArray.splice(index, 1);
+        console.log(printArray);
+      }
+    });
+  }, 1000);
 }

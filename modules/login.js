@@ -12,7 +12,7 @@ const signup = document.querySelector("#registerform");
 const login = document.querySelector("#login");
 const payment = document.querySelector("#paymentform");
 
-export function constDataman() {
+export function loginScreen() {
   //buttons
   const submit = document.querySelector("button.signin");
   const submit2 = document.querySelector("#registerform > div.action > button.showsignin");

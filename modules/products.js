@@ -19,6 +19,7 @@ export function checkBeerArray(updatedCheckArray) {
 
     if (exists) {
       //   console.log(e.name + " TIME FOR UPDATE");
+      filterBeerArrays(staticArray, updatedCheckArray);
     } else {
       // console.log(e.name + " everythings fine");
     }

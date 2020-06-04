@@ -1,6 +1,5 @@
 "use strict";
 import "@babel/polyfill";
-
 import { nav, bar, brew, order, topLabel } from "./modules/nav.js";
 import { fetchJson } from "./modules/fetchJson";
 import { orderArray, resetOrderArray } from "./modules/addRemoveBeer";
@@ -8,13 +7,10 @@ import { displayBeer, filterBeerArrays, checkBeerArray, beerCounter } from "./mo
 import { closeReceipt, updateReceipt } from "./modules/receipt";
 import { receiptBut, payBut, receipt, popUp, popBut, url, updateUrl } from "./modules/consts";
 import { addToOrder } from "./modules/products";
-
 import { printKegs, updateAllDashboard, updatedArray } from "./modules/theBar/dashboard";
-
-import { login, constDataman } from "./modules/login";
+import { login, constDataman, loginScreen } from "./modules/login";
 
 window.addEventListener("DOMContentLoaded", init);
-
 export let staticArray = [];
 export let updatedCheckArray = [];
 
@@ -22,7 +18,7 @@ function init() {
   console.log(beerCounter, "BEER COUNTE RHER");
   console.log(staticArray);
   console.log("tis ");
-  constDataman();
+  loginScreen();
 
   document.querySelector("#product-details > img.close").addEventListener("click", () => {
     console.log("close this");
@@ -72,9 +68,7 @@ function getUpdate() {
 
 function delegateUpdates(jsonData) {
   updatedCheckArray = jsonData;
-
   checkBeerArray(updatedCheckArray);
-
   //updates the Dashboard
   updateAllDashboard(updatedCheckArray);
 
