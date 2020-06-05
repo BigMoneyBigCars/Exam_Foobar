@@ -5,6 +5,7 @@ import { toggleCheckout } from "./checkout";
 export function closeReceipt() {
   console.log(receipt);
   receipt.classList.remove("active");
+  document.querySelector("body").classList.toggle("OHidden");
 }
 
 export function updateReceipt() {
@@ -38,6 +39,7 @@ export function updateReceipt() {
     receiptTemp.querySelector(".price").textContent = beer.amount * 35 + " DKK";
     document.querySelector("#receipt .container").appendChild(receiptTemp);
   });
+  document.querySelector("body").classList.toggle("OHidden");
 
   checkPrice();
 }

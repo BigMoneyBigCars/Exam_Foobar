@@ -514,6 +514,10 @@
 }
 
 @media only screen and (min-width: 1370px) {
+  #main-container {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+  }
   nav {
     display: none;
   }

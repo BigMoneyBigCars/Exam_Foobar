@@ -6,7 +6,7 @@
   color: black;
   background: var(--background);
   min-height: 100vh;
-  max-height: 100vh;
+  height: 100%;
   overflow: scroll;
   font-weight: 500;
   background: white;
@@ -88,9 +88,14 @@
 #product-details.active {
   top: 0;
   position: fixed;
-  max-height: 100vh;
+
   min-height: 100vh;
   overflow: scroll;
+  top: 0;
+  position: fixed;
+  /* max-height: 100vh; */
+  height: 100%;
+  padding-bottom: var(--nav-height);
 }
 
 #product-details .button {

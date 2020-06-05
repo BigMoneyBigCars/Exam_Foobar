@@ -4,13 +4,13 @@
   justify-content: center;
   align-items: center;
   justify-items: center;
-  position: absolute;
+  position: fixed;
   display: none; // When active display: grid;
   grid-template-columns: (1fr);
   grid-template-rows: 250px auto;
   top: 0;
   width: 100vw;
-  height: 100vh;
+  height: 100%;
   overflow: scroll;
 
   background-color: #b8c6db;

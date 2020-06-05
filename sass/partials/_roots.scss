@@ -12,7 +12,7 @@ img {
 }
 
 :root {
-  --nav-height: 8vh;
+  --nav-height: 70px;
 
   --color-1: rgba(0, 128, 0, 0.274);
   --color-2: rgba(255, 0, 0, 0.356);
@@ -68,8 +68,7 @@ img {
   height: 55px;
   width: 100%;
   transition: 1s all;
-  position: relative;
-  bottom: 0;
+
   font-family: "Raleway", sans-serif;
   text-transform: uppercase;
   font-weight: 700;

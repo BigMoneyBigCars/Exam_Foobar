@@ -10,7 +10,6 @@ export function toggleCheckout() {
   bar.style.display = "none";
   checkout.style.display = "grid";
   topLabel.textContent = "Checkout";
-
   receipt.classList.toggle("active");
 }
 
@@ -28,6 +27,7 @@ export function displayConfirmation(orderArray) {
     checkout.style.display = "none";
     order.style.display = "block";
     topLabel.textContent = "Orders";
+    document.querySelector("body").classList.toggle("OHidden");
 
     console.log("LUK FOR SATAN");
   });

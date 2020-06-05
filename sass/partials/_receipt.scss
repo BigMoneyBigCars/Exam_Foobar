@@ -5,7 +5,7 @@
   z-index: 1100;
   color: black;
   background: white;
-  height: 100vh;
+  height: auto;
   display: inline-block;
   transition: 500ms ease-in-out;
   background-color: #b8c6db;
@@ -14,8 +14,12 @@
   width: 100%;
   top: 100vh;
   right: 0;
-  display: block;
   overflow: scroll;
+  -webkit-overflow-scrolling: touch;
+
+  right: 0;
+  bottom: 0;
+  left: 0;
 
   .wrapper {
     padding-left: 1.5rem;
@@ -27,8 +31,8 @@
   .receipt-container {
     max-width: 600px;
     margin: 0 auto;
-    min-height: calc(100vh - 55px);
-    max-height: calc(100vh - 55px);
+    padding-bottom: 50px;
+
     button {
     }
   }

@@ -4,6 +4,7 @@ import { popUp } from "./consts";
 export function showPopUp(beer) {
   popUp.classList.toggle("active");
   console.log(beer);
+  document.querySelector("body").classList.toggle("OHidden");
   popUp.querySelector("h1").textContent = beer.name;
   popUp.querySelector(".product-image").src = "imgs/1x/" + beer.label;
   popUp.querySelector(".type").textContent = beer.category;

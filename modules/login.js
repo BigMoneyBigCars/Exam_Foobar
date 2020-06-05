@@ -282,7 +282,7 @@ function checkData(data) {
 
       setTimeout(() => {
         document.querySelector(".welcome").classList.add("hidden");
-
+        document.querySelector("body").classList.remove("OHidden");
         document.querySelector("#loginscreen").classList.add("active");
       }, 2000);
     });

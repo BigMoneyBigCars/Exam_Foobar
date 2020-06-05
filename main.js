@@ -22,9 +22,13 @@ function init() {
 
   document.querySelector("#product-details > img.close").addEventListener("click", () => {
     console.log("close this");
+    document.querySelector("body").classList.toggle("OHidden");
+
     popUp.classList.toggle("active");
   });
   popBut.addEventListener("click", () => {
+    document.querySelector("body").classList.toggle("OHidden");
+
     popUp.classList.toggle("active");
   });
 
